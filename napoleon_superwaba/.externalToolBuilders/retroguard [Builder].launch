@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launchConfiguration type="org.eclipse.ui.externaltools.ProgramBuilderLaunchConfigurationType">
+    <booleanAttribute
+        key="org.eclipse.ui.externaltools.ATTR_RUN_IN_BACKGROUND" value="false"/>
+    <stringAttribute
+        key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-classpath C:/java/superwaba/classes;C:/java/superwaba/apps/xplat/obfuscators/Retroguard.jar;C:/java/superwaba/ext/swclassjava.jar RetroGuard ${project_loc}/release/${project_name}.jar ${project_loc}/release/retroguard_${project_name}.jar"/>
+    <stringAttribute
+        key="org.eclipse.ui.externaltools.ATTR_REFRESH_SCOPE" value="${project}"/>
+    <stringAttribute
+        key="org.eclipse.ui.externaltools.ATTR_RUN_BUILD_KINDS" value="full,"/>
+    <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+        <listEntry value="org.eclipse.ui.externaltools.launchGroup"/>
+    </listAttribute>
+    <stringAttribute key="org.eclipse.debug.ui.target_debug_perspective" value="perspective_default"/>
+    <stringAttribute
+        key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${project_loc}/release"/>
+    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="C:\java\jdk1.4\bin\java.exe"/>
+    <stringAttribute key="org.eclipse.debug.ui.target_run_perspective" value="perspective_default"/>
+</launchConfiguration>
