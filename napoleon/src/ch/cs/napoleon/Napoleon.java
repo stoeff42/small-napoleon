@@ -1,9 +1,12 @@
 package ch.cs.napoleon;
 
 import ch.cs.gui.MessageProperties;
+
 import ch.cs.napoleon.gui.NapoleonMessage;
 import ch.cs.napoleon.solitaire.gui.NapoleonTableauPanel;
+
 import ch.cs.persistence.MapPersistence;
+
 import ch.cs.solitaire.gui.DeckSet;
 
 import java.awt.GridBagConstraints;
@@ -16,6 +19,7 @@ import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
@@ -32,14 +36,13 @@ import javax.swing.UIManager;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
 public class Napoleon extends JFrame
 {
-    //~ Instance variables -------------------------------------------
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private JButton suspendResumeGameButton;
@@ -53,26 +56,25 @@ public class Napoleon extends JFrame
     /** TODO: */
     private NapoleonTableauPanel tableauPanel;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new Napoleon object.
      *
      * @throws Exception TODO:
      */
-    public Napoleon()
-            throws Exception
+    public Napoleon() throws Exception
     {
         super();
         this.setTitle(getString("napoleontitle")); //$NON-NLS-1$
+
         GridBagLayout layout = new GridBagLayout();
         this.getContentPane().setLayout(layout);
         this.setJMenuBar(getMenu());
         this.addToolBar(layout);
         this.addNapoleonPanel(layout);
-        this.setIconImage(
-            MessageProperties.getImage(
-                getString("iconimagefilename")) //$NON-NLS-1$
+        this.setIconImage(MessageProperties.getImage(getString(
+                    "iconimagefilename")) //$NON-NLS-1$
         .getImage());
         this.addWindowListener(new WindowHandler(this));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -81,14 +83,15 @@ public class Napoleon extends JFrame
         this.pack();
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
      */
-    public void load()
+    public final void load()
     {
         Map data = MapPersistence.read(getString("filename")); //$NON-NLS-1$
+
         if (!data.isEmpty())
         {
             this.tableauPanel.setData(data);
@@ -104,7 +107,7 @@ public class Napoleon extends JFrame
      *
      * @param args TODO:
      */
-    public static void main(String[] args)
+    public static void main(final String[] args)
     {
         try
         {
@@ -112,8 +115,11 @@ public class Napoleon extends JFrame
         }
         catch (Exception e)
         {
-            // Silently ignoring...
+            /**
+             * Silently ignoring...
+             */
         }
+
         try
         {
             new Napoleon().setVisible(true);
@@ -129,17 +135,16 @@ public class Napoleon extends JFrame
     /**
      * TODO:
      */
-    public void save()
+    public final void save()
     {
-        MapPersistence.write(
-            getString("filename"), //$NON-NLS-1$
+        MapPersistence.write(getString("filename"), //$NON-NLS-1$
             this.tableauPanel.getData());
     }
 
     /**
      * TODO:
      */
-    public void showAbout()
+    public final void showAbout()
     {
         NapoleonMessage.showAbout(this);
     }
@@ -147,15 +152,25 @@ public class Napoleon extends JFrame
     /**
      * TODO:
      */
-    public void showRules()
+    public final void showRules()
     {
         NapoleonMessage.showRules(this);
     }
 
     /**
+     * @TODO: javadoc!
+     *
+     * @return @TODO: javadoc!
+     */
+    public final NapoleonTableauPanel getTableauPanel()
+    {
+        return this.tableauPanel;
+    }
+
+    /**
      * TODO:
      */
-    protected void resume()
+    protected final void resume()
     {
         this.tableauPanel.resume();
         this.updateSuspendResume();
@@ -164,9 +179,18 @@ public class Napoleon extends JFrame
     /**
      * TODO:
      */
-    protected void suspend()
+    protected final void suspend()
     {
         this.tableauPanel.suspend();
+        this.updateSuspendResume();
+    }
+
+    /**
+     * TODO:
+     */
+    protected final void toggleSuspendResume()
+    {
+        this.tableauPanel.toggleSuspendResume();
         this.updateSuspendResume();
     }
 
@@ -179,7 +203,7 @@ public class Napoleon extends JFrame
     {
         return new ActionListener()
             {
-                public void actionPerformed(ActionEvent event)
+                public final void actionPerformed(final ActionEvent event)
                 {
                     showAbout();
                 }
@@ -195,10 +219,9 @@ public class Napoleon extends JFrame
     {
         JMenuItem about = new JMenuItem(getString("about")); //$NON-NLS-1$
         about.addActionListener(this.getAboutAction());
-        about.setAccelerator(
-            KeyStroke.getKeyStroke(
-                new Character('a'),
+        about.setAccelerator(KeyStroke.getKeyStroke(new Character('a'),
                 java.awt.event.InputEvent.CTRL_MASK));
+
         return about;
     }
 
@@ -211,9 +234,9 @@ public class Napoleon extends JFrame
     {
         return new ActionListener()
             {
-                public void actionPerformed(ActionEvent event)
+                public final void actionPerformed(final ActionEvent event)
                 {
-                    tableauPanel.clearScoreTable();
+                    Napoleon.this.getTableauPanel().clearScoreTable();
                 }
             };
     }
@@ -225,14 +248,11 @@ public class Napoleon extends JFrame
      */
     private JMenuItem getClearScoreTableMenuItem()
     {
-        JMenuItem clearScoreTable =
-            new JMenuItem(getString("clearscoretable")); //$NON-NLS-1$
-        clearScoreTable.addActionListener(
-            this.getClearScoreTableAction());
-        clearScoreTable.setAccelerator(
-            KeyStroke.getKeyStroke(
-                new Character('c'),
-                java.awt.event.InputEvent.CTRL_MASK));
+        JMenuItem clearScoreTable = new JMenuItem(getString("clearscoretable")); //$NON-NLS-1$
+        clearScoreTable.addActionListener(this.getClearScoreTableAction());
+        clearScoreTable.setAccelerator(KeyStroke.getKeyStroke(
+                new Character('c'), java.awt.event.InputEvent.CTRL_MASK));
+
         return clearScoreTable;
     }
 
@@ -245,7 +265,7 @@ public class Napoleon extends JFrame
     {
         return new ActionListener()
             {
-                public void actionPerformed(ActionEvent event)
+                public final void actionPerformed(final ActionEvent event)
                 {
                     save();
                     dispose();
@@ -262,10 +282,9 @@ public class Napoleon extends JFrame
     {
         JMenuItem exit = new JMenuItem(getString("exit")); //$NON-NLS-1$
         exit.addActionListener(this.getExitAction());
-        exit.setAccelerator(
-            KeyStroke.getKeyStroke(
-                new Character('x'),
+        exit.setAccelerator(KeyStroke.getKeyStroke(new Character('x'),
                 java.awt.event.InputEvent.CTRL_MASK));
+
         return exit;
     }
 
@@ -283,6 +302,7 @@ public class Napoleon extends JFrame
         game.add(this.getSettingsMenu());
         game.addSeparator();
         game.add(this.getExitMenuItem());
+
         return game;
     }
 
@@ -295,7 +315,7 @@ public class Napoleon extends JFrame
     {
         return new ActionListener()
             {
-                public void actionPerformed(ActionEvent event)
+                public final void actionPerformed(final ActionEvent event)
                 {
                     showRules();
                 }
@@ -310,11 +330,10 @@ public class Napoleon extends JFrame
     private JButton getGameRulesButton()
     {
         JButton gameRules =
-            new JButton(
-                getString("gamerules"), //$NON-NLS-1$
-                MessageProperties.getImage(
-                    getString("rulesbuttonimagefilename"))); //$NON-NLS-1$
+            new JButton(getString("gamerules"), //$NON-NLS-1$
+                MessageProperties.getImage(getString("rulesbuttonimagefilename"))); //$NON-NLS-1$
         gameRules.addActionListener(this.getGameRulesAction());
+
         return gameRules;
     }
 
@@ -327,10 +346,9 @@ public class Napoleon extends JFrame
     {
         JMenuItem gameRules = new JMenuItem(getString("gamerules")); //$NON-NLS-1$
         gameRules.addActionListener(this.getGameRulesAction());
-        gameRules.setAccelerator(
-            KeyStroke.getKeyStroke(
-                new Character('r'),
+        gameRules.setAccelerator(KeyStroke.getKeyStroke(new Character('r'),
                 java.awt.event.InputEvent.CTRL_MASK));
+
         return gameRules;
     }
 
@@ -344,6 +362,7 @@ public class Napoleon extends JFrame
         JMenu help = new JMenu(getString("help")); //$NON-NLS-1$
         help.add(getGameRulesMenuItem());
         help.add(getAboutMenuItem());
+
         return help;
     }
 
@@ -359,6 +378,7 @@ public class Napoleon extends JFrame
         menu.add(this.getPlayMenu());
         menu.add(this.getScoreTableMenu());
         menu.add(this.getHelpMenu());
+
         return menu;
     }
 
@@ -371,9 +391,9 @@ public class Napoleon extends JFrame
     {
         return new ActionListener()
             {
-                public void actionPerformed(ActionEvent event)
+                public final void actionPerformed(final ActionEvent event)
                 {
-                    tableauPanel.newGame();
+                    Napoleon.this.getTableauPanel().newGame();
                 }
             };
     }
@@ -386,11 +406,10 @@ public class Napoleon extends JFrame
     private JButton getNewGameButton()
     {
         JButton newGame =
-            new JButton(
-                getString("newgame"), //$NON-NLS-1$
-                MessageProperties.getImage(
-                    getString("newbuttonimagefilename"))); //$NON-NLS-1$
+            new JButton(getString("newgame"), //$NON-NLS-1$
+                MessageProperties.getImage(getString("newbuttonimagefilename"))); //$NON-NLS-1$
         newGame.addActionListener(this.getNewGameAction());
+
         return newGame;
     }
 
@@ -403,10 +422,9 @@ public class Napoleon extends JFrame
     {
         JMenuItem newGame = new JMenuItem(getString("newgame")); //$NON-NLS-1$
         newGame.addActionListener(this.getNewGameAction());
-        newGame.setAccelerator(
-            KeyStroke.getKeyStroke(
-                new Character('n'),
+        newGame.setAccelerator(KeyStroke.getKeyStroke(new Character('n'),
                 java.awt.event.InputEvent.CTRL_MASK));
+
         return newGame;
     }
 
@@ -422,6 +440,7 @@ public class Napoleon extends JFrame
         play.add(this.getRedoMoveMenuItem());
         play.addSeparator();
         play.add(this.getSuspendResumeGameMenuItem());
+
         return play;
     }
 
@@ -434,9 +453,9 @@ public class Napoleon extends JFrame
     {
         return new ActionListener()
             {
-                public void actionPerformed(ActionEvent event)
+                public final void actionPerformed(final ActionEvent event)
                 {
-                    tableauPanel.redo();
+                    Napoleon.this.getTableauPanel().redo();
                 }
             };
     }
@@ -449,11 +468,10 @@ public class Napoleon extends JFrame
     private JButton getRedoMoveButton()
     {
         JButton redoMove =
-            new JButton(
-                getString("redomove"), //$NON-NLS-1$
-                MessageProperties.getImage(
-                    getString("redobuttonimagefilename"))); //$NON-NLS-1$
+            new JButton(getString("redomove"), //$NON-NLS-1$
+                MessageProperties.getImage(getString("redobuttonimagefilename"))); //$NON-NLS-1$
         redoMove.addActionListener(this.getRedoAction());
+
         return redoMove;
     }
 
@@ -466,10 +484,9 @@ public class Napoleon extends JFrame
     {
         JMenuItem redoMove = new JMenuItem(getString("redomove")); //$NON-NLS-1$
         redoMove.addActionListener(this.getRedoAction());
-        redoMove.setAccelerator(
-            KeyStroke.getKeyStroke(
-                new Character('y'),
+        redoMove.setAccelerator(KeyStroke.getKeyStroke(new Character('y'),
                 java.awt.event.InputEvent.CTRL_MASK));
+
         return redoMove;
     }
 
@@ -482,9 +499,9 @@ public class Napoleon extends JFrame
     {
         return new ActionListener()
             {
-                public void actionPerformed(ActionEvent event)
+                public final void actionPerformed(final ActionEvent event)
                 {
-                    tableauPanel.restartGame();
+                    Napoleon.this.getTableauPanel().restartGame();
                 }
             };
     }
@@ -497,11 +514,11 @@ public class Napoleon extends JFrame
     private JButton getRestartGameButton()
     {
         JButton restartGame =
-            new JButton(
-                getString("restartgame"), //$NON-NLS-1$
-                MessageProperties.getImage(
-                    getString("restartbuttonimagefilename"))); //$NON-NLS-1$
+            new JButton(getString("restartgame"), //$NON-NLS-1$
+                MessageProperties.getImage(getString(
+                        "restartbuttonimagefilename"))); //$NON-NLS-1$
         restartGame.addActionListener(this.getRestartGameAction());
+
         return restartGame;
     }
 
@@ -512,13 +529,11 @@ public class Napoleon extends JFrame
      */
     private JMenuItem getRestartGameMenuItem()
     {
-        JMenuItem restartGame =
-            new JMenuItem(getString("restartgame")); //$NON-NLS-1$
+        JMenuItem restartGame = new JMenuItem(getString("restartgame")); //$NON-NLS-1$
         restartGame.addActionListener(this.getRestartGameAction());
-        restartGame.setAccelerator(
-            KeyStroke.getKeyStroke(
-                new Character('r'),
+        restartGame.setAccelerator(KeyStroke.getKeyStroke(new Character('r'),
                 java.awt.event.InputEvent.CTRL_MASK));
+
         return restartGame;
     }
 
@@ -532,6 +547,7 @@ public class Napoleon extends JFrame
         JMenu scoreTable = new JMenu(getString("scoretable")); //$NON-NLS-1$
         scoreTable.add(this.getShowScoreTableMenuItem());
         scoreTable.add(this.getClearScoreTableMenuItem());
+
         return scoreTable;
     }
 
@@ -544,6 +560,7 @@ public class Napoleon extends JFrame
     {
         this.settings = new JMenu();
         this.settings.setText(getString("settings")); //$NON-NLS-1$
+
         return this.settings;
     }
 
@@ -556,9 +573,9 @@ public class Napoleon extends JFrame
     {
         return new ActionListener()
             {
-                public void actionPerformed(ActionEvent event)
+                public final void actionPerformed(final ActionEvent event)
                 {
-                    tableauPanel.showScoreTable();
+                    Napoleon.this.getTableauPanel().showScoreTable();
                 }
             };
     }
@@ -570,14 +587,11 @@ public class Napoleon extends JFrame
      */
     private JMenuItem getShowScoreTableMenuItem()
     {
-        JMenuItem showScoreTable =
-            new JMenuItem(getString("showscoretable")); //$NON-NLS-1$
-        showScoreTable.addActionListener(
-            this.getShowScoreTableAction());
-        showScoreTable.setAccelerator(
-            KeyStroke.getKeyStroke(
-                new Character('s'),
-                java.awt.event.InputEvent.CTRL_MASK));
+        JMenuItem showScoreTable = new JMenuItem(getString("showscoretable")); //$NON-NLS-1$
+        showScoreTable.addActionListener(this.getShowScoreTableAction());
+        showScoreTable.setAccelerator(KeyStroke.getKeyStroke(
+                new Character('s'), java.awt.event.InputEvent.CTRL_MASK));
+
         return showScoreTable;
     }
 
@@ -588,7 +602,7 @@ public class Napoleon extends JFrame
      *
      * @return TODO:
      */
-    private static String getString(String property)
+    private static String getString(final String property)
     {
         return MessageProperties.getString("napoleon", property); //$NON-NLS-1$
     }
@@ -601,14 +615,14 @@ public class Napoleon extends JFrame
     private JButton getSuspendResumeGameButton()
     {
         this.suspendResumeGameButton = new JButton();
-        this.suspendResumeGameButton.addActionListener(
-            new ActionListener()
+        this.suspendResumeGameButton.addActionListener(new ActionListener()
             {
-                public void actionPerformed(ActionEvent event)
+                public final void actionPerformed(final ActionEvent event)
                 {
-                    toggleSuspendResume();
+                    Napoleon.this.toggleSuspendResume();
                 }
             });
+
         return this.suspendResumeGameButton;
     }
 
@@ -620,18 +634,16 @@ public class Napoleon extends JFrame
     private JMenuItem getSuspendResumeGameMenuItem()
     {
         this.suspendResumeGameMenuItem = new JMenuItem();
-        this.suspendResumeGameMenuItem.addActionListener(
-            new ActionListener()
+        this.suspendResumeGameMenuItem.addActionListener(new ActionListener()
             {
-                public void actionPerformed(ActionEvent event)
+                public final void actionPerformed(final ActionEvent event)
                 {
-                    toggleSuspendResume();
+                    Napoleon.this.toggleSuspendResume();
                 }
             });
-        this.suspendResumeGameMenuItem.setAccelerator(
-            KeyStroke.getKeyStroke(
-                new Character('p'),
-                java.awt.event.InputEvent.CTRL_MASK));
+        this.suspendResumeGameMenuItem.setAccelerator(KeyStroke.getKeyStroke(
+                new Character('p'), java.awt.event.InputEvent.CTRL_MASK));
+
         return this.suspendResumeGameMenuItem;
     }
 
@@ -661,6 +673,7 @@ public class Napoleon extends JFrame
         // toolbar.addSeparator();
         toolbar.add(new JSeparator(SwingConstants.VERTICAL));
         toolbar.add(this.getGameRulesButton());
+
         return toolbar;
     }
 
@@ -673,11 +686,11 @@ public class Napoleon extends JFrame
     {
         return new ActionListener()
             {
-                public void actionPerformed(ActionEvent event)
+                public final void actionPerformed(final ActionEvent event)
                 {
-                    if (tableauPanel.canUndo())
+                    if (Napoleon.this.getTableauPanel().canUndo())
                     {
-                        tableauPanel.undo();
+                        Napoleon.this.getTableauPanel().undo();
                     }
                 }
             };
@@ -691,11 +704,10 @@ public class Napoleon extends JFrame
     private JButton getUndoMoveButton()
     {
         JButton undoMove =
-            new JButton(
-                getString("undomove"), //$NON-NLS-1$
-                MessageProperties.getImage(
-                    getString("undobuttonimagefilename"))); //$NON-NLS-1$
+            new JButton(getString("undomove"), //$NON-NLS-1$
+                MessageProperties.getImage(getString("undobuttonimagefilename"))); //$NON-NLS-1$
         undoMove.addActionListener(this.getUndoAction());
+
         return undoMove;
     }
 
@@ -708,10 +720,9 @@ public class Napoleon extends JFrame
     {
         JMenuItem undoMove = new JMenuItem(getString("undomove")); //$NON-NLS-1$
         undoMove.addActionListener(this.getUndoAction());
-        undoMove.setAccelerator(
-            KeyStroke.getKeyStroke(
-                new Character('z'),
+        undoMove.setAccelerator(KeyStroke.getKeyStroke(new Character('z'),
                 java.awt.event.InputEvent.CTRL_MASK));
+
         return undoMove;
     }
 
@@ -722,14 +733,15 @@ public class Napoleon extends JFrame
      *
      * @throws Exception TODO:
      */
-    private void addNapoleonPanel(GridBagLayout layout)
-            throws Exception
+    private void addNapoleonPanel(final GridBagLayout layout)
+        throws Exception
     {
         this.tableauPanel = new NapoleonTableauPanel();
         this.getContentPane().add(this.tableauPanel);
+
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridy = 1;
-        layout.setConstraints(tableauPanel, gbc);
+        layout.setConstraints(Napoleon.this.tableauPanel, gbc);
     }
 
     /**
@@ -737,10 +749,11 @@ public class Napoleon extends JFrame
      *
      * @param layout TODO:
      */
-    private void addToolBar(GridBagLayout layout)
+    private void addToolBar(final GridBagLayout layout)
     {
         JToolBar toolbar = this.getToolBar();
         this.getContentPane().add(toolbar);
+
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.anchor = GridBagConstraints.WEST;
         layout.setConstraints(toolbar, gbc);
@@ -761,25 +774,26 @@ public class Napoleon extends JFrame
     private void initSettingsMenu()
     {
         ButtonGroup group = new ButtonGroup();
+
         for (Iterator iterator =
                 this.tableauPanel.getSets().values().iterator();
-                iterator.hasNext();)
+            iterator.hasNext();)
         {
             final DeckSet setting = (DeckSet) iterator.next();
             JCheckBoxMenuItem settingItem =
                 new JCheckBoxMenuItem(setting.getName());
             group.add(settingItem);
-            if (setting.getId().equals(
-                        this.tableauPanel.getCurrentSetId()))
+
+            if (setting.getDeckId().equals(this.tableauPanel.getCurrentSetId()))
             {
                 settingItem.setState(true);
             }
-            settingItem.addActionListener(
-                new ActionListener()
+
+            settingItem.addActionListener(new ActionListener()
                 {
-                    public void actionPerformed(ActionEvent event)
+                    public final void actionPerformed(final ActionEvent event)
                     {
-                        tableauPanel.setSet(setting.getId());
+                        Napoleon.this.getTableauPanel().setSet(setting.getDeckId());
                     }
                 });
             this.settings.add(settingItem);
@@ -789,30 +803,29 @@ public class Napoleon extends JFrame
     /**
      * TODO:
      */
-    private void toggleSuspendResume()
-    {
-        this.tableauPanel.toggleSuspendResume();
-        this.updateSuspendResume();
-    }
-
-    /**
-     * TODO:
-     */
     private void updateSuspendResume()
     {
-        this.suspendResumeGameMenuItem.setText(this.tableauPanel
-                .getSuspended()
-            ? getString("resumegame") //$NON-NLS-1$
-            : getString("suspendgame")); //$NON-NLS-1$
-        this.suspendResumeGameButton.setText(this.tableauPanel
-                .getSuspended()
-            ? getString("resumegame") //$NON-NLS-1$
-            : getString("suspendgame")); //$NON-NLS-1$
-        this.suspendResumeGameButton.setIcon(this.tableauPanel
-                .getSuspended()
-            ? MessageProperties.getImage(
-                getString("resumebuttonimagefilename")) //$NON-NLS-1$
-            : MessageProperties.getImage(
-                getString("suspendbuttonimagefilename"))); //$NON-NLS-1$
+        String suspendedString;
+        ImageIcon buttonImage;
+
+        if (this.tableauPanel.getSuspended())
+        {
+            suspendedString = getString("resumegame"); //$NON-NLS-1$
+            buttonImage =
+                MessageProperties.getImage(getString(
+                        "resumebuttonimagefilename")); //$NON-NLS-1$
+        }
+        else
+        {
+            suspendedString = getString("suspendgame"); //$NON-NLS-1$
+            buttonImage =
+                MessageProperties.getImage(getString(
+                        "suspendbuttonimagefilename")); //$NON-NLS-1$
+        }
+
+        this.suspendResumeGameMenuItem.setText(suspendedString);
+        this.suspendResumeGameButton.setText(suspendedString);
+
+        this.suspendResumeGameButton.setIcon(buttonImage);
     }
 }

@@ -12,36 +12,33 @@ import java.awt.event.MouseEvent;
  */
 public class MouseHandler extends MouseAdapter
 {
-    //~ Instance variables -------------------------------------------
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private NapoleonTableauPanel napoleonTableauPanel;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new MouseHandler object.
      *
-     * @param napoleonTableauPanel TODO:
+     * @param napoTabPanel TODO:
      */
-    public MouseHandler(NapoleonTableauPanel napoleonTableauPanel)
+    public MouseHandler(final NapoleonTableauPanel napoTabPanel)
     {
-        this.napoleonTableauPanel = napoleonTableauPanel;
+        this.napoleonTableauPanel = napoTabPanel;
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
      *
      * @param event TODO:
      */
-    public void mouseClicked(MouseEvent event)
+    public final void mouseClicked(final MouseEvent event)
     {
-        this.napoleonTableauPanel.processSelection(
-            this.napoleonTableauPanel.getGraphics(),
-            event.getX(),
-            event.getY(),
-            event.getClickCount());
+        this.napoleonTableauPanel.processSelection(this.napoleonTableauPanel
+            .getGraphics(), event.getX(), event.getY(), event.getClickCount());
     }
 }

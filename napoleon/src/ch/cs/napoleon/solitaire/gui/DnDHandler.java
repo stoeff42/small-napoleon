@@ -21,8 +21,7 @@ import java.awt.dnd.DropTargetListener;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
@@ -30,7 +29,7 @@ public class DnDHandler implements DragSourceListener,
     DropTargetListener,
     DragGestureListener
 {
-    //~ Instance variables -------------------------------------------
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private DragSource dragSource;
@@ -41,32 +40,34 @@ public class DnDHandler implements DragSourceListener,
     /** TODO: */
     private NapoleonTableauPanel napoleonTableauPanel;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new DnDHandler object.
      *
-     * @param napoleonTableauPanel TODO:
+     * @param napoTabPanel TODO:
      */
-    public DnDHandler(NapoleonTableauPanel napoleonTableauPanel)
+    public DnDHandler(final NapoleonTableauPanel napoTabPanel)
     {
-        this.napoleonTableauPanel = napoleonTableauPanel;
-        this.dropTarget =
-            new DropTarget(this.napoleonTableauPanel, this);
+        this.napoleonTableauPanel = napoTabPanel;
+        this.dropTarget = new DropTarget(this.napoleonTableauPanel, this);
         this.dragSource = new DragSource();
         this.dragSource.createDefaultDragGestureRecognizer(this.napoleonTableauPanel,
             DnDConstants.ACTION_MOVE, this);
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
      *
      * @param event TODO:
      */
-    public void dragDropEnd(DragSourceDropEvent event)
+    public void dragDropEnd(final DragSourceDropEvent event)
     {
+        /**
+         * Not implemented
+         */
     }
 
     /**
@@ -74,7 +75,7 @@ public class DnDHandler implements DragSourceListener,
      *
      * @param event TODO:
      */
-    public void dragEnter(DropTargetDragEvent event)
+    public final void dragEnter(final DropTargetDragEvent event)
     {
         event.acceptDrag(DnDConstants.ACTION_MOVE);
     }
@@ -84,8 +85,11 @@ public class DnDHandler implements DragSourceListener,
      *
      * @param event TODO:
      */
-    public void dragEnter(DragSourceDragEvent event)
+    public void dragEnter(final DragSourceDragEvent event)
     {
+        /**
+         * Not implemented
+         */
     }
 
     /**
@@ -93,8 +97,11 @@ public class DnDHandler implements DragSourceListener,
      *
      * @param event TODO:
      */
-    public void dragExit(DropTargetEvent event)
+    public void dragExit(final DropTargetEvent event)
     {
+        /**
+         * Not implemented
+         */
     }
 
     /**
@@ -102,8 +109,11 @@ public class DnDHandler implements DragSourceListener,
      *
      * @param event TODO:
      */
-    public void dragExit(DragSourceEvent event)
+    public void dragExit(final DragSourceEvent event)
     {
+        /**
+         * Not implemented
+         */
     }
 
     /**
@@ -111,47 +121,36 @@ public class DnDHandler implements DragSourceListener,
      *
      * @param event TODO:
      */
-    public void dragGestureRecognized(DragGestureEvent event)
+    public final void dragGestureRecognized(final DragGestureEvent event)
     {
         Point location = event.getDragOrigin();
-        this.napoleonTableauPanel.processSelection(
-            this.napoleonTableauPanel.getGraphics(),
-            (int) location.getX(),
-            (int) location.getY(),
-            1);
+        this.napoleonTableauPanel.processSelection(this.napoleonTableauPanel
+            .getGraphics(), (int) location.getX(), (int) location.getY(), 1);
 
         if (this.napoleonTableauPanel.getSelectedCard() != null)
         {
-            dragSource.startDrag(
-                event,
-                DragSource.DefaultMoveDrop,
+            this.dragSource.startDrag(event, DragSource.DefaultMoveDrop,
                 this.napoleonTableauPanel.getCardSuit(
-                    this.napoleonTableauPanel.getSelectedCard()
-                                                 .getCard()),
-                this.napoleonTableauPanel.calculateSlotOffset(
-                    location),
+                    this.napoleonTableauPanel.getSelectedCard().getCard()),
+                this.napoleonTableauPanel.calculateSlotOffset(location),
                 new Transferable()
                 {
-                    public Object getTransferData(DataFlavor flavor)
+                    public final Object getTransferData(final DataFlavor flavor)
                     {
                         return ""; //$NON-NLS-1$
                     }
 
-                    public DataFlavor[] getTransferDataFlavors()
+                    public final DataFlavor[] getTransferDataFlavors()
                     {
-                        return new DataFlavor[]
-                        {
-                            DataFlavor.stringFlavor
-                        };
+                        return new DataFlavor[] { DataFlavor.stringFlavor };
                     }
 
-                    public boolean isDataFlavorSupported(
-                        DataFlavor flavor)
+                    public final boolean isDataFlavorSupported(
+                        final DataFlavor flavor)
                     {
                         return true;
                     }
-                },
-                this);
+                }, this);
         }
     }
 
@@ -160,8 +159,11 @@ public class DnDHandler implements DragSourceListener,
      *
      * @param event TODO:
      */
-    public void dragOver(DropTargetDragEvent event)
+    public void dragOver(final DropTargetDragEvent event)
     {
+        /**
+         * Not implemented
+         */
     }
 
     /**
@@ -169,8 +171,11 @@ public class DnDHandler implements DragSourceListener,
      *
      * @param event TODO:
      */
-    public void dragOver(DragSourceDragEvent event)
+    public void dragOver(final DragSourceDragEvent event)
     {
+        /**
+         * Not implemented
+         */
     }
 
     /**
@@ -178,14 +183,12 @@ public class DnDHandler implements DragSourceListener,
      *
      * @param event TODO:
      */
-    public void drop(DropTargetDropEvent event)
+    public final void drop(final DropTargetDropEvent event)
     {
         Point location = event.getLocation();
-        this.napoleonTableauPanel.processSelection(
-            this.napoleonTableauPanel.getGraphics(),
-            (int) location.getX(),
-            (int) location.getY(),
-            1);
+        this.napoleonTableauPanel.processSelection(this.napoleonTableauPanel
+            .getGraphics(), (int) location.getX(), (int) location.getY(), 1);
+
         if (this.napoleonTableauPanel.getSelectedCard() == null)
         {
             event.acceptDrop(DnDConstants.ACTION_MOVE);
@@ -202,8 +205,11 @@ public class DnDHandler implements DragSourceListener,
      *
      * @param event TODO:
      */
-    public void dropActionChanged(DragSourceDragEvent event)
+    public void dropActionChanged(final DragSourceDragEvent event)
     {
+        /**
+         * Not implemented
+         */
     }
 
     /**
@@ -211,7 +217,10 @@ public class DnDHandler implements DragSourceListener,
      *
      * @param event TODO:
      */
-    public void dropActionChanged(DropTargetDragEvent event)
+    public void dropActionChanged(final DropTargetDragEvent event)
     {
+        /**
+         * Not implemented
+         */
     }
 }

@@ -10,59 +10,60 @@ import javax.swing.undo.AbstractUndoableEdit;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
-public class UndoMove extends AbstractUndoableEdit
-    implements Serializable
+public class UndoMove extends AbstractUndoableEdit implements Serializable
 {
-    //~ Instance variables -------------------------------------------
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
-    private CardSelection dst;
+    private CardSelection dest;
 
     /** TODO: */
-    private CardSelection src;
+    private CardSelection source;
 
     /** TODO: */
     private transient NapoleonTableau napoleonTableau;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new UndoMove object.
      */
     public UndoMove()
     {
+        /**
+         * Empty constructor
+         */
     }
 
     /**
      * Creates a new UndoMove object.
      *
-     * @param napoleonTableau TODO:
+     * @param napoTabl TODO:
      * @param src TODO:
      * @param dst TODO:
      */
-    public UndoMove(NapoleonTableau napoleonTableau,
-        CardSelection src, CardSelection dst)
+    public UndoMove(final NapoleonTableau napoTabl, final CardSelection src,
+        final CardSelection dst)
     {
-        this.napoleonTableau = napoleonTableau;
-        this.src = src;
-        this.dst = dst;
+        this.napoleonTableau = napoTabl;
+        this.source = src;
+        this.dest = dst;
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
      *
      * @param dst TODO:
      */
-    public void setDst(CardSelection dst)
+    public final void setDest(final CardSelection dst)
     {
-        this.dst = dst;
+        this.dest = dst;
     }
 
     /**
@@ -70,9 +71,9 @@ public class UndoMove extends AbstractUndoableEdit
      *
      * @return CardSelection
      */
-    public CardSelection getDst()
+    public final CardSelection getDest()
     {
-        return dst;
+        return this.dest;
     }
 
     /**
@@ -80,9 +81,9 @@ public class UndoMove extends AbstractUndoableEdit
      *
      * @param src TODO:
      */
-    public void setSrc(CardSelection src)
+    public final void setSource(final CardSelection src)
     {
-        this.src = src;
+        this.source = src;
     }
 
     /**
@@ -90,15 +91,15 @@ public class UndoMove extends AbstractUndoableEdit
      *
      * @return CardSelection
      */
-    public CardSelection getSrc()
+    public final CardSelection getSource()
     {
-        return src;
+        return this.source;
     }
 
     /**
      * TODO:
      */
-    public void redo()
+    public final void redo()
     {
         super.redo();
         this.napoleonTableau.redo(this);
@@ -107,7 +108,7 @@ public class UndoMove extends AbstractUndoableEdit
     /**
      * TODO:
      */
-    public void undo()
+    public final void undo()
     {
         super.undo();
         this.napoleonTableau.undo(this);

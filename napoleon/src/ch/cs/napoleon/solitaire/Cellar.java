@@ -8,25 +8,27 @@ import java.io.Serializable;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
 public class Cellar implements Serializable
 {
-    //~ Instance variables -------------------------------------------
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private Card cellar;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new Cellar object.
      */
     public Cellar()
     {
+        /**
+         * Empty constructor
+         */
     }
 
     /**
@@ -34,21 +36,21 @@ public class Cellar implements Serializable
      *
      * @param card TODO:
      */
-    public Cellar(Card card)
+    public Cellar(final Card card)
     {
         this.cellar = card;
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
      *
-     * @param cellar TODO:
+     * @param cllr TODO:
      */
-    public void setCellar(Card cellar)
+    public final void setCellar(final Card cllr)
     {
-        this.cellar = cellar;
+        this.cellar = cllr;
     }
 
     /**
@@ -56,9 +58,9 @@ public class Cellar implements Serializable
      *
      * @return TODO:
      */
-    public Card getCellar()
+    public final Card getCellar()
     {
-        return cellar;
+        return this.cellar;
     }
 
     /**
@@ -66,7 +68,7 @@ public class Cellar implements Serializable
      *
      * @return TODO:
      */
-    public boolean isEmpty()
+    public final boolean isEmpty()
     {
         return this.cellar == null;
     }
@@ -74,7 +76,7 @@ public class Cellar implements Serializable
     /**
      * TODO:
      */
-    public void clear()
+    public final void clear()
     {
         this.cellar = null;
     }
@@ -84,7 +86,7 @@ public class Cellar implements Serializable
      *
      * @return TODO:
      */
-    public Card get()
+    public final Card get()
     {
         return this.cellar;
     }
@@ -96,13 +98,15 @@ public class Cellar implements Serializable
      *
      * @return TODO:
      */
-    public boolean set(Card card)
+    public final boolean set(final Card card)
     {
         if (this.cellar == null)
         {
             this.cellar = card;
+
             return true;
         }
+
         return false;
     }
 }

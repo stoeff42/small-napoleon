@@ -3,14 +3,13 @@ package ch.cs.time;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
-public class UsedTimeHandler
+public final class UsedTimeHandler
 {
-    //~ Static variables/initializers --------------------------------
+    //~ Static fields/initializers ---------------------------------------------
 
     /** TODO: */
     private static int timeUsed;
@@ -21,14 +20,26 @@ public class UsedTimeHandler
     /** TODO: */
     private static boolean suspended = false;
 
-    //~ Methods ------------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
+
+    /**
+     * Creates a new UsedTimeHandler object.
+     */
+    private UsedTimeHandler()
+    {
+        /**
+         * Make constructor private in order to implement singleton correctly
+         */
+    }
+
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
      *
      * @param tU TODO:
      */
-    public static void setTimeUsed(int tU)
+    public static void setTimeUsed(final int tU)
     {
         timeUsed = tU;
         startTime = System.currentTimeMillis();
@@ -41,9 +52,14 @@ public class UsedTimeHandler
      */
     public static int getTimeUsed()
     {
-        return suspended ? timeUsed
-                         : (int) ((timeUsed
-        + System.currentTimeMillis()) - startTime);
+        int tU = timeUsed;
+
+        if (!suspended)
+        {
+            tU = (int) ((timeUsed + System.currentTimeMillis()) - startTime);
+        }
+
+        return tU;
     }
 
     /**
@@ -75,7 +91,8 @@ public class UsedTimeHandler
      */
     public static void updateTimeUsed()
     {
-        setTimeUsed((int) ((timeUsed + System.currentTimeMillis())
-            - startTime));
+        setTimeUsed((int) (
+                (timeUsed + System.currentTimeMillis()) - startTime
+            ));
     }
 }

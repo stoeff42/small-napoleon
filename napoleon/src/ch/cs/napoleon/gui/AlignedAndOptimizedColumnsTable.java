@@ -26,8 +26,8 @@ public class AlignedAndOptimizedColumnsTable extends JTable
      * @param columnNames TODO:
      * @param alignments TODO:
      */
-    public AlignedAndOptimizedColumnsTable(Object[][] data,
-        Object[] columnNames, int[] alignments)
+    public AlignedAndOptimizedColumnsTable(final Object[][] data,
+    final Object[] columnNames, final int[] alignments)
     {
         super(data, columnNames);
         this.setDefaultRenderer(
@@ -47,7 +47,7 @@ public class AlignedAndOptimizedColumnsTable extends JTable
     /**
      * TODO:
      */
-    public void optimizeColumnWidths()
+    public final void optimizeColumnWidths()
     {
         for (int i = 0; i < this.getColumnCount(); i++)
         {
@@ -93,9 +93,9 @@ public class AlignedAndOptimizedColumnsTable extends JTable
     {
         return new TableCellRenderer()
             {
-                public Component getTableCellRendererComponent(
-                    JTable table, Object value, boolean isSelected,
-                    boolean hasFocus, int row, int column)
+                public final Component getTableCellRendererComponent(
+                final JTable table, final Object value, final boolean isSelected,
+                final boolean hasFocus, final int row, final int column)
                 {
                     JLabel component =
                         (JLabel) renderer

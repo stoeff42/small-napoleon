@@ -10,24 +10,23 @@ import java.util.Date;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
 public class ScoreTable implements Serializable
 {
-    //~ Static variables/initializers --------------------------------
+    //~ Static fields/initializers ---------------------------------------------
 
     /** TODO: */
     private static final int MAX_ENTRIES = 10;
 
-    //~ Instance variables -------------------------------------------
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private ArrayList entries;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new ScoreTable object.
@@ -37,16 +36,16 @@ public class ScoreTable implements Serializable
         this.entries = new ArrayList(MAX_ENTRIES + 1);
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * Sets the entries.
      *
-     * @param entries The entries to set
+     * @param ntries The entries to set
      */
-    public void setEntries(ArrayList entries)
+    public final void setEntries(final ArrayList ntries)
     {
-        this.entries = entries;
+        this.entries = ntries;
     }
 
     /**
@@ -54,7 +53,7 @@ public class ScoreTable implements Serializable
      *
      * @return ArrayList
      */
-    public ArrayList getEntries()
+    public final ArrayList getEntries()
     {
         return this.entries;
     }
@@ -66,7 +65,7 @@ public class ScoreTable implements Serializable
      *
      * @return TODO:
      */
-    public ScoreEntry getEntry(int i)
+    public final ScoreEntry getEntry(final int i)
     {
         return (ScoreEntry) this.entries.get(i);
     }
@@ -76,7 +75,7 @@ public class ScoreTable implements Serializable
      *
      * @return TODO:
      */
-    public int getNrOfEntries()
+    public final int getNrOfEntries()
     {
         return this.entries.size();
     }
@@ -88,7 +87,7 @@ public class ScoreTable implements Serializable
      *
      * @return TODO:
      */
-    public int getRank(ScoreEntry scoreEntry)
+    public final int getRank(final ScoreEntry scoreEntry)
     {
         return this.entries.indexOf(scoreEntry) + 1;
     }
@@ -101,12 +100,13 @@ public class ScoreTable implements Serializable
      * @param timeUsed TODO:
      * @param finishedOn TODO:
      */
-    public void addEntry(String name, int nrOfMoves, int timeUsed,
-        Date finishedOn)
+    public final void addEntry(final String name, final int nrOfMoves,
+        final int timeUsed, final Date finishedOn)
     {
-        this.entries.add(
-            new ScoreEntry(this, name, nrOfMoves, timeUsed, finishedOn));
+        this.entries.add(new ScoreEntry(this, name, nrOfMoves, timeUsed,
+                finishedOn));
         Collections.sort(this.entries);
+
         while (this.entries.size() > MAX_ENTRIES)
         {
             this.entries.remove(this.entries.size() - 1);
@@ -116,7 +116,7 @@ public class ScoreTable implements Serializable
     /**
      * TODO:
      */
-    public void clear()
+    public final void clear()
     {
         this.entries.clear();
     }
@@ -126,13 +126,15 @@ public class ScoreTable implements Serializable
      *
      * @return TODO:
      */
-    public Object[][] toArray()
+    public final Object[][] toArray()
     {
         Object[][] array = new Object[this.entries.size()][];
+
         for (int i = 0; i < array.length; i++)
         {
             array[i] = this.getEntry(i).toArray();
         }
+
         return array;
     }
 }

@@ -1,6 +1,7 @@
 package ch.cs.napoleon.solitaire;
 
 import ch.cs.napoleon.solitaire.gui.CardSelection;
+
 import ch.cs.solitaire.Card;
 import ch.cs.solitaire.Tableau;
 
@@ -14,25 +15,43 @@ import javax.swing.undo.UndoManager;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
 public class NapoleonTableau extends Tableau
 {
-    //~ Static variables/initializers --------------------------------
+    //~ Static fields/initializers ---------------------------------------------
+
+    /**
+     * DOCUMENT ME!
+     *
+     * @TODO: javadoc!
+     */
+    private static final int NR_OF_CARDS_IN_ROW = 5;
+
+    /**
+     * DOCUMENT ME!
+     *
+     * @TODO: javadoc!
+     */
+    private static final int NR_OF_NAPOLEON_ROWS = 8;
+
+    /**
+     * DOCUMENT ME!
+     *
+     * @TODO: javadoc!
+     */
+    private static final int NR_OF_FOUNDATIONS = 4;
 
     /** TODO: */
     private static final String TABLEAU = "napoleontableau.tableau"; //$NON-NLS-1$
 
     /** TODO: */
-    private static final String FOUNDATIONS =
-        "napoleontableau.foundations"; //$NON-NLS-1$
+    private static final String FOUNDATIONS = "napoleontableau.foundations"; //$NON-NLS-1$
 
     /** TODO: */
-    private static final String NAPOLEON_ROWS =
-        "napoleontableau.napoleonrows"; //$NON-NLS-1$
+    private static final String NAPOLEON_ROWS = "napoleontableau.napoleonrows"; //$NON-NLS-1$
 
     /** TODO: */
     private static final String HELPS = "napoleontableau.helps"; //$NON-NLS-1$
@@ -41,10 +60,9 @@ public class NapoleonTableau extends Tableau
     private static final String CELLAR = "napoleontableau.cellar"; //$NON-NLS-1$
 
     /** TODO: */
-    private static final String UNDO_MANAGER =
-        "napoleontableau.undomanager"; //$NON-NLS-1$
+    private static final String UNDO_MANAGER = "napoleontableau.undomanager"; //$NON-NLS-1$
 
-    //~ Instance variables -------------------------------------------
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private ArrayList foundations;
@@ -64,15 +82,14 @@ public class NapoleonTableau extends Tableau
     /** TODO: */
     private UndoMove currentUndo;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new NapoleonTableau object.
      *
      * @throws Exception TODO:
      */
-    public NapoleonTableau()
-            throws Exception
+    public NapoleonTableau() throws Exception
     {
         super(Tableau.PACK_OF_52, 1);
         this.createTableau();
@@ -80,14 +97,14 @@ public class NapoleonTableau extends Tableau
         this.undoManager = new UndoManager();
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * Returns the cellar.
      *
      * @return Cellar
      */
-    public Cellar getCellar()
+    public final Cellar getCellar()
     {
         return this.cellar;
     }
@@ -97,7 +114,7 @@ public class NapoleonTableau extends Tableau
      *
      * @param map TODO:
      */
-    public void setData(Map map)
+    public final void setData(final Map map)
     {
         try
         {
@@ -119,19 +136,16 @@ public class NapoleonTableau extends Tableau
      *
      * @return TODO:
      */
-    public Map getData()
+    public final Map getData()
     {
         Map map = new HashMap();
-        map.put(
-            TABLEAU,
-            this.getTableau());
+        map.put(TABLEAU, this.getTableau());
         map.put(FOUNDATIONS, this.foundations);
         map.put(NAPOLEON_ROWS, this.napoleonRows);
         map.put(HELPS, this.helps);
-        map.put(
-            CELLAR,
-            this.getCellar());
+        map.put(CELLAR, this.getCellar());
         map.put(UNDO_MANAGER, this.undoManager);
+
         return map;
     }
 
@@ -140,7 +154,7 @@ public class NapoleonTableau extends Tableau
      *
      * @return TODO:
      */
-    public boolean isFinished()
+    public final boolean isFinished()
     {
         return this.cardsFinished() == this.getSize();
     }
@@ -152,7 +166,7 @@ public class NapoleonTableau extends Tableau
      *
      * @return Foundation[]
      */
-    public Foundation getFoundation(int i)
+    public final Foundation getFoundation(final int i)
     {
         return (Foundation) this.foundations.get(i);
     }
@@ -164,7 +178,7 @@ public class NapoleonTableau extends Tableau
      *
      * @return Help[]
      */
-    public Help getHelp(int i)
+    public final Help getHelp(final int i)
     {
         return (Help) this.helps.get(i);
     }
@@ -176,7 +190,7 @@ public class NapoleonTableau extends Tableau
      *
      * @return NapoleonRow[]
      */
-    public NapoleonRow getNapoleonRow(int i)
+    public final NapoleonRow getNapoleonRow(final int i)
     {
         return (NapoleonRow) this.napoleonRows.get(i);
     }
@@ -186,7 +200,7 @@ public class NapoleonTableau extends Tableau
      *
      * @return TODO:
      */
-    public boolean canRedo()
+    public final boolean canRedo()
     {
         return this.undoManager.canRedo();
     }
@@ -196,7 +210,7 @@ public class NapoleonTableau extends Tableau
      *
      * @return TODO:
      */
-    public boolean canUndo()
+    public final boolean canUndo()
     {
         return this.undoManager.canUndo();
     }
@@ -206,13 +220,15 @@ public class NapoleonTableau extends Tableau
      *
      * @return TODO:
      */
-    public int cardsFinished()
+    public final int cardsFinished()
     {
         int cardsFinished = 0;
+
         for (int i = 0; i < this.foundations.size(); i++)
         {
             cardsFinished += this.getFoundation(i).getSize();
         }
+
         return cardsFinished;
     }
 
@@ -224,7 +240,7 @@ public class NapoleonTableau extends Tableau
      *
      * @return TODO:
      */
-    public boolean move(CardSelection src, CardSelection dst)
+    public final boolean move(final CardSelection src, final CardSelection dst)
     {
         return this.move(src, dst, false);
     }
@@ -232,7 +248,7 @@ public class NapoleonTableau extends Tableau
     /**
      * TODO:
      */
-    public void newGame()
+    public final void newGame()
     {
         this.shuffle();
         this.init();
@@ -243,12 +259,9 @@ public class NapoleonTableau extends Tableau
      *
      * @param undoMove TODO:
      */
-    public void redo(UndoMove undoMove)
+    public final void redo(final UndoMove undoMove)
     {
-        if (this.move(
-                    undoMove.getSrc(),
-                    undoMove.getDst(),
-                    true))
+        if (this.move(undoMove.getSource(), undoMove.getDest(), true))
         {
             this.currentUndo = undoMove;
         }
@@ -263,11 +276,12 @@ public class NapoleonTableau extends Tableau
      *
      * @return TODO:
      */
-    public UndoMove redo()
+    public final UndoMove redo()
     {
         if (this.canRedo())
         {
             this.undoManager.redo();
+
             return this.currentUndo;
         }
         else
@@ -279,7 +293,7 @@ public class NapoleonTableau extends Tableau
     /**
      * TODO:
      */
-    public void restartGame()
+    public final void restartGame()
     {
         this.init();
     }
@@ -289,11 +303,12 @@ public class NapoleonTableau extends Tableau
      *
      * @return TODO:
      */
-    public UndoMove undo()
+    public final UndoMove undo()
     {
         if (this.canUndo())
         {
             this.undoManager.undo();
+
             return this.currentUndo;
         }
         else
@@ -307,19 +322,20 @@ public class NapoleonTableau extends Tableau
      *
      * @param undoMove TODO:
      */
-    public void undo(UndoMove undoMove)
+    public final void undo(final UndoMove undoMove)
     {
-        CardSelection src = undoMove.getSrc();
-        CardSelection dst = undoMove.getDst();
+        CardSelection src = undoMove.getSource();
+        CardSelection dst = undoMove.getDest();
         Card card = src.getCard();
+
         if (src.getType() == CardSelection.FOUNDATION)
         {
             this.getFoundation(src.getInfo1()).add(card);
         }
         else if (src.getType() == CardSelection.ROW)
         {
-            NapoleonRow napoleonRow =
-                this.getNapoleonRow(src.getInfo1());
+            NapoleonRow napoleonRow = this.getNapoleonRow(src.getInfo1());
+
             if ((napoleonRow.getSize() + 1) == src.getInfo2())
             {
                 napoleonRow.forceAdd(card);
@@ -331,14 +347,13 @@ public class NapoleonTableau extends Tableau
         }
         else if (src.getType() == CardSelection.HELP)
         {
-            this.getHelp(src.getInfo1()).set(
-                src.getInfo2(),
-                card);
+            this.getHelp(src.getInfo1()).set(src.getInfo2(), card);
         }
         else if (src.getType() == CardSelection.CELLAR)
         {
             this.getCellar().set(card);
         }
+
         if (dst.getType() == CardSelection.FOUNDATION)
         {
             this.getFoundation(dst.getInfo1()).remove();
@@ -355,7 +370,42 @@ public class NapoleonTableau extends Tableau
         {
             this.getCellar().clear();
         }
+
         this.currentUndo = undoMove;
+    }
+
+    /**
+     * @TODO: javadoc!
+     *
+     * @param src @TODO: javadoc!
+     * @param dst @TODO: javadoc!
+     *
+     * @return @TODO: javadoc!
+     */
+    private boolean isMovePossible(final CardSelection src,
+        final CardSelection dst)
+    {
+        Card card = src.getCard();
+        boolean movePossible = false;
+
+        if (dst.getType() == CardSelection.FOUNDATION)
+        {
+            movePossible = this.getFoundation(dst.getInfo1()).add(card);
+        }
+        else if (dst.getType() == CardSelection.ROW)
+        {
+            movePossible = this.getNapoleonRow(dst.getInfo1()).add(card);
+        }
+        else if (dst.getType() == CardSelection.HELP)
+        {
+            movePossible = false;
+        }
+        else if (dst.getType() == CardSelection.CELLAR)
+        {
+            movePossible = this.getCellar().set(card);
+        }
+
+        return movePossible;
     }
 
     /**
@@ -363,22 +413,59 @@ public class NapoleonTableau extends Tableau
      */
     private void createTableau()
     {
-        this.foundations = new ArrayList(4);
-        for (int i = 0; i < 4; i++)
+        this.foundations = new ArrayList(NR_OF_FOUNDATIONS);
+
+        for (int i = 0; i < NR_OF_FOUNDATIONS; i++)
         {
             this.foundations.add(new Foundation());
         }
-        this.napoleonRows = new ArrayList(8);
-        for (int i = 0; i < 8; i++)
+
+        this.napoleonRows = new ArrayList(NR_OF_NAPOLEON_ROWS);
+
+        for (int i = 0; i < NR_OF_NAPOLEON_ROWS; i++)
         {
             this.napoleonRows.add(new NapoleonRow());
         }
+
         this.helps = new ArrayList(2);
+
         for (int i = 0; i < 2; i++)
         {
             this.helps.add(new Help());
         }
+
         this.cellar = new Cellar();
+    }
+
+    /**
+     * @TODO: javadoc!
+     *
+     * @param src @TODO: javadoc!
+     *
+     * @return @TODO: javadoc!
+     */
+    private boolean executeMove(final CardSelection src)
+    {
+        boolean moveSucceeded = false;
+
+        if (src.getType() == CardSelection.FOUNDATION)
+        {
+            moveSucceeded = this.getFoundation(src.getInfo1()).remove();
+        }
+        else if (src.getType() == CardSelection.ROW)
+        {
+            moveSucceeded = this.getNapoleonRow(src.getInfo1()).remove();
+        }
+        else if (src.getType() == CardSelection.HELP)
+        {
+            this.getHelp(src.getInfo1()).remove(src.getInfo2());
+        }
+        else if (src.getType() == CardSelection.CELLAR)
+        {
+            this.getCellar().clear();
+        }
+
+        return moveSucceeded;
     }
 
     /**
@@ -392,11 +479,13 @@ public class NapoleonTableau extends Tableau
         int foundationRankStart = this.get(0).getRank();
         int rowColNr = 0;
         int helpColNr = 0;
-        ArrayList helpCards = new ArrayList(4);
-        ArrayList rowCards = new ArrayList(5);
+        ArrayList helpCards = new ArrayList(NR_OF_FOUNDATIONS);
+        ArrayList rowCards = new ArrayList(NR_OF_CARDS_IN_ROW);
+
         for (int i = 0; i < this.getSize(); i++)
         {
             Card card = this.get(i);
+
             if (card.getRank() == foundationRankStart)
             {
                 this.getFoundation(foundationNr).set(card);
@@ -404,32 +493,35 @@ public class NapoleonTableau extends Tableau
             }
             else
             {
-                if (rowNr == 8)
+                if (rowNr == NR_OF_NAPOLEON_ROWS)
                 {
                     helpCards.add(card);
                     helpColNr++;
-                    if (helpColNr == 4)
+
+                    if (helpColNr == NR_OF_FOUNDATIONS)
                     {
                         this.getHelp(helpNr).set(helpCards);
                         helpNr++;
                         helpColNr = 0;
-                        helpCards = new ArrayList(4);
+                        helpCards = new ArrayList(NR_OF_FOUNDATIONS);
                     }
                 }
                 else
                 {
                     rowCards.add(card);
                     rowColNr++;
-                    if (rowColNr == 5)
+
+                    if (rowColNr == NR_OF_CARDS_IN_ROW)
                     {
                         this.getNapoleonRow(rowNr).set(rowCards);
                         rowNr++;
                         rowColNr = 0;
-                        rowCards = new ArrayList(5);
+                        rowCards = new ArrayList(NR_OF_CARDS_IN_ROW);
                     }
                 }
             }
         }
+
         this.getCellar().clear();
     }
 
@@ -451,60 +543,26 @@ public class NapoleonTableau extends Tableau
      *
      * @return TODO:
      */
-    private boolean move(CardSelection src, CardSelection dst,
-        boolean redoing)
+    private boolean move(final CardSelection src, final CardSelection dst,
+        final boolean redoing)
     {
         if ((src != null) && (dst != null))
         {
-            Card card = src.getCard();
-            boolean movePossible = false;
-            if (dst.getType() == CardSelection.FOUNDATION)
+            boolean moveSucceeded = false;
+
+            if (isMovePossible(src, dst))
             {
-                movePossible =
-                    this.getFoundation(dst.getInfo1()).add(card);
+                moveSucceeded = executeMove(src);
             }
-            else if (dst.getType() == CardSelection.ROW)
-            {
-                movePossible =
-                    this.getNapoleonRow(dst.getInfo1()).add(card);
-            }
-            else if (dst.getType() == CardSelection.HELP)
-            {
-            }
-            else if (dst.getType() == CardSelection.CELLAR)
-            {
-                movePossible = this.getCellar().set(card);
-            }
-            boolean moveSucceeded = movePossible;
-            if (movePossible)
-            {
-                if (src.getType() == CardSelection.FOUNDATION)
-                {
-                    moveSucceeded =
-                        this.getFoundation(src.getInfo1()).remove();
-                }
-                else if (src.getType() == CardSelection.ROW)
-                {
-                    moveSucceeded =
-                        this.getNapoleonRow(src.getInfo1()).remove();
-                }
-                else if (src.getType() == CardSelection.HELP)
-                {
-                    this.getHelp(src.getInfo1()).remove(
-                        src.getInfo2());
-                }
-                else if (src.getType() == CardSelection.CELLAR)
-                {
-                    this.getCellar().clear();
-                }
-            }
+
             if (moveSucceeded && !redoing)
             {
-                this.undoManager.addEdit(
-                    new UndoMove(this, src, dst));
+                this.undoManager.addEdit(new UndoMove(this, src, dst));
             }
+
             return moveSucceeded;
         }
+
         return false;
     }
 }

@@ -10,26 +10,30 @@ import java.util.ArrayList;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
 public class Help implements Serializable
 {
-    //~ Instance variables -------------------------------------------
+    //~ Static fields/initializers ---------------------------------------------
+
+    /** @TODO: javadoc! */
+    private static final int HELP_SIZE = 4;
+
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private ArrayList help;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new Help object.
      */
     public Help()
     {
-        this.help = new ArrayList(4);
+        this.help = new ArrayList(HELP_SIZE);
     }
 
     /**
@@ -37,22 +41,22 @@ public class Help implements Serializable
      *
      * @param cards TODO:
      */
-    public Help(ArrayList cards)
+    public Help(final ArrayList cards)
     {
         this();
         this.set(cards);
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
      *
-     * @param help TODO:
+     * @param hlp TODO:
      */
-    public void setHelp(ArrayList help)
+    public final void setHelp(final ArrayList hlp)
     {
-        this.help = help;
+        this.help = hlp;
     }
 
     /**
@@ -60,7 +64,7 @@ public class Help implements Serializable
      *
      * @return TODO:
      */
-    public ArrayList getHelp()
+    public final ArrayList getHelp()
     {
         return this.help;
     }
@@ -72,7 +76,7 @@ public class Help implements Serializable
      *
      * @return TODO:
      */
-    public Card get(int i)
+    public final Card get(final int i)
     {
         return (Card) this.help.get(i);
     }
@@ -82,7 +86,7 @@ public class Help implements Serializable
      *
      * @param i TODO:
      */
-    public void remove(int i)
+    public final void remove(final int i)
     {
         this.help.set(i, null);
     }
@@ -92,9 +96,9 @@ public class Help implements Serializable
      *
      * @param cards TODO:
      */
-    public void set(ArrayList cards)
+    public final void set(final ArrayList cards)
     {
-        if (cards.size() <= 4)
+        if (cards.size() <= HELP_SIZE)
         {
             this.help.clear();
             this.help.addAll(cards);
@@ -107,7 +111,7 @@ public class Help implements Serializable
      * @param i TODO:
      * @param card TODO:
      */
-    public void set(int i, Card card)
+    public final void set(final int i, final Card card)
     {
         this.help.set(i, card);
     }

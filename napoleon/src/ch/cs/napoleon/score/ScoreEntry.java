@@ -1,6 +1,7 @@
 package ch.cs.napoleon.score;
 
 import ch.cs.gui.MessageProperties;
+
 import ch.cs.napoleon.gui.NapoleonMessage;
 
 import java.io.Serializable;
@@ -13,14 +14,13 @@ import javax.swing.SwingConstants;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
 public class ScoreEntry implements Comparable, Serializable
 {
-    //~ Instance variables -------------------------------------------
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private Date finishedOn;
@@ -37,35 +37,38 @@ public class ScoreEntry implements Comparable, Serializable
     /** TODO: */
     private int timeUsed;
 
-    //~ Constructors -------------------------------------------------
-
-    /**
-     * Creates a new ScoreEntry object.
-     */
-    public ScoreEntry()
-    {
-    }
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new ScoreEntry object.
      *
-     * @param scoreTable TODO:
-     * @param name TODO:
-     * @param nrOfMoves TODO:
-     * @param timeUsed TODO:
-     * @param finishedOn TODO:
+     * @param scorTab TODO:
+     * @param nm TODO:
+     * @param nOMovs TODO:
+     * @param tU TODO:
+     * @param finOn TODO:
      */
-    public ScoreEntry(ScoreTable scoreTable, String name,
-        int nrOfMoves, int timeUsed, Date finishedOn)
+    public ScoreEntry(final ScoreTable scorTab, final String nm,
+        final int nOMovs, final int tU, final Date finOn)
     {
-        this.name = name;
-        this.nrOfMoves = nrOfMoves;
-        this.timeUsed = timeUsed;
-        this.finishedOn = finishedOn;
-        this.scoreTable = scoreTable;
+        this.name = nm;
+        this.nrOfMoves = nOMovs;
+        this.timeUsed = tU;
+        this.finishedOn = finOn;
+        this.scoreTable = scorTab;
     }
 
-    //~ Methods ------------------------------------------------------
+    /**
+     * Creates a new ScoreEntry object.
+     */
+    private ScoreEntry()
+    {
+        /**
+         * Make constructor private in order to implement singleton correctly
+         */
+    }
+
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
@@ -76,20 +79,19 @@ public class ScoreEntry implements Comparable, Serializable
     {
         return new int[]
         {
-            SwingConstants.RIGHT, SwingConstants.LEFT,
-            SwingConstants.RIGHT, SwingConstants.RIGHT,
-            SwingConstants.LEFT
+            SwingConstants.RIGHT, SwingConstants.LEFT, SwingConstants.RIGHT,
+            SwingConstants.RIGHT, SwingConstants.LEFT
         };
     }
 
     /**
      * TODO:
      *
-     * @param finishedOn TODO:
+     * @param finOn TODO:
      */
-    public void setFinishedOn(Date finishedOn)
+    public final void setFinishedOn(final Date finOn)
     {
-        this.finishedOn = finishedOn;
+        this.finishedOn = finOn;
     }
 
     /**
@@ -97,7 +99,7 @@ public class ScoreEntry implements Comparable, Serializable
      *
      * @return TODO:
      */
-    public Date getFinishedOn()
+    public final Date getFinishedOn()
     {
         return this.finishedOn;
     }
@@ -105,11 +107,11 @@ public class ScoreEntry implements Comparable, Serializable
     /**
      * TODO:
      *
-     * @param name TODO:
+     * @param nm TODO:
      */
-    public void setName(String name)
+    public final void setName(final String nm)
     {
-        this.name = name;
+        this.name = nm;
     }
 
     /**
@@ -117,7 +119,7 @@ public class ScoreEntry implements Comparable, Serializable
      *
      * @return TODO:
      */
-    public String getName()
+    public final String getName()
     {
         return this.name;
     }
@@ -142,11 +144,11 @@ public class ScoreEntry implements Comparable, Serializable
     /**
      * TODO:
      *
-     * @param nrOfMoves TODO:
+     * @param nOMovs TODO:
      */
-    public void setNrOfMoves(int nrOfMoves)
+    public final void setNrOfMoves(final int nOMovs)
     {
-        this.nrOfMoves = nrOfMoves;
+        this.nrOfMoves = nOMovs;
     }
 
     /**
@@ -154,7 +156,7 @@ public class ScoreEntry implements Comparable, Serializable
      *
      * @return TODO:
      */
-    public int getNrOfMoves()
+    public final int getNrOfMoves()
     {
         return this.nrOfMoves;
     }
@@ -164,7 +166,7 @@ public class ScoreEntry implements Comparable, Serializable
      *
      * @return TODO:
      */
-    public int getRank()
+    public final int getRank()
     {
         return this.scoreTable.getRank(this);
     }
@@ -172,11 +174,11 @@ public class ScoreEntry implements Comparable, Serializable
     /**
      * TODO:
      *
-     * @param scoreTable TODO:
+     * @param scorTab TODO:
      */
-    public void setScoreTable(ScoreTable scoreTable)
+    public final void setScoreTable(final ScoreTable scorTab)
     {
-        this.scoreTable = scoreTable;
+        this.scoreTable = scorTab;
     }
 
     /**
@@ -184,19 +186,19 @@ public class ScoreEntry implements Comparable, Serializable
      *
      * @return TODO:
      */
-    public ScoreTable getScoreTable()
+    public final ScoreTable getScoreTable()
     {
-        return scoreTable;
+        return this.scoreTable;
     }
 
     /**
      * TODO:
      *
-     * @param timeUsed TODO:
+     * @param tU TODO:
      */
-    public void setTimeUsed(int timeUsed)
+    public final void setTimeUsed(final int tU)
     {
-        this.timeUsed = timeUsed;
+        this.timeUsed = tU;
     }
 
     /**
@@ -204,7 +206,7 @@ public class ScoreEntry implements Comparable, Serializable
      *
      * @return TODO:
      */
-    public int getTimeUsed()
+    public final int getTimeUsed()
     {
         return this.timeUsed;
     }
@@ -216,39 +218,45 @@ public class ScoreEntry implements Comparable, Serializable
      *
      * @return TODO:
      */
-    public int compareTo(Object obj)
+    public final int compareTo(final Object obj)
     {
         if (!(obj instanceof ScoreEntry))
         {
             return 1;
         }
+
         ScoreEntry other = (ScoreEntry) obj;
+
         if (this.getNrOfMoves() < other.getNrOfMoves())
         {
             return -1;
         }
+
         if (this.getNrOfMoves() > other.getNrOfMoves())
         {
             return 1;
         }
+
         if (this.getTimeUsed() < other.getTimeUsed())
         {
             return -1;
         }
+
         if (this.getTimeUsed() > other.getTimeUsed())
         {
             return 1;
         }
-        if (this.getFinishedOn().getTime() > other.getFinishedOn()
-                                                      .getTime())
+
+        if (this.getFinishedOn().getTime() > other.getFinishedOn().getTime())
         {
             return -1;
         }
-        if (this.getFinishedOn().getTime() < other.getFinishedOn()
-                                                      .getTime())
+
+        if (this.getFinishedOn().getTime() < other.getFinishedOn().getTime())
         {
             return 1;
         }
+
         return this.getName().compareTo(other.getName());
     }
 
@@ -257,16 +265,14 @@ public class ScoreEntry implements Comparable, Serializable
      *
      * @return TODO:
      */
-    public Object[] toArray()
+    public final Object[] toArray()
     {
         return new Object[]
         {
-            new StringBuffer().append(this.getRank()).append('.')
-                                  .toString(), this.getName(),
-            new Integer(this.getNrOfMoves()),
-            NapoleonMessage.makeDurationString(
-                this.getTimeUsed(),
-                2), this.getFinishedOn()
+            new StringBuffer().append(this.getRank()).append('.').toString(),
+            this.getName(), new Integer(this.getNrOfMoves()),
+            NapoleonMessage.makeDurationString(this.getTimeUsed(), 2),
+            this.getFinishedOn()
         };
     }
 
@@ -277,7 +283,7 @@ public class ScoreEntry implements Comparable, Serializable
      *
      * @return TODO:
      */
-    private static String getString(String property)
+    private static String getString(final String property)
     {
         return MessageProperties.getString("scoreentry", //$NON-NLS-1$
             property);

@@ -8,14 +8,13 @@ import java.util.Random;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
 public class Tableau implements Serializable
 {
-    //~ Static variables/initializers --------------------------------
+    //~ Static fields/initializers ---------------------------------------------
 
     /** TODO: */
     public static final int PACK_OF_52 = 52;
@@ -26,7 +25,7 @@ public class Tableau implements Serializable
     /** TODO: */
     public static final int PACK_OF_32 = 32;
 
-    //~ Instance variables -------------------------------------------
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private Card[] tableau;
@@ -37,45 +36,51 @@ public class Tableau implements Serializable
     /** TODO: */
     private int packType;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new Tableau object.
      */
     public Tableau()
     {
+        /**
+         * Empty constructor
+         */
     }
 
     /**
      * Creates a new Tableau object.
      *
-     * @param packType TODO:
-     * @param nrOfPacks TODO:
+     * @param pckTpe TODO:
+     * @param nOPcks TODO:
      */
-    public Tableau(int packType, int nrOfPacks)
+    public Tableau(final int pckTpe, final int nOPcks)
     {
-        this.packType = packType;
-        this.nrOfPacks = nrOfPacks;
+        this.packType = pckTpe;
+        this.nrOfPacks = nOPcks;
         this.tableau = new Card[this.packType * this.nrOfPacks];
+
         for (int i = 0; i < this.tableau.length; i++)
         {
             this.tableau[i] =
-                new Card((byte) (i % this.packType),
-                    (byte) (i / this.packType));
+                new Card((byte) (i % this.packType), (byte) (
+                        i / this.packType
+                    ));
         }
+
         this.shuffle();
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
      *
-     * @param nrOfPacks TODO:
+     * @param nOPcks TODO:
      */
-    public void setNrOfPacks(int nrOfPacks)
+    public final void setNrOfPacks(final int nOPcks)
     {
-        this.nrOfPacks = nrOfPacks;
+        this.nrOfPacks = nOPcks;
     }
 
     /**
@@ -83,7 +88,7 @@ public class Tableau implements Serializable
      *
      * @return int
      */
-    public int getNrOfPacks()
+    public final int getNrOfPacks()
     {
         return this.nrOfPacks;
     }
@@ -91,11 +96,11 @@ public class Tableau implements Serializable
     /**
      * TODO:
      *
-     * @param packType TODO:
+     * @param pckTpe TODO:
      */
-    public void setPackType(int packType)
+    public final void setPackType(final int pckTpe)
     {
-        this.packType = packType;
+        this.packType = pckTpe;
     }
 
     /**
@@ -103,7 +108,7 @@ public class Tableau implements Serializable
      *
      * @return int
      */
-    public int getPackType()
+    public final int getPackType()
     {
         return this.packType;
     }
@@ -113,7 +118,7 @@ public class Tableau implements Serializable
      *
      * @return TODO:
      */
-    public int getSize()
+    public final int getSize()
     {
         return this.getTableau().length;
     }
@@ -121,11 +126,11 @@ public class Tableau implements Serializable
     /**
      * TODO:
      *
-     * @param tableau TODO:
+     * @param tabl TODO:
      */
-    public void setTableau(Card[] tableau)
+    public final void setTableau(final Card[] tabl)
     {
-        this.tableau = tableau;
+        this.tableau = tabl;
     }
 
     /**
@@ -133,9 +138,9 @@ public class Tableau implements Serializable
      *
      * @return TODO:
      */
-    public Card[] getTableau()
+    public final Card[] getTableau()
     {
-        return tableau;
+        return this.tableau;
     }
 
     /**
@@ -145,7 +150,7 @@ public class Tableau implements Serializable
      *
      * @return TODO:
      */
-    public Card get(int i)
+    public final Card get(final int i)
     {
         return this.tableau[i];
     }
@@ -153,18 +158,17 @@ public class Tableau implements Serializable
     /**
      * TODO:
      */
-    public void shuffle()
+    public final void shuffle()
     {
         Random rnd = new Random();
         Card tmp;
         int j = 0;
+
         for (int i = 0; i < this.getSize(); i++)
         {
             j = Math.abs(rnd.nextInt()) % this.getSize();
             tmp = this.get(i);
-            this.set(
-                i,
-                this.get(j));
+            this.set(i, this.get(j));
             this.set(j, tmp);
         }
     }
@@ -175,7 +179,7 @@ public class Tableau implements Serializable
      * @param i TODO:
      * @param card TODO:
      */
-    private void set(int i, Card card)
+    private void set(final int i, final Card card)
     {
         this.tableau[i] = card;
     }

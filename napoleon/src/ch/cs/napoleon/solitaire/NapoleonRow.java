@@ -11,14 +11,21 @@ import java.util.Iterator;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
 public class NapoleonRow implements Serializable
 {
-    //~ Instance variables -------------------------------------------
+    //~ Static fields/initializers ---------------------------------------------
+
+    /** @TODO: javadoc! */
+    private static final int BASE_SIZE = 5;
+
+    /** @TODO: javadoc! */
+    private static final int END_SIZE = 13;
+
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private ArrayList base;
@@ -26,15 +33,15 @@ public class NapoleonRow implements Serializable
     /** TODO: */
     private ArrayList end;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new NapoleonRow object.
      */
     public NapoleonRow()
     {
-        this.base = new ArrayList(5);
-        this.end = new ArrayList(13);
+        this.base = new ArrayList(BASE_SIZE);
+        this.end = new ArrayList(END_SIZE);
     }
 
     /**
@@ -42,22 +49,22 @@ public class NapoleonRow implements Serializable
      *
      * @param cards TODO:
      */
-    public NapoleonRow(ArrayList cards)
+    public NapoleonRow(final ArrayList cards)
     {
         this();
         this.set(cards);
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
      *
-     * @param base TODO:
+     * @param bs TODO:
      */
-    public void setBase(ArrayList base)
+    public final void setBase(final ArrayList bs)
     {
-        this.base = base;
+        this.base = bs;
     }
 
     /**
@@ -65,7 +72,7 @@ public class NapoleonRow implements Serializable
      *
      * @return TODO:
      */
-    public ArrayList getBase()
+    public final ArrayList getBase()
     {
         return this.base;
     }
@@ -73,11 +80,11 @@ public class NapoleonRow implements Serializable
     /**
      * TODO:
      *
-     * @param end TODO:
+     * @param nd TODO:
      */
-    public void setEnd(ArrayList end)
+    public final void setEnd(final ArrayList nd)
     {
-        this.end = end;
+        this.end = nd;
     }
 
     /**
@@ -85,7 +92,7 @@ public class NapoleonRow implements Serializable
      *
      * @return TODO:
      */
-    public ArrayList getEnd()
+    public final ArrayList getEnd()
     {
         return this.end;
     }
@@ -95,7 +102,7 @@ public class NapoleonRow implements Serializable
      *
      * @return TODO:
      */
-    public Card getLast()
+    public final Card getLast()
     {
         try
         {
@@ -112,7 +119,7 @@ public class NapoleonRow implements Serializable
      *
      * @return TODO:
      */
-    public Card getSecondLast()
+    public final Card getSecondLast()
     {
         try
         {
@@ -129,7 +136,7 @@ public class NapoleonRow implements Serializable
      *
      * @return TODO:
      */
-    public int getSize()
+    public final int getSize()
     {
         return this.base.size() + this.end.size();
     }
@@ -141,17 +148,20 @@ public class NapoleonRow implements Serializable
      *
      * @return TODO:
      */
-    public boolean add(Card card)
+    public final boolean add(final Card card)
     {
         Card last = this.getLast();
+
         if (last != null)
         {
             Card secondLast = this.getSecondLast();
+
             if (secondLast != null)
             {
                 if (secondLast.follows(last, card))
                 {
                     this.end.add(card);
+
                     return true;
                 }
                 else
@@ -164,6 +174,7 @@ public class NapoleonRow implements Serializable
                 if (last.follows(card))
                 {
                     this.end.add(card);
+
                     return true;
                 }
                 else
@@ -175,6 +186,7 @@ public class NapoleonRow implements Serializable
         else
         {
             this.end.add(card);
+
             return true;
         }
     }
@@ -186,9 +198,10 @@ public class NapoleonRow implements Serializable
      *
      * @return TODO:
      */
-    public boolean forceAdd(Card card)
+    public final boolean forceAdd(final Card card)
     {
         Card last = this.getLast();
+
         if (last != null)
         {
             if (this.end.size() == 1)
@@ -196,14 +209,17 @@ public class NapoleonRow implements Serializable
                 this.base.addAll(this.end);
                 this.end.clear();
                 this.end.add(card);
+
                 return true;
             }
         }
         else
         {
             this.end.add(card);
+
             return true;
         }
+
         return false;
     }
 
@@ -212,15 +228,17 @@ public class NapoleonRow implements Serializable
      *
      * @return TODO:
      */
-    public boolean remove()
+    public final boolean remove()
     {
         if (this.end.size() > 0)
         {
             this.end.remove(this.end.size() - 1);
+
             if ((this.end.size() == 0) && (this.base.size() > 0))
             {
                 this.end.add(this.base.remove(this.base.size() - 1));
             }
+
             return true;
         }
         else
@@ -234,13 +252,15 @@ public class NapoleonRow implements Serializable
      *
      * @param cards TODO:
      */
-    public void set(ArrayList cards)
+    public final void set(final ArrayList cards)
     {
         this.base.clear();
         this.end.clear();
+
         for (Iterator iter = cards.iterator(); iter.hasNext();)
         {
             Card card = (Card) iter.next();
+
             if (iter.hasNext())
             {
                 this.base.add(card);

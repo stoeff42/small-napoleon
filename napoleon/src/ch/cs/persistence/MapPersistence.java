@@ -17,14 +17,33 @@ import java.util.zip.GZIPOutputStream;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
-public class MapPersistence
+public final class MapPersistence
 {
-    //~ Methods ------------------------------------------------------
+    //~ Static fields/initializers ---------------------------------------------
+
+    /** @TODO: javadoc! */
+    private static final int ONE_KB = 1024;
+
+    /** @TODO: javadoc! */
+    private static final int TEN_KB = ONE_KB * 10;
+
+    //~ Constructors -----------------------------------------------------------
+
+    /**
+     * Creates a new MapPersistence object.
+     */
+    private MapPersistence()
+    {
+        /**
+         * Make constructor private in order to implement singleton correctly
+         */
+    }
+
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * Creates a new MapPersistence object.
@@ -77,23 +96,24 @@ public class MapPersistence
      *
      * @return TODO:
      */
-    public static Map read(String fileName)
+    public static Map read(final String fileName)
     {
         Map map = new HashMap();
         XMLDecoder input = null;
+
         try
         {
             input =
-                new XMLDecoder(
-                    new GZIPInputStream(
-                        new BufferedInputStream(
-                            new FileInputStream(fileName),
-                            10240)));
+                new XMLDecoder(new GZIPInputStream(
+                        new BufferedInputStream(new FileInputStream(fileName),
+                            TEN_KB)));
             map = (Map) input.readObject();
         }
         catch (Throwable e)
         {
-            // Silently ignoring...
+            /**
+             * Silently ignoring...
+             */
         }
         finally
         {
@@ -105,10 +125,13 @@ public class MapPersistence
                 }
                 catch (Throwable e)
                 {
-                    // Silently ignoring...
+                    /**
+                     * Silently ignoring...
+                     */
                 }
             }
         }
+
         return map;
     }
 
@@ -200,17 +223,17 @@ public class MapPersistence
      *
      * @return TODO:
      */
-    public static boolean write(String fileName, Map map)
+    public static boolean write(final String fileName, final Map map)
     {
         try
         {
             XMLEncoder output =
                 new XMLEncoder(new GZIPOutputStream(
                         new BufferedOutputStream(
-                            new FileOutputStream(fileName),
-                            10240)));
+                            new FileOutputStream(fileName), TEN_KB)));
             output.writeObject(map);
             output.close();
+
             return true;
         }
         catch (Throwable e)

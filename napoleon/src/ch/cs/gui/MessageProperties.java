@@ -9,14 +9,13 @@ import javax.swing.ImageIcon;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
-public class MessageProperties
+public final class MessageProperties
 {
-    //~ Static variables/initializers --------------------------------
+    //~ Static fields/initializers ---------------------------------------------
 
     /** TODO: */
     private static final String BUNDLE_NAME = "ch.cs.gui.message"; //$NON-NLS-1$
@@ -25,16 +24,19 @@ public class MessageProperties
     private static final ResourceBundle RESOURCE_BUNDLE =
         ResourceBundle.getBundle(BUNDLE_NAME);
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new MessageProperties object.
      */
     private MessageProperties()
     {
+        /**
+         * Make constructor private in order to implement singleton correctly
+         */
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
@@ -43,7 +45,7 @@ public class MessageProperties
      *
      * @return TODO:
      */
-    public static boolean getBoolean(String key)
+    public static boolean getBoolean(final String key)
     {
         return Boolean.valueOf(getString(key)).booleanValue();
     }
@@ -55,7 +57,7 @@ public class MessageProperties
      *
      * @return TODO:
      */
-    public static boolean getBoolean(Object[] key)
+    public static boolean getBoolean(final Object[] key)
     {
         return getBoolean(createString(key));
     }
@@ -68,9 +70,9 @@ public class MessageProperties
      *
      * @return TODO:
      */
-    public static boolean getBoolean(String key1, String key2)
+    public static boolean getBoolean(final String key1, final String key2)
     {
-        return getBoolean(createString(new Object[] {key1, key2}));
+        return getBoolean(createString(new Object[] { key1, key2 }));
     }
 
     /**
@@ -82,11 +84,10 @@ public class MessageProperties
      *
      * @return TODO:
      */
-    public static boolean getBoolean(String key1, String key2,
-        String key3)
+    public static boolean getBoolean(final String key1, final String key2,
+        final String key3)
     {
-        return getBoolean(
-            createString(new Object[] {key1, key2, key3}));
+        return getBoolean(createString(new Object[] { key1, key2, key3 }));
     }
 
     /**
@@ -96,7 +97,7 @@ public class MessageProperties
      *
      * @return TODO:
      */
-    public static ImageIcon getImage(String name)
+    public static ImageIcon getImage(final String name)
     {
         return new ImageIcon(ClassLoader.getSystemResource(name));
     }
@@ -108,7 +109,7 @@ public class MessageProperties
      *
      * @return TODO:
      */
-    public static int getInt(String key)
+    public static int getInt(final String key)
     {
         return Integer.valueOf(getString(key)).intValue();
     }
@@ -120,7 +121,7 @@ public class MessageProperties
      *
      * @return TODO:
      */
-    public static int getInt(Object[] key)
+    public static int getInt(final Object[] key)
     {
         return getInt(createString(key));
     }
@@ -133,9 +134,9 @@ public class MessageProperties
      *
      * @return TODO:
      */
-    public static int getInt(String key1, String key2)
+    public static int getInt(final String key1, final String key2)
     {
-        return getInt(createString(new Object[] {key1, key2}));
+        return getInt(createString(new Object[] { key1, key2 }));
     }
 
     /**
@@ -147,9 +148,10 @@ public class MessageProperties
      *
      * @return TODO:
      */
-    public static int getInt(String key1, String key2, String key3)
+    public static int getInt(final String key1, final String key2,
+        final String key3)
     {
-        return getInt(createString(new Object[] {key1, key2, key3}));
+        return getInt(createString(new Object[] { key1, key2, key3 }));
     }
 
     /**
@@ -159,7 +161,7 @@ public class MessageProperties
      *
      * @return TODO:
      */
-    public static String getString(Object[] key)
+    public static String getString(final Object[] key)
     {
         return getString(createString(key));
     }
@@ -172,9 +174,9 @@ public class MessageProperties
      *
      * @return TODO:
      */
-    public static String getString(String key1, String key2)
+    public static String getString(final String key1, final String key2)
     {
-        return getString(createString(new Object[] {key1, key2}));
+        return getString(createString(new Object[] { key1, key2 }));
     }
 
     /**
@@ -186,11 +188,10 @@ public class MessageProperties
      *
      * @return TODO:
      */
-    public static String getString(String key1, String key2,
-        String key3)
+    public static String getString(final String key1, final String key2,
+        final String key3)
     {
-        return getString(
-            createString(new Object[] {key1, key2, key3}));
+        return getString(createString(new Object[] { key1, key2, key3 }));
     }
 
     /**
@@ -200,7 +201,7 @@ public class MessageProperties
      *
      * @return TODO:
      */
-    public static String getString(String key)
+    public static String getString(final String key)
     {
         try
         {
@@ -219,15 +220,17 @@ public class MessageProperties
      *
      * @return TODO:
      */
-    private static String createString(Object[] property)
+    private static String createString(final Object[] property)
     {
         StringBuffer buffer = new StringBuffer();
         buffer.append(property[0]);
+
         for (int i = 1; i < property.length; i++)
         {
             buffer.append("."); //$NON-NLS-1$
             buffer.append(property[i]);
         }
+
         return buffer.toString();
     }
 }

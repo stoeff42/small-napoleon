@@ -12,31 +12,31 @@ import java.awt.event.WindowEvent;
  */
 public class WindowHandler extends WindowAdapter
 {
-    //~ Instance variables -------------------------------------------
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private Napoleon napoleon;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new MouseHandler object.
      *
-     * @param napoleon TODO:
+     * @param napo TODO:
      */
-    public WindowHandler(Napoleon napoleon)
+    public WindowHandler(final Napoleon napo)
     {
-        this.napoleon = napoleon;
+        this.napoleon = napo;
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
      *
      * @param event TODO:
      */
-    public void windowActivated(WindowEvent event)
+    public final void windowActivated(final WindowEvent event)
     {
         this.napoleon.resume();
     }
@@ -46,7 +46,7 @@ public class WindowHandler extends WindowAdapter
      *
      * @param event TODO:
      */
-    public void windowClosing(WindowEvent event)
+    public final void windowClosing(final WindowEvent event)
     {
         this.napoleon.save();
     }
@@ -56,7 +56,7 @@ public class WindowHandler extends WindowAdapter
      *
      * @param event TODO:
      */
-    public void windowDeactivated(WindowEvent event)
+    public final void windowDeactivated(final WindowEvent event)
     {
         this.napoleon.suspend();
     }
@@ -66,7 +66,7 @@ public class WindowHandler extends WindowAdapter
      *
      * @param event TODO:
      */
-    public void windowDeiconified(WindowEvent event)
+    public final void windowDeiconified(final WindowEvent event)
     {
         this.napoleon.resume();
     }
@@ -76,7 +76,7 @@ public class WindowHandler extends WindowAdapter
      *
      * @param event TODO:
      */
-    public void windowGainedFocus(WindowEvent event)
+    public final void windowGainedFocus(final WindowEvent event)
     {
         this.napoleon.resume();
     }
@@ -86,7 +86,7 @@ public class WindowHandler extends WindowAdapter
      *
      * @param event TODO:
      */
-    public void windowIconified(WindowEvent event)
+    public final void windowIconified(final WindowEvent event)
     {
         this.napoleon.suspend();
     }
@@ -96,7 +96,7 @@ public class WindowHandler extends WindowAdapter
      *
      * @param event TODO:
      */
-    public void windowLostFocus(WindowEvent event)
+    public final void windowLostFocus(final WindowEvent event)
     {
         this.napoleon.suspend();
     }

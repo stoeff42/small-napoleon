@@ -10,14 +10,13 @@ import java.io.Serializable;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
 public class CardSelection implements Serializable
 {
-    //~ Static variables/initializers --------------------------------
+    //~ Static fields/initializers ---------------------------------------------
 
     /** TODO: */
     public static final int FOUNDATION = 0;
@@ -31,7 +30,7 @@ public class CardSelection implements Serializable
     /** TODO: */
     public static final int CELLAR = 3;
 
-    //~ Instance variables -------------------------------------------
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private Card card;
@@ -48,74 +47,78 @@ public class CardSelection implements Serializable
     /** TODO: */
     private int type;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new CardSelection object.
      */
     public CardSelection()
     {
+        /**
+         * Empty constructor
+         */
     }
 
     /**
      * Creates a new CardSelection object.
      *
-     * @param card TODO:
-     * @param slot TODO:
-     * @param type TODO:
-     * @param info1 TODO:
-     * @param info2 TODO:
+     * @param crd TODO:
+     * @param slt TODO:
+     * @param tpe TODO:
+     * @param inf1 TODO:
+     * @param inf2 TODO:
      */
-    public CardSelection(Card card, Point slot, int type, int info1,
-        int info2)
+    public CardSelection(final Card crd, final Point slt, final int tpe,
+        final int inf1, final int inf2)
     {
-        this.card = card;
-        this.slot = slot;
-        this.type = type;
-        this.info1 = info1;
-        this.info2 = info2;
+        this.card = crd;
+        this.slot = slt;
+        this.type = tpe;
+        this.info1 = inf1;
+        this.info2 = inf2;
     }
 
     /**
      * Creates a new CardSelection object.
      *
-     * @param card TODO:
-     * @param slot TODO:
-     * @param type TODO:
-     * @param info1 TODO:
+     * @param crd TODO:
+     * @param slt TODO:
+     * @param tpe TODO:
+     * @param inf1 TODO:
      */
-    public CardSelection(Card card, Point slot, int type, int info1)
+    public CardSelection(final Card crd, final Point slt, final int tpe,
+        final int inf1)
     {
-        this.card = card;
-        this.slot = slot;
-        this.type = type;
-        this.info1 = info1;
+        this.card = crd;
+        this.slot = slt;
+        this.type = tpe;
+        this.info1 = inf1;
     }
 
     /**
      * Creates a new CardSelection object.
      *
-     * @param card TODO:
-     * @param slot TODO:
-     * @param type TODO:
+     * @param crd TODO:
+     * @param slt TODO:
+     * @param tpe TODO:
      */
-    public CardSelection(Card card, Point slot, int type)
+    public CardSelection(final Card crd, final Point slt, final int tpe)
     {
-        this.card = card;
-        this.slot = slot;
-        this.type = type;
+        this.card = crd;
+        this.slot = slt;
+        this.type = tpe;
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
      *
-     * @param card TODO:
+     * @param crd TODO:
      */
-    public void setCard(Card card)
+    public final void setCard(final Card crd)
     {
-        this.card = card;
+        this.card = crd;
     }
 
     /**
@@ -123,7 +126,7 @@ public class CardSelection implements Serializable
      *
      * @return TODO:
      */
-    public Card getCard()
+    public final Card getCard()
     {
         return this.card;
     }
@@ -131,11 +134,11 @@ public class CardSelection implements Serializable
     /**
      * TODO:
      *
-     * @param info1 TODO:
+     * @param inf1 TODO:
      */
-    public void setInfo1(int info1)
+    public final void setInfo1(final int inf1)
     {
-        this.info1 = info1;
+        this.info1 = inf1;
     }
 
     /**
@@ -143,7 +146,7 @@ public class CardSelection implements Serializable
      *
      * @return TODO:
      */
-    public int getInfo1()
+    public final int getInfo1()
     {
         return this.info1;
     }
@@ -151,11 +154,11 @@ public class CardSelection implements Serializable
     /**
      * TODO:
      *
-     * @param info2 TODO:
+     * @param inf2 TODO:
      */
-    public void setInfo2(int info2)
+    public final void setInfo2(final int inf2)
     {
-        this.info2 = info2;
+        this.info2 = inf2;
     }
 
     /**
@@ -163,7 +166,7 @@ public class CardSelection implements Serializable
      *
      * @return TODO:
      */
-    public int getInfo2()
+    public final int getInfo2()
     {
         return this.info2;
     }
@@ -171,11 +174,11 @@ public class CardSelection implements Serializable
     /**
      * TODO:
      *
-     * @param slot TODO:
+     * @param slt TODO:
      */
-    public void setSlot(Point slot)
+    public final void setSlot(final Point slt)
     {
-        this.slot = slot;
+        this.slot = slt;
     }
 
     /**
@@ -183,19 +186,19 @@ public class CardSelection implements Serializable
      *
      * @return TODO:
      */
-    public Point getSlot()
+    public final Point getSlot()
     {
         return this.slot;
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param type TODO:
+     * @param tpe @TODO: javadoc!
      */
-    public void setType(int type)
+    public final void setType(final int tpe)
     {
-        this.type = type;
+        this.type = tpe;
     }
 
     /**
@@ -203,7 +206,7 @@ public class CardSelection implements Serializable
      *
      * @return TODO:
      */
-    public int getType()
+    public final int getType()
     {
         return this.type;
     }

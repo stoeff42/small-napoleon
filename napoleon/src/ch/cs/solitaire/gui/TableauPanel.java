@@ -1,6 +1,7 @@
 package ch.cs.solitaire.gui;
 
 import ch.cs.gui.MessageProperties;
+
 import ch.cs.solitaire.Card;
 
 import java.awt.Color;
@@ -15,34 +16,34 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
 
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
 public abstract class TableauPanel extends JPanel
 {
-    //~ Static variables/initializers --------------------------------
+    //~ Static fields/initializers ---------------------------------------------
 
     /** TODO: */
-    public static final int LEFT_PILE = SwingUtilities.LEFT;
+    public static final int LEFT_PILE = SwingConstants.LEFT;
 
     /** TODO: */
-    public static final int UP_PILE = SwingUtilities.TOP;
+    public static final int UP_PILE = SwingConstants.TOP;
 
     /** TODO: */
-    public static final int RIGHT_PILE = SwingUtilities.RIGHT;
+    public static final int RIGHT_PILE = SwingConstants.RIGHT;
 
     /** TODO: */
-    public static final int DOWN_PILE = SwingUtilities.BOTTOM;
+    public static final int DOWN_PILE = SwingConstants.BOTTOM;
 
-    //~ Instance variables -------------------------------------------
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private Map sets;
@@ -50,7 +51,7 @@ public abstract class TableauPanel extends JPanel
     /** TODO: */
     private String currentSetId;
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
@@ -59,10 +60,9 @@ public abstract class TableauPanel extends JPanel
      *
      * @return TODO:
      */
-    public Image getCardSuit(Card card)
+    public final Image getCardSuit(final Card card)
     {
-        return this.getCardSuits()[card.getSuit() - 1][card.getRank()
-        - 1];
+        return this.getCardSuits()[card.getSuit() - 1][card.getRank() - 1];
     }
 
     /**
@@ -70,11 +70,16 @@ public abstract class TableauPanel extends JPanel
      *
      * @return String
      */
-    public String getCurrentSetId()
+    public final String getCurrentSetId()
     {
-        return (currentSetId == null)
-        ? (String) this.getSets().keySet().iterator().next()
-        : this.currentSetId;
+        String id = this.currentSetId;
+
+        if (this.currentSetId == null)
+        {
+            id = (String) this.getSets().keySet().iterator().next();
+        }
+
+        return id;
     }
 
     /**
@@ -82,7 +87,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @return int
      */
-    public Font getFont()
+    public final Font getFont()
     {
         return this.getCurrentSet().getFont();
     }
@@ -92,7 +97,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @param setId The tableauSize to set
      */
-    public void setSet(String setId)
+    public final void setSet(final String setId)
     {
         if (this.getSets().containsKey(setId))
         {
@@ -108,12 +113,13 @@ public abstract class TableauPanel extends JPanel
      *
      * @return TODO:
      */
-    public Map getSets()
+    public final Map getSets()
     {
         if (this.sets == null)
         {
             this.createSets();
         }
+
         return this.sets;
     }
 
@@ -122,7 +128,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @param graphics TODO:
      */
-    public void paintComponent(Graphics graphics)
+    public final void paintComponent(final Graphics graphics)
     {
         super.paintComponent(graphics);
         this.drawDeck(graphics);
@@ -133,7 +139,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @return TODO:
      */
-    protected Image getBackSuit()
+    protected final Image getBackSuit()
     {
         return this.getCardSuits()[4][0];
     }
@@ -143,7 +149,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @return TODO:
      */
-    protected Dimension getCardSize()
+    protected final Dimension getCardSize()
     {
         return this.getCurrentSet().getCardSize();
     }
@@ -153,7 +159,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @return int
      */
-    protected int getCardSlotOffset()
+    protected final int getCardSlotOffset()
     {
         return this.getCurrentSet().getCardSlotOffset();
     }
@@ -163,7 +169,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @return TODO:
      */
-    protected Image[][] getCardSuits()
+    protected final Image[][] getCardSuits()
     {
         return this.getCurrentSet().getCardSuits();
     }
@@ -173,7 +179,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @return TODO:
      */
-    protected DeckSet getCurrentSet()
+    protected final DeckSet getCurrentSet()
     {
         return this.getSet(this.getCurrentSetId());
     }
@@ -183,7 +189,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @return String[]
      */
-    protected String getCurrentSetName()
+    protected final String getCurrentSetName()
     {
         return this.getCurrentSet().getName();
     }
@@ -193,7 +199,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @return TODO:
      */
-    protected Image getEmptySuit()
+    protected final Image getEmptySuit()
     {
         return this.getCardSuits()[4][1];
     }
@@ -203,7 +209,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @return int
      */
-    protected int getFontSize()
+    protected final int getFontSize()
     {
         return this.getCurrentSet().getFontSize();
     }
@@ -213,7 +219,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @return int
      */
-    protected int getMaxPileSize()
+    protected final int getMaxPileSize()
     {
         return this.getCurrentSet().getMaxPileSize();
     }
@@ -223,7 +229,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @return TODO:
      */
-    protected int getPileOffset()
+    protected final int getPileOffset()
     {
         return this.getCurrentSet().getPileOffset();
     }
@@ -235,12 +241,16 @@ public abstract class TableauPanel extends JPanel
      *
      * @return TODO:
      */
-    protected int getPileSize(int pileSize)
+    protected final int getPileSize(final int pileSize)
     {
-        return (pileSize > 0)
-        ? Math.min(
-            pileSize,
-            this.getMaxPileSize()) : 0;
+        int pS = 0;
+
+        if (pileSize > 0)
+        {
+            Math.min(pileSize, this.getMaxPileSize());
+        }
+
+        return pS;
     }
 
     /**
@@ -250,13 +260,10 @@ public abstract class TableauPanel extends JPanel
      * @param x TODO:
      * @param y TODO:
      */
-    protected void drawBack(Graphics graphics, int x, int y)
+    protected final void drawBack(final Graphics graphics, final int x,
+        final int y)
     {
-        graphics.drawImage(
-            this.getBackSuit(),
-            x,
-            y,
-            null);
+        graphics.drawImage(this.getBackSuit(), x, y, null);
     }
 
     /**
@@ -268,8 +275,8 @@ public abstract class TableauPanel extends JPanel
      * @param card TODO:
      * @param front TODO:
      */
-    protected void drawCard(Graphics graphics, int x, int y,
-        Card card, boolean front)
+    protected final void drawCard(final Graphics graphics, final int x,
+        final int y, final Card card, final boolean front)
     {
         if (front)
         {
@@ -286,7 +293,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @param graphics TODO:
      */
-    protected abstract void drawDeck(Graphics graphics);
+    protected abstract void drawDeck(final Graphics graphics);
 
     /**
      * TODO: DOWN_PILE and UP_PILE implementation
@@ -299,59 +306,64 @@ public abstract class TableauPanel extends JPanel
      * @param dir TODO:
      * @param clear TODO:
      */
-    protected void drawCardPile(Graphics graphics, ArrayList cards,
-        boolean front, boolean pileFront, Point slotLocation,
-        int dir, boolean clear)
+    protected final void drawCardPile(final Graphics graphics,
+        final ArrayList cards, final boolean front, final boolean pileFront,
+        final Point slotLocation, final int dir, final boolean clear)
     {
         int pileSize = this.getPileSize(cards.size());
         int clearOffset = (pileSize - 1) * this.getPileOffset();
+
         if (dir == LEFT_PILE)
         {
-            if (clear)
-            {
-                graphics.clearRect((int) slotLocation.getX()
-                    - clearOffset - this.getPileOffset(),
-                    (int) slotLocation.getY(),
-                    clearOffset + this.getPileOffset(),
-                    this.getCardSize().height + 1);
-            }
+            clearCardPile(graphics, slotLocation, clear, clearOffset);
+
             for (int i = 0; i < (pileSize - 1); i++)
             {
+                int index = 0;
+
+                if (i != 0)
+                {
+                    index = cards.size() - pileSize + i;
+                }
+
                 this.drawCard(graphics,
                     (int) slotLocation.getX() - (i * getPileOffset()),
-                    (int) slotLocation.getY(),
-                    (Card) cards.get((i == 0) ? 0
-                                              : (cards.size()
-                        - pileSize + i)), pileFront);
+                    (int) slotLocation.getY(), (Card) cards.get(index),
+                    pileFront);
             }
-            this.drawCard(graphics,
-                (int) slotLocation.getX() - clearOffset,
-                (int) slotLocation.getY(),
-                (Card) cards.get(cards.size() - 1), front);
+
+            this.drawCard(graphics, (int) slotLocation.getX() - clearOffset,
+                (int) slotLocation.getY(), (Card) cards.get(cards.size() - 1),
+                front);
         }
         else if (dir == RIGHT_PILE)
         {
             if (clear)
             {
                 graphics.clearRect((int) slotLocation.getX()
-                    + this.getCardSize().width + 1,
-                    (int) slotLocation.getY(),
+                    + this.getCardSize().width + 1, (int) slotLocation.getY(),
                     clearOffset + this.getPileOffset(),
                     this.getCardSize().height + 1);
             }
+
             for (int i = 0; i < (pileSize - 1); i++)
             {
+                int index = 0;
+
+                if (i != 0)
+                {
+                    index = cards.size() - pileSize + i;
+                }
+
                 this.drawCard(graphics,
                     (int) slotLocation.getX() + (i * getPileOffset()),
-                    (int) slotLocation.getY(),
-                    (Card) cards.get((i == 0) ? 0
-                                              : (cards.size()
-                        - pileSize + i)), pileFront);
+                    (int) slotLocation.getY(), (Card) cards.get(index),
+                    pileFront);
             }
-            this.drawCard(graphics,
-                (int) slotLocation.getX() + clearOffset,
-                (int) slotLocation.getY(),
-                (Card) cards.get(cards.size() - 1), front);
+
+            this.drawCard(graphics, (int) slotLocation.getX() + clearOffset,
+                (int) slotLocation.getY(), (Card) cards.get(cards.size() - 1),
+                front);
         }
     }
 
@@ -363,14 +375,10 @@ public abstract class TableauPanel extends JPanel
      * @param y TODO:
      * @param card TODO:
      */
-    protected void drawFront(Graphics graphics, int x, int y,
-        Card card)
+    protected final void drawFront(final Graphics graphics, final int x,
+        final int y, final Card card)
     {
-        graphics.drawImage(
-            this.getCardSuit(card),
-            x,
-            y,
-            null);
+        graphics.drawImage(this.getCardSuit(card), x, y, null);
     }
 
     /**
@@ -380,7 +388,8 @@ public abstract class TableauPanel extends JPanel
      * @param x TODO:
      * @param y TODO:
      */
-    protected void drawSelection(Graphics graphics, int x, int y)
+    protected final void drawSelection(final Graphics graphics, final int x,
+        final int y)
     {
         graphics.setXORMode(Color.WHITE);
         graphics.fillRect(x + 1, y + 1, this.getCardSize().width - 2,
@@ -395,7 +404,7 @@ public abstract class TableauPanel extends JPanel
      *
      * @return TODO:
      */
-    private DeckSet getSet(String id)
+    private DeckSet getSet(final String id)
     {
         return (DeckSet) this.getSets().get(id);
     }
@@ -407,10 +416,30 @@ public abstract class TableauPanel extends JPanel
      *
      * @return TODO:
      */
-    private static String getString(String property)
+    private static String getString(final String property)
     {
         return MessageProperties.getString("tableaupanel", //$NON-NLS-1$
             property);
+    }
+
+    /**
+     * @TODO: javadoc!
+     *
+     * @param graphics @TODO: javadoc!
+     * @param slotLocation @TODO: javadoc!
+     * @param clear @TODO: javadoc!
+     * @param clearOffset @TODO: javadoc!
+     */
+    private void clearCardPile(final Graphics graphics,
+        final Point slotLocation, final boolean clear, final int clearOffset)
+    {
+        if (clear)
+        {
+            graphics.clearRect((int) slotLocation.getX() - clearOffset
+                - this.getPileOffset(), (int) slotLocation.getY(),
+                clearOffset + this.getPileOffset(),
+                this.getCardSize().height + 1);
+        }
     }
 
     /**
@@ -420,11 +449,10 @@ public abstract class TableauPanel extends JPanel
     {
         String[] settingsIds = getString("decksets").split(","); //$NON-NLS-1$ //$NON-NLS-2$
         this.sets = new TreeMap();
+
         for (int i = 0; i < settingsIds.length; i++)
         {
-            this.sets.put(
-                settingsIds[i],
-                new DeckSet(settingsIds[i]));
+            this.sets.put(settingsIds[i], new DeckSet(settingsIds[i]));
         }
     }
 }

@@ -18,7 +18,15 @@ import javax.swing.ImageIcon;
  */
 public class DeckSet
 {
-    //~ Instance variables -------------------------------------------
+    //~ Static fields/initializers ---------------------------------------------
+
+    /** @TODO: javadoc! */
+    private static final int NR_OF_SUITS = 4;
+
+    /** @TODO: javadoc! */
+    private static final int CARDS_PER_SUIT = 13;
+
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private Dimension cardSize;
@@ -27,10 +35,10 @@ public class DeckSet
     private Font font;
 
     /** TODO: */
-    private String fontFace;
+    private String deckId;
 
     /** TODO: */
-    private String id;
+    private String fontFace;
 
     /** TODO: */
     private String name;
@@ -50,19 +58,18 @@ public class DeckSet
     /** TODO: */
     private int pileOffset;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new DeckSet object.
      *
      * @param id TODO:
      */
-    public DeckSet(String id)
+    public DeckSet(final String id)
     {
-        this.id = id;
+        this.deckId = id;
         this.cardSize =
-            new Dimension(
-                this.getInt("cardsizex"), //$NON-NLS-1$
+            new Dimension(this.getInt("cardsizex"), //$NON-NLS-1$
                 this.getInt("cardsizey")); //$NON-NLS-1$
         this.maxPileSize = this.getInt("maxpilesize"); //$NON-NLS-1$
         this.pileOffset = this.getInt("pileoffset"); //$NON-NLS-1$
@@ -70,21 +77,17 @@ public class DeckSet
         this.fontSize = this.getInt("fontsize"); //$NON-NLS-1$
         this.fontFace = this.getString("fontface"); //$NON-NLS-1$
         this.name = this.getString("name"); //$NON-NLS-1$
-        this.font =
-            new Font(
-                this.fontFace,
-                Font.BOLD,
-                this.getFontSize());
+        this.font = new Font(this.fontFace, Font.BOLD, this.getFontSize());
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * Returns the cardSize.
      *
      * @return Dimension
      */
-    public Dimension getCardSize()
+    public final Dimension getCardSize()
     {
         return this.cardSize;
     }
@@ -94,7 +97,7 @@ public class DeckSet
      *
      * @return int
      */
-    public int getCardSlotOffset()
+    public final int getCardSlotOffset()
     {
         return this.cardSlotOffset;
     }
@@ -104,13 +107,24 @@ public class DeckSet
      *
      * @return Image[][]
      */
-    public Image[][] getCardSuits()
+    public final Image[][] getCardSuits()
     {
         if (this.cardSuits == null)
         {
             this.createCardSuits();
         }
+
         return this.cardSuits;
+    }
+
+    /**
+     * Returns the id.
+     *
+     * @return String
+     */
+    public final String getDeckId()
+    {
+        return this.deckId;
     }
 
     /**
@@ -118,7 +132,7 @@ public class DeckSet
      *
      * @return Font
      */
-    public Font getFont()
+    public final Font getFont()
     {
         return this.font;
     }
@@ -128,19 +142,9 @@ public class DeckSet
      *
      * @return int
      */
-    public int getFontSize()
+    public final int getFontSize()
     {
         return this.fontSize;
-    }
-
-    /**
-     * Returns the id.
-     *
-     * @return String
-     */
-    public String getId()
-    {
-        return this.id;
     }
 
     /**
@@ -148,7 +152,7 @@ public class DeckSet
      *
      * @return int
      */
-    public int getMaxPileSize()
+    public final int getMaxPileSize()
     {
         return this.maxPileSize;
     }
@@ -158,9 +162,9 @@ public class DeckSet
      *
      * @return String
      */
-    public String getName()
+    public final String getName()
     {
-        return name;
+        return this.name;
     }
 
     /**
@@ -168,7 +172,7 @@ public class DeckSet
      *
      * @return int
      */
-    public int getPileOffset()
+    public final int getPileOffset()
     {
         return this.pileOffset;
     }
@@ -180,12 +184,10 @@ public class DeckSet
      *
      * @return TODO:
      */
-    private int getInt(String subProperty)
+    private int getInt(final String subProperty)
     {
-        return MessageProperties.getInt(
-            "deckset", //$NON-NLS-1$
-            this.getId(),
-            subProperty);
+        return MessageProperties.getInt("deckset", //$NON-NLS-1$
+            this.getDeckId(), subProperty);
     }
 
     /**
@@ -195,12 +197,10 @@ public class DeckSet
      *
      * @return TODO:
      */
-    private String getString(String property)
+    private String getString(final String property)
     {
-        return MessageProperties.getString(
-            "deckset", //$NON-NLS-1$
-            this.getId(),
-            property);
+        return MessageProperties.getString("deckset", //$NON-NLS-1$
+            this.getDeckId(), property);
     }
 
     /**
@@ -209,22 +209,26 @@ public class DeckSet
     private void createCardSuits()
     {
         ImageIcon deckImage =
-            MessageProperties.getImage(
-                this.getString("deckimagefilename")); //$NON-NLS-1$
+            MessageProperties.getImage(this.getString("deckimagefilename")); //$NON-NLS-1$
         Image image = deckImage.getImage();
-        this.cardSuits = new Image[5][];
-        for (int suit = 0; suit < 4; suit++)
+        this.cardSuits = new Image[NR_OF_SUITS + 1][];
+
+        for (int suit = 0; suit < NR_OF_SUITS; suit++)
         {
-            this.cardSuits[suit] = new Image[13];
-            for (int rank = 0; rank < 13; rank++)
+            this.cardSuits[suit] = new Image[CARDS_PER_SUIT];
+
+            for (int rank = 0; rank < CARDS_PER_SUIT; rank++)
             {
                 this.cardSuits[suit][rank] =
                     this.extractCardSuit(suit, rank, image);
             }
         }
-        this.cardSuits[4] = new Image[2];
-        this.cardSuits[4][0] = this.extractCardSuit(0, 4, image);
-        this.cardSuits[4][1] = this.extractCardSuit(1, 4, image);
+
+        this.cardSuits[NR_OF_SUITS] = new Image[2];
+        this.cardSuits[NR_OF_SUITS][0] =
+            this.extractCardSuit(0, NR_OF_SUITS, image);
+        this.cardSuits[NR_OF_SUITS][1] =
+            this.extractCardSuit(1, NR_OF_SUITS, image);
     }
 
     /**
@@ -236,12 +240,12 @@ public class DeckSet
      *
      * @return TODO:
      */
-    private Image extractCardSuit(int suit, int rank, Image deckImage)
+    private Image extractCardSuit(final int suit, final int rank,
+        final Image deckImage)
     {
         Image image =
             new BufferedImage((int) this.getCardSize().getWidth(),
-                (int) this.getCardSize().getHeight(),
-                BufferedImage.TYPE_INT_RGB);
+                (int) this.getCardSize().getHeight(), BufferedImage.TYPE_INT_RGB);
         image.getGraphics().drawImage(deckImage, 0, 0,
             (int) this.getCardSize().getWidth(),
             (int) this.getCardSize().getHeight(),
@@ -249,6 +253,7 @@ public class DeckSet
             (int) (suit * this.getCardSize().getHeight()),
             (int) ((rank + 1) * this.getCardSize().getWidth()),
             (int) ((suit + 1) * this.getCardSize().getHeight()), null);
+
         return image;
     }
 }

@@ -6,14 +6,18 @@ import java.io.Serializable;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
 public class Card implements Serializable
 {
-    //~ Instance variables -------------------------------------------
+    //~ Static fields/initializers ---------------------------------------------
+
+    /** @TODO: javadoc! */
+    private static final int SUITS_PER_PACK = 4;
+
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private byte number;
@@ -27,55 +31,60 @@ public class Card implements Serializable
     /** TODO: */
     private byte suit;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new Card object.
      */
     public Card()
     {
+        /**
+         * Make constructor private in order to implement singleton correctly
+         */
     }
 
     /**
      * Creates a new Card object.
      *
-     * @param number TODO:
-     * @param pack TODO:
+     * @param nr TODO:
+     * @param pck TODO:
      */
-    public Card(byte number, byte pack)
+    public Card(final byte nr, final byte pck)
     {
-        this.number = (byte) (number % 52);
-        this.pack = pack;
-        this.rank = (byte) ((this.number % 13) + 1);
-        this.suit = (byte) ((this.number / 13) + 1);
+        this.number = (byte) (nr % pck);
+        this.pack = pck;
+        this.rank = (byte) ((this.number % (pck % SUITS_PER_PACK)) + 1);
+        this.suit = (byte) ((this.number / (pck % SUITS_PER_PACK)) + 1);
     }
 
     /**
      * Creates a new Card object.
      *
-     * @param rank TODO:
-     * @param suit TODO:
-     * @param pack TODO:
+     * @param rnk TODO:
+     * @param st TODO:
+     * @param pck TODO:
      */
-    public Card(byte rank, byte suit, byte pack)
+    public Card(final byte rnk, final byte st, final byte pck)
     {
-        this.rank = rank;
-        this.suit = suit;
-        this.pack = pack;
+        this.rank = rnk;
+        this.suit = st;
+        this.pack = pck;
         this.number =
-            (byte) ((this.rank - 1) + ((this.suit - 1) * 13));
+            (byte) (
+                (this.rank - 1) + (((this.suit - 1) * pck) % SUITS_PER_PACK)
+            );
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
      *
-     * @param number TODO:
+     * @param nr TODO:
      */
-    public void setNumber(byte number)
+    public final void setNumber(final byte nr)
     {
-        this.number = number;
+        this.number = nr;
     }
 
     /**
@@ -83,7 +92,7 @@ public class Card implements Serializable
      *
      * @return TODO:
      */
-    public byte getNumber()
+    public final byte getNumber()
     {
         return this.number;
     }
@@ -91,11 +100,11 @@ public class Card implements Serializable
     /**
      * TODO:
      *
-     * @param pack TODO:
+     * @param pck TODO:
      */
-    public void setPack(byte pack)
+    public final void setPack(final byte pck)
     {
-        this.pack = pack;
+        this.pack = pck;
     }
 
     /**
@@ -103,7 +112,7 @@ public class Card implements Serializable
      *
      * @return TODO:
      */
-    public byte getPack()
+    public final byte getPack()
     {
         return this.pack;
     }
@@ -111,11 +120,11 @@ public class Card implements Serializable
     /**
      * TODO:
      *
-     * @param rank TODO:
+     * @param rnk TODO:
      */
-    public void setRank(byte rank)
+    public final void setRank(final byte rnk)
     {
-        this.rank = rank;
+        this.rank = rnk;
     }
 
     /**
@@ -123,7 +132,7 @@ public class Card implements Serializable
      *
      * @return TODO:
      */
-    public byte getRank()
+    public final byte getRank()
     {
         return this.rank;
     }
@@ -131,11 +140,11 @@ public class Card implements Serializable
     /**
      * TODO:
      *
-     * @param suit TODO:
+     * @param st TODO:
      */
-    public void setSuit(byte suit)
+    public final void setSuit(final byte st)
     {
-        this.suit = suit;
+        this.suit = st;
     }
 
     /**
@@ -143,7 +152,7 @@ public class Card implements Serializable
      *
      * @return TODO:
      */
-    public byte getSuit()
+    public final byte getSuit()
     {
         return this.suit;
     }
@@ -155,16 +164,25 @@ public class Card implements Serializable
      *
      * @return TODO:
      */
-    public boolean follows(Card card)
+    public final boolean follows(final Card card)
     {
         if (card == null)
         {
             return false;
         }
-        return (((this.getSuit() == card.getSuit())
-            && (((this.getRank() % 13) + 1) == card.getRank()))
-            || ((card.getSuit() == this.getSuit())
-            && (((card.getRank() % 13) + 1) == this.getRank())));
+
+        return ((
+            (this.getSuit() == card.getSuit())
+            && (
+                ((this.getRank() % (getCardsPerSuit())) + 1) == card.getRank()
+            )
+        )
+        || (
+            (card.getSuit() == this.getSuit())
+            && (
+                ((card.getRank() % (getCardsPerSuit())) + 1) == this.getRank()
+            )
+        ));
     }
 
     /**
@@ -175,19 +193,42 @@ public class Card implements Serializable
      *
      * @return TODO:
      */
-    public boolean follows(Card card1, Card card2)
+    public final boolean follows(final Card card1, final Card card2)
     {
         if ((card1 == null) || (card2 == null))
         {
             return false;
         }
-        return (((this.getSuit() == card1.getSuit())
+
+        return ((
+            (this.getSuit() == card1.getSuit())
             && (card1.getSuit() == card2.getSuit())
-            && (((this.getRank() % 13) + 1) == card1.getRank())
-            && (((card1.getRank() % 13) + 1) == card2.getRank()))
-            || ((card2.getSuit() == card1.getSuit())
+            && (
+                ((this.getRank() % (getCardsPerSuit())) + 1) == card1.getRank()
+            )
+            && (
+                ((card1.getRank() % (getCardsPerSuit())) + 1) == card2.getRank()
+            )
+        )
+        || (
+            (card2.getSuit() == card1.getSuit())
             && (card1.getSuit() == this.getSuit())
-            && (((card2.getRank() % 13) + 1) == card1.getRank())
-            && (((card1.getRank() % 13) + 1) == this.getRank())));
+            && (
+                ((card2.getRank() % (getCardsPerSuit())) + 1) == card1.getRank()
+            )
+            && (
+                ((card1.getRank() % (getCardsPerSuit())) + 1) == this.getRank()
+            )
+        ));
+    }
+
+    /**
+     * @TODO: javadoc!
+     *
+     * @return @TODO: javadoc!
+     */
+    public final int getCardsPerSuit()
+    {
+        return this.getPack() % SUITS_PER_PACK;
     }
 }

@@ -11,26 +11,30 @@ import java.util.Iterator;
 /**
  * TODO:
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
+ * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
  *         Schilling</a>
  * @version $Revision$
  */
 public class Foundation implements Serializable
 {
-    //~ Instance variables -------------------------------------------
+    //~ Static fields/initializers ---------------------------------------------
+
+    /** @TODO: javadoc! */
+    private static final int FOUNDATION_SIZE = 13;
+
+    //~ Instance fields --------------------------------------------------------
 
     /** TODO: */
     private ArrayList foundation;
 
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
      * Creates a new Foundation object.
      */
     public Foundation()
     {
-        this.foundation = new ArrayList(13);
+        this.foundation = new ArrayList(FOUNDATION_SIZE);
     }
 
     /**
@@ -38,20 +42,20 @@ public class Foundation implements Serializable
      *
      * @param cards TODO:
      */
-    public Foundation(ArrayList cards)
+    public Foundation(final ArrayList cards)
     {
         this();
         this.set(cards);
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
      * TODO:
      *
      * @return TODO:
      */
-    public Card getFirst()
+    public final Card getFirst()
     {
         return (Card) this.foundation.get(0);
     }
@@ -59,11 +63,11 @@ public class Foundation implements Serializable
     /**
      * TODO:
      *
-     * @param foundation TODO:
+     * @param fnd TODO:
      */
-    public void setFoundation(ArrayList foundation)
+    public final void setFoundation(final ArrayList fnd)
     {
-        this.foundation = foundation;
+        this.foundation = fnd;
     }
 
     /**
@@ -71,9 +75,9 @@ public class Foundation implements Serializable
      *
      * @return TODO:
      */
-    public ArrayList getFoundation()
+    public final ArrayList getFoundation()
     {
-        return foundation;
+        return this.foundation;
     }
 
     /**
@@ -81,12 +85,11 @@ public class Foundation implements Serializable
      *
      * @return TODO:
      */
-    public Card getLast()
+    public final Card getLast()
     {
         try
         {
-            return (Card) this.foundation.get(this.foundation.size()
-                - 1);
+            return (Card) this.foundation.get(this.foundation.size() - 1);
         }
         catch (IndexOutOfBoundsException e)
         {
@@ -99,12 +102,11 @@ public class Foundation implements Serializable
      *
      * @return TODO:
      */
-    public Card getSecondLast()
+    public final Card getSecondLast()
     {
         try
         {
-            return (Card) this.foundation.get(this.foundation.size()
-                - 2);
+            return (Card) this.foundation.get(this.foundation.size() - 2);
         }
         catch (IndexOutOfBoundsException e)
         {
@@ -117,7 +119,7 @@ public class Foundation implements Serializable
      *
      * @return TODO:
      */
-    public int getSize()
+    public final int getSize()
     {
         return this.foundation.size();
     }
@@ -129,10 +131,11 @@ public class Foundation implements Serializable
      *
      * @return TODO:
      */
-    public boolean add(Card card)
+    public final boolean add(final Card card)
     {
         Card last = this.getLast();
         Card secondLast = this.getSecondLast();
+
         if (last != null)
         {
             if (secondLast != null)
@@ -140,6 +143,7 @@ public class Foundation implements Serializable
                 if (secondLast.follows(last, card))
                 {
                     this.foundation.add(card);
+
                     return true;
                 }
                 else
@@ -147,9 +151,11 @@ public class Foundation implements Serializable
                     return false;
                 }
             }
+
             if (last.follows(card))
             {
                 this.foundation.add(card);
+
                 return true;
             }
             else
@@ -168,11 +174,12 @@ public class Foundation implements Serializable
      *
      * @return TODO:
      */
-    public boolean remove()
+    public final boolean remove()
     {
         if (this.foundation.size() > 1)
         {
             this.foundation.remove(this.foundation.size() - 1);
+
             return true;
         }
         else
@@ -186,12 +193,14 @@ public class Foundation implements Serializable
      *
      * @param cards TODO:
      */
-    public void set(ArrayList cards)
+    public final void set(final ArrayList cards)
     {
         this.foundation.clear();
+
         Iterator iter = cards.iterator();
         this.set((Card) iter.next());
-        for (; iter.hasNext();)
+
+        while (iter.hasNext())
         {
             this.add((Card) iter.next());
         }
@@ -202,7 +211,7 @@ public class Foundation implements Serializable
      *
      * @param card TODO:
      */
-    public void set(Card card)
+    public final void set(final Card card)
     {
         this.foundation.clear();
         this.foundation.add(card);
