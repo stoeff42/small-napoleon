@@ -6,6 +6,7 @@
         key="org.eclipse.ui.externaltools.ATTR_REFRESH_SCOPE" value="${project}"/>
     <stringAttribute
         key="org.eclipse.ui.externaltools.ATTR_RUN_BUILD_KINDS" value="full,"/>
+    <stringAttribute key="org.eclipse.debug.core.ATTR_REFRESH_SCOPE" value="${container}"/>
     <stringAttribute key="org.eclipse.debug.ui.target_debug_perspective" value="perspective_default"/>
     <stringAttribute
         key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${project_loc}/classes"/>

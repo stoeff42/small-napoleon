@@ -13,10 +13,7 @@ import waba.util.Random;
  *         Schilling</a>
  * @version $Revision$
  */
-public class Tableau
-{
-    //~ Static variables/initializers --------------------------------
-
+public class Tableau {
     /** TODO: javadoc */
     public static final int PACK_OF_52 = 52;
 
@@ -25,8 +22,6 @@ public class Tableau
 
     /** TODO: javadoc */
     public static final int PACK_OF_32 = 32;
-
-    //~ Instance variables -------------------------------------------
 
     /** TODO: javadoc */
     private Card[] tableau;
@@ -37,37 +32,31 @@ public class Tableau
     /** TODO: javadoc */
     private int packType;
 
-    //~ Constructors -------------------------------------------------
-
     /**
      * Creates a new Tableau object.
      *
      * @param packType TODO: javadoc
      * @param nrOfPacks TODO: javadoc
      */
-    public Tableau(int packType, int nrOfPacks)
-    {
-        this.packType = packType;
-        this.nrOfPacks = nrOfPacks;
+    public Tableau(int pckTpe, int nrOPcks) {
+        this.packType = pckTpe;
+        this.nrOfPacks = nrOPcks;
         this.tableau = new Card[this.packType * this.nrOfPacks];
-        for (int i = 0; i < this.tableau.length; i++)
-        {
-            this.tableau[i] =
-                new Card((byte) (i % this.packType),
+
+        for (int i = 0; i < this.tableau.length; i++) {
+            this.tableau[i] = new Card((byte) (i % this.packType),
                     (byte) (i / this.packType));
         }
+
         this.shuffle();
     }
-
-    //~ Methods ------------------------------------------------------
 
     /**
      * TODO: javadoc
      *
      * @return TODO: javadoc
      */
-    public int getSize()
-    {
+    public int getSize() {
         return this.tableau.length;
     }
 
@@ -78,8 +67,7 @@ public class Tableau
      *
      * @return TODO: javadoc
      */
-    public Card get(int i)
-    {
+    public Card get(int i) {
         return this.tableau[i];
     }
 
@@ -88,11 +76,10 @@ public class Tableau
      *
      * @param stream TODO: javadoc
      */
-    public void load(DataStream stream)
-    {
+    public void load(DataStream stream) {
         this.tableau = new Card[stream.readInt()];
-        for (int i = 0; i < this.tableau.length; i++)
-        {
+
+        for (int i = 0; i < this.tableau.length; i++) {
             this.tableau[i] = new Card();
             this.tableau[i].load(stream);
         }
@@ -103,11 +90,10 @@ public class Tableau
      *
      * @param stream TODO: javadoc
      */
-    public void save(DataStream stream)
-    {
+    public void save(DataStream stream) {
         stream.writeInt(this.tableau.length);
-        for (int i = 0; i < this.tableau.length; i++)
-        {
+
+        for (int i = 0; i < this.tableau.length; i++) {
             this.tableau[i].save(stream);
         }
     }
@@ -115,13 +101,12 @@ public class Tableau
     /**
      * TODO: javadoc
      */
-    public void shuffle()
-    {
+    public void shuffle() {
         Random rnd = new Random();
         Card tmp;
         int j = 0;
-        for (int i = 0; i < this.tableau.length; i++)
-        {
+
+        for (int i = 0; i < this.tableau.length; i++) {
             j = rnd.nextInt(this.tableau.length);
             tmp = this.get(i);
             this.tableau[i] = this.get(j);

@@ -20,10 +20,7 @@ import waba.util.Vector;
  *         Schilling</a>
  * @version $Revision$
  */
-public abstract class TableauPanel extends Control
-{
-    //~ Static variables/initializers --------------------------------
-
+public abstract class TableauPanel extends Control {
     /** TODO: javadoc */
     public static final int LEFT_PILE = 0;
 
@@ -36,31 +33,23 @@ public abstract class TableauPanel extends Control
     /** TODO: javadoc */
     public static final int DOWN_PILE = 3;
 
-    //~ Instance variables -------------------------------------------
-
     /** TODO:  javadoc */
     private DeckSet deckSet;
-
-    //~ Constructors -------------------------------------------------
 
     /**
      * Creates a new TableauPanel object.
      */
-    public TableauPanel()
-    {
+    public TableauPanel() {
         super();
         this.setFont(this.getFont());
     }
-
-    //~ Methods ------------------------------------------------------
 
     /**
      * Returns the cardSlotOffset.
      *
      * @return int
      */
-    public Font getFont()
-    {
+    public Font getFont() {
         return this.getDeckSet().getFont();
     }
 
@@ -69,8 +58,7 @@ public abstract class TableauPanel extends Control
      *
      * @param graphics TODO: javadoc
      */
-    public void onPaint(Graphics graphics)
-    {
+    public void onPaint(Graphics graphics) {
         this.drawDeck(graphics);
     }
 
@@ -79,8 +67,7 @@ public abstract class TableauPanel extends Control
      *
      * @return TODO: javadoc
      */
-    protected Image getBackSuit()
-    {
+    protected Image getBackSuit() {
         return this.getCardSuits()[4][0];
     }
 
@@ -89,8 +76,7 @@ public abstract class TableauPanel extends Control
      *
      * @return TODO: javadoc
      */
-    protected Coord getCardSize()
-    {
+    protected Coord getCardSize() {
         return this.getDeckSet().getCardSize();
     }
 
@@ -99,8 +85,7 @@ public abstract class TableauPanel extends Control
      *
      * @return int
      */
-    protected int getCardSlotOffset()
-    {
+    protected int getCardSlotOffset() {
         return this.getDeckSet().getCardSlotOffset();
     }
 
@@ -109,8 +94,7 @@ public abstract class TableauPanel extends Control
      *
      * @return int
      */
-    protected int getFontHeight()
-    {
+    protected int getFontHeight() {
         return this.getDeckSet().getFontHeight();
     }
 
@@ -119,8 +103,7 @@ public abstract class TableauPanel extends Control
      *
      * @return int
      */
-    protected int getMaxPileSize()
-    {
+    protected int getMaxPileSize() {
         return this.getDeckSet().getMaxPileSize();
     }
 
@@ -129,8 +112,7 @@ public abstract class TableauPanel extends Control
      *
      * @return TODO: javadoc
      */
-    protected int getPileOffset()
-    {
+    protected int getPileOffset() {
         return this.getDeckSet().getPileOffset();
     }
 
@@ -141,12 +123,8 @@ public abstract class TableauPanel extends Control
      *
      * @return TODO: javadoc
      */
-    protected int getPileSize(int pileSize)
-    {
-        return (pileSize > 0)
-        ? Math.min(
-            pileSize,
-            this.getMaxPileSize()) : 0;
+    protected int getPileSize(int pileSize) {
+        return (pileSize > 0) ? Math.min(pileSize, this.getMaxPileSize()) : 0;
     }
 
     /**
@@ -156,8 +134,7 @@ public abstract class TableauPanel extends Control
      *
      * @return int
      */
-    protected int getTextWidth(String text)
-    {
+    protected int getTextWidth(String text) {
         return this.getDeckSet().getTextWidth(text);
     }
 
@@ -168,12 +145,8 @@ public abstract class TableauPanel extends Control
      * @param x TODO: javadoc
      * @param y TODO: javadoc
      */
-    protected void drawBack(Graphics graphics, int x, int y)
-    {
-        graphics.drawImage(
-            this.getBackSuit(),
-            x,
-            y);
+    protected void drawBack(Graphics graphics, int xC, int yC) {
+        graphics.drawImage(this.getBackSuit(), xC, yC);
     }
 
     /**
@@ -185,16 +158,12 @@ public abstract class TableauPanel extends Control
      * @param card TODO: javadoc
      * @param front TODO: javadoc
      */
-    protected void drawCard(Graphics graphics, int x, int y,
-        Card card, boolean front)
-    {
-        if (front && (card != null))
-        {
-            this.drawFront(graphics, x, y, card);
-        }
-        else
-        {
-            this.drawBack(graphics, x, y);
+    protected void drawCard(Graphics graphics, int xC, int yC, Card card,
+        boolean front) {
+        if (front && (card != null)) {
+            this.drawFront(graphics, xC, yC, card);
+        } else {
+            this.drawBack(graphics, xC, yC);
         }
     }
 
@@ -218,63 +187,47 @@ public abstract class TableauPanel extends Control
      *
      * @throws RuntimeException TODO: javadoc
      */
-    protected void drawCardPile(Graphics graphics, Vector cards,
-        boolean front, boolean pileFront, Coord slotLocation,
-        int dir, boolean clear)
-    {
+    protected void drawCardPile(Graphics graphics, Vector cards, boolean front,
+        boolean pileFront, Coord slotLocation, int dir, boolean clear) {
         int pileSize = this.getPileSize(cards.size());
         int clearOffset = (pileSize - 1) * this.getPileOffset();
-        if (dir == LEFT_PILE)
-        {
-            if (clear)
-            {
-                graphics.fillRect(slotLocation.x - clearOffset
-                    - this.getPileOffset() - 1, slotLocation.y,
-                    clearOffset + this.getPileOffset() + 1,
-                    this.getCardSize().y + 1);
-            }
-            for (int i = 0; i < (pileSize - 1); i++)
-            {
-                this.drawCard(graphics,
-                    slotLocation.x - (i * getPileOffset()),
-                    slotLocation.y,
-                    (Card) cards.get((i == 0) ? 0
-                                              : (cards.size()
-                        - pileSize + i)), pileFront);
-            }
-            this.drawCard(graphics, slotLocation.x - clearOffset,
-                slotLocation.y, (Card) cards.get(cards.size() - 1),
-                front);
-        }
-        else if (dir == RIGHT_PILE)
-        {
-            if (clear)
-            {
-                graphics.fillRect(slotLocation.x
-                    + this.getCardSize().x, slotLocation.y,
-                    clearOffset + this.getPileOffset() + 1,
-                    this.getCardSize().y + 1);
-            }
-            for (int i = 0; i < (pileSize - 1); i++)
-            {
-                this.drawCard(graphics,
-                    slotLocation.x + (i * getPileOffset()),
-                    slotLocation.y,
-                    (Card) cards.get((i == 0) ? 0
-                                              : (cards.size()
-                        - pileSize + i)), pileFront);
-            }
-            this.drawCard(graphics, slotLocation.x + clearOffset,
-                slotLocation.y, (Card) cards.get(cards.size() - 1),
-                front);
-        }
 
-        else if (dir == UP_PILE)
-        {
+        if (dir == LEFT_PILE) {
+            if (clear) {
+                graphics.fillRect(slotLocation.x - clearOffset -
+                    this.getPileOffset() - 1, slotLocation.y,
+                    clearOffset + this.getPileOffset() + 1,
+                    this.getCardSize().y + 1);
+            }
+
+            for (int i = 0; i < (pileSize - 1); i++) {
+                this.drawCard(graphics, slotLocation.x - (i * getPileOffset()),
+                    slotLocation.y,
+                    (Card) cards.get((i == 0) ? 0 : (cards.size() - pileSize +
+                        i)), pileFront);
+            }
+
+            this.drawCard(graphics, slotLocation.x - clearOffset,
+                slotLocation.y, (Card) cards.get(cards.size() - 1), front);
+        } else if (dir == RIGHT_PILE) {
+            if (clear) {
+                graphics.fillRect(slotLocation.x + this.getCardSize().x,
+                    slotLocation.y, clearOffset + this.getPileOffset() + 1,
+                    this.getCardSize().y + 1);
+            }
+
+            for (int i = 0; i < (pileSize - 1); i++) {
+                this.drawCard(graphics, slotLocation.x + (i * getPileOffset()),
+                    slotLocation.y,
+                    (Card) cards.get((i == 0) ? 0 : (cards.size() - pileSize +
+                        i)), pileFront);
+            }
+
+            this.drawCard(graphics, slotLocation.x + clearOffset,
+                slotLocation.y, (Card) cards.get(cards.size() - 1), front);
+        } else if (dir == UP_PILE) {
             throw new RuntimeException();
-        }
-        else if (dir == DOWN_PILE)
-        {
+        } else if (dir == DOWN_PILE) {
             throw new RuntimeException();
         }
     }
@@ -287,17 +240,12 @@ public abstract class TableauPanel extends Control
      * @param y TODO: javadoc
      * @param card TODO: javadoc
      */
-    protected void drawFront(Graphics graphics, int x, int y,
-        Card card)
-    {
-        if (card == null)
-        {
+    protected void drawFront(Graphics graphics, int xC, int yC, Card card) {
+        if (card == null) {
             return;
         }
-        graphics.drawImage(
-            this.getCardSuit(card),
-            x,
-            y);
+
+        graphics.drawImage(this.getCardSuit(card), xC, yC);
     }
 
     /**
@@ -307,15 +255,9 @@ public abstract class TableauPanel extends Control
      * @param x TODO: javadoc
      * @param y TODO: javadoc
      */
-    protected void drawSelectedBack(Graphics graphics, int x, int y)
-    {
-        graphics.drawImage(
-            this.getBackSuit(),
-            x,
-            y,
-            Graphics.DRAW_PAINT_INVERSE,
-            this.getBackColor(),
-            false);
+    protected void drawSelectedBack(Graphics graphics, int xC, int yC) {
+        graphics.drawImage(this.getBackSuit(), xC, yC,
+            Graphics.DRAW_PAINT_INVERSE, this.getBackColor(), false);
     }
 
     /**
@@ -328,26 +270,19 @@ public abstract class TableauPanel extends Control
      * @param front TODO: javadoc
      * @param selected TODO: javadoc
      */
-    protected void drawSelectedCard(Graphics graphics, int x, int y,
-        Card card, boolean front, boolean selected)
-    {
-        if (card == null)
-        {
+    protected void drawSelectedCard(Graphics graphics, int xC, int yC,
+        Card card, boolean front, boolean selected) {
+        if (card == null) {
             return;
         }
-        if (selected == false)
-        {
-            this.drawCard(graphics, x, y, card, front);
-        }
-        else
-        {
-            if (front)
-            {
-                this.drawSelectedFront(graphics, x, y, card);
-            }
-            else
-            {
-                this.drawSelectedBack(graphics, x, y);
+
+        if (selected == false) {
+            this.drawCard(graphics, xC, yC, card, front);
+        } else {
+            if (front) {
+                this.drawSelectedFront(graphics, xC, yC, card);
+            } else {
+                this.drawSelectedBack(graphics, xC, yC);
             }
         }
     }
@@ -360,20 +295,14 @@ public abstract class TableauPanel extends Control
      * @param y TODO: javadoc
      * @param card TODO: javadoc
      */
-    protected void drawSelectedFront(Graphics graphics, int x, int y,
-        Card card)
-    {
-        if (card == null)
-        {
+    protected void drawSelectedFront(Graphics graphics, int xC, int yC,
+        Card card) {
+        if (card == null) {
             return;
         }
-        graphics.drawImage(
-            this.getCardSuit(card),
-            x,
-            y,
-            Graphics.DRAW_PAINT_INVERSE,
-            this.getBackColor(),
-            false);
+
+        graphics.drawImage(this.getCardSuit(card), xC, yC,
+            Graphics.DRAW_PAINT_INVERSE, this.getBackColor(), false);
     }
 
     /**
@@ -383,10 +312,8 @@ public abstract class TableauPanel extends Control
      *
      * @return TODO: javadoc
      */
-    private Image getCardSuit(Card card)
-    {
-        return this.getCardSuits()[card.getSuit() - 1][card.getRank()
-        - 1];
+    private Image getCardSuit(Card card) {
+        return this.getCardSuits()[card.getSuit() - 1][card.getRank() - 1];
     }
 
     /**
@@ -394,8 +321,7 @@ public abstract class TableauPanel extends Control
      *
      * @return TODO: javadoc
      */
-    private Image[][] getCardSuits()
-    {
+    private Image[][] getCardSuits() {
         return this.getDeckSet().getCardSuits();
     }
 
@@ -404,12 +330,11 @@ public abstract class TableauPanel extends Control
      *
      * @return TODO: javadoc
      */
-    private DeckSet getDeckSet()
-    {
-        if (this.deckSet == null)
-        {
+    private DeckSet getDeckSet() {
+        if (this.deckSet == null) {
             this.deckSet = new DeckSet(this);
         }
+
         return this.deckSet;
     }
 }

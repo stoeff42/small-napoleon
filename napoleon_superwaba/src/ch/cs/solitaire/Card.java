@@ -13,10 +13,7 @@ import waba.sys.Convert;
  *         Schilling</a>
  * @version $Revision$
  */
-public class Card
-{
-    //~ Instance variables -------------------------------------------
-
+public class Card {
     /** TODO: javadoc */
     private byte number;
 
@@ -29,13 +26,10 @@ public class Card
     /** TODO: javadoc */
     private byte suit;
 
-    //~ Constructors -------------------------------------------------
-
     /**
      * Creates a new Card object.
      */
-    public Card()
-    {
+    public Card() {
     }
 
     /**
@@ -44,9 +38,8 @@ public class Card
      * @param number TODO: javadoc
      * @param pack TODO: javadoc
      */
-    public Card(byte number, byte pack)
-    {
-        this.init(number, pack);
+    public Card(byte nmbr, byte pck) {
+        this.init(nmbr, pck);
     }
 
     /**
@@ -56,20 +49,16 @@ public class Card
      * @param suit TODO: javadoc
      * @param pack TODO: javadoc
      */
-    public Card(byte rank, byte suit, byte pack)
-    {
-        this.init(rank, suit, pack);
+    public Card(byte rnk, byte st, byte pck) {
+        this.init(rnk, st, pck);
     }
-
-    //~ Methods ------------------------------------------------------
 
     /**
      * TODO: javadoc
      *
      * @return TODO: javadoc
      */
-    public byte getNumber()
-    {
+    public byte getNumber() {
         return this.number;
     }
 
@@ -78,8 +67,7 @@ public class Card
      *
      * @return TODO: javadoc
      */
-    public byte getPack()
-    {
+    public byte getPack() {
         return this.pack;
     }
 
@@ -88,8 +76,7 @@ public class Card
      *
      * @return TODO: javadoc
      */
-    public byte getRank()
-    {
+    public byte getRank() {
         return this.rank;
     }
 
@@ -100,20 +87,22 @@ public class Card
      *
      * @return TODO: javadoc
      */
-    public static String getRankString(byte rank)
-    {
-        switch (rank)
-        {
-            case (0) :
-                return "A";
-            case (10) :
-                return "J";
-            case (11) :
-                return "Q";
-            case (12) :
-                return "K";
-            default :
-                return Convert.toString(rank + 1);
+    public static String getRankString(byte rank) {
+        switch (rank) {
+        case (0):
+            return "A";
+
+        case (10):
+            return "J";
+
+        case (11):
+            return "Q";
+
+        case (12):
+            return "K";
+
+        default:
+            return Convert.toString(rank + 1);
         }
     }
 
@@ -122,8 +111,7 @@ public class Card
      *
      * @return TODO: javadoc
      */
-    public byte getSuit()
-    {
+    public byte getSuit() {
         return this.suit;
     }
 
@@ -134,16 +122,15 @@ public class Card
      *
      * @return TODO: javadoc
      */
-    public boolean follows(Card card)
-    {
-        if (card == null)
-        {
+    public boolean follows(Card card) {
+        if (card == null) {
             return false;
         }
-        return (((this.getSuit() == card.getSuit())
-            && (((this.getRank() % 13) + 1) == card.getRank()))
-            || ((card.getSuit() == this.getSuit())
-            && (((card.getRank() % 13) + 1) == this.getRank())));
+
+        return (((this.getSuit() == card.getSuit()) &&
+        (((this.getRank() % 13) + 1) == card.getRank())) ||
+        ((card.getSuit() == this.getSuit()) &&
+        (((card.getRank() % 13) + 1) == this.getRank())));
     }
 
     /**
@@ -154,20 +141,19 @@ public class Card
      *
      * @return TODO: javadoc
      */
-    public boolean follows(Card card1, Card card2)
-    {
-        if ((card1 == null) || (card2 == null))
-        {
+    public boolean follows(Card card1, Card card2) {
+        if ((card1 == null) || (card2 == null)) {
             return false;
         }
-        return (((this.getSuit() == card1.getSuit())
-            && (card1.getSuit() == card2.getSuit())
-            && (((this.getRank() % 13) + 1) == card1.getRank())
-            && (((card1.getRank() % 13) + 1) == card2.getRank()))
-            || ((card2.getSuit() == card1.getSuit())
-            && (card1.getSuit() == this.getSuit())
-            && (((card2.getRank() % 13) + 1) == card1.getRank())
-            && (((card1.getRank() % 13) + 1) == this.getRank())));
+
+        return (((this.getSuit() == card1.getSuit()) &&
+        (card1.getSuit() == card2.getSuit()) &&
+        (((this.getRank() % 13) + 1) == card1.getRank()) &&
+        (((card1.getRank() % 13) + 1) == card2.getRank())) ||
+        ((card2.getSuit() == card1.getSuit()) &&
+        (card1.getSuit() == this.getSuit()) &&
+        (((card2.getRank() % 13) + 1) == card1.getRank()) &&
+        (((card1.getRank() % 13) + 1) == this.getRank())));
     }
 
     /**
@@ -175,11 +161,8 @@ public class Card
      *
      * @param stream TODO: javadoc
      */
-    public void load(DataStream stream)
-    {
-        this.init(
-            stream.readByte(),
-            stream.readByte());
+    public void load(DataStream stream) {
+        this.init(stream.readByte(), stream.readByte());
     }
 
     /**
@@ -187,8 +170,7 @@ public class Card
      *
      * @param stream TODO: javadoc
      */
-    public void save(DataStream stream)
-    {
+    public void save(DataStream stream) {
         stream.writeByte(this.number);
         stream.writeByte(this.pack);
     }
@@ -199,10 +181,9 @@ public class Card
      * @param number TODO: javadoc
      * @param pack TODO: javadoc
      */
-    private void init(byte number, byte pack)
-    {
-        this.number = (byte) (number % 52);
-        this.pack = pack;
+    private void init(byte nmbr, byte pck) {
+        this.number = (byte) (nmbr % 52);
+        this.pack = pck;
         this.rank = (byte) ((this.number % 13) + 1);
         this.suit = (byte) ((this.number / 13) + 1);
     }
@@ -214,12 +195,10 @@ public class Card
      * @param suit TODO: javadoc
      * @param pack TODO: javadoc
      */
-    private void init(byte rank, byte suit, byte pack)
-    {
-        this.rank = rank;
-        this.suit = suit;
-        this.pack = pack;
-        this.number =
-            (byte) ((this.rank - 1) + ((this.suit - 1) * 13));
+    private void init(byte rnk, byte st, byte pck) {
+        this.rank = rnk;
+        this.suit = st;
+        this.pack = pck;
+        this.number = (byte) ((this.rank - 1) + ((this.suit - 1) * 13));
     }
 }

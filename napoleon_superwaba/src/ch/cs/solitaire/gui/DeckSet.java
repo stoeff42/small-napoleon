@@ -17,10 +17,7 @@ import waba.ui.Control;
  * @author author
  * @version $Revision$
  */
-public class DeckSet
-{
-    //~ Instance variables -------------------------------------------
-
+public class DeckSet {
     /** TODO:  javadoc */
     private Control control;
 
@@ -39,33 +36,26 @@ public class DeckSet
     /** TODO: javadoc */
     private Image[][] cardSuits;
 
-    //~ Constructors -------------------------------------------------
-
     /**
      * Creates a new DeckSet object.
      *
      * @param control TODO: javadoc
      */
-    public DeckSet(Control control)
-    {
-        this.control = control;
+    public DeckSet(Control cntrl) {
+        this.control = cntrl;
         this.cardSize = new Coord(13, 19);
         this.suitSize = new Coord(9, 9);
         this.font = new Font("TinySmall", Font.PLAIN, 5);
-        this.fontMetrics =
-            this.control.getFontMetrics(this.getFont());
+        this.fontMetrics = this.control.getFontMetrics(this.getFont());
         this.createCardSuits();
     }
-
-    //~ Methods ------------------------------------------------------
 
     /**
      * Returns the cardSize.
      *
      * @return Coord
      */
-    public Coord getCardSize()
-    {
+    public Coord getCardSize() {
         return this.cardSize;
     }
 
@@ -74,8 +64,7 @@ public class DeckSet
      *
      * @return int
      */
-    public int getCardSlotOffset()
-    {
+    public int getCardSlotOffset() {
         return 1;
     }
 
@@ -84,8 +73,7 @@ public class DeckSet
      *
      * @return Image[][]
      */
-    public Image[][] getCardSuits()
-    {
+    public Image[][] getCardSuits() {
         return this.cardSuits;
     }
 
@@ -94,8 +82,7 @@ public class DeckSet
      *
      * @return TODO: javadoc
      */
-    public Font getFont()
-    {
+    public Font getFont() {
         return this.font;
     }
 
@@ -104,8 +91,7 @@ public class DeckSet
      *
      * @return int
      */
-    public int getMaxPileSize()
-    {
+    public int getMaxPileSize() {
         return 2;
     }
 
@@ -114,8 +100,7 @@ public class DeckSet
      *
      * @return int
      */
-    public int getPileOffset()
-    {
+    public int getPileOffset() {
         return 2;
     }
 
@@ -124,8 +109,7 @@ public class DeckSet
      *
      * @return int
      */
-    protected int getFontHeight()
-    {
+    protected int getFontHeight() {
         return this.fontMetrics.getHeight();
     }
 
@@ -136,8 +120,7 @@ public class DeckSet
      *
      * @return int
      */
-    protected int getTextWidth(String text)
-    {
+    protected int getTextWidth(String text) {
         return this.fontMetrics.getTextWidth(text);
     }
 
@@ -150,39 +133,37 @@ public class DeckSet
      *
      * @return TODO: javadoc
      */
-    private Image createCardSuit(int suit, int rank, Image suitsImage)
-    {
+    private Image createCardSuit(int suit, int rank, Image suitsImage) {
         Image image = this.createEmptyCardSuit();
-        int offset =
-            ((this.getCardSize().x - this.suitSize.x - 2) / 2) + 1;
-        image.getGraphics().copyRect(suitsImage,
-            suit * this.suitSize.x, 0, this.suitSize.x,
-            this.suitSize.y, offset, offset);
+        int offset = ((this.getCardSize().x - this.suitSize.x - 2) / 2) + 1;
+        image.getGraphics().copyRect(suitsImage, suit * this.suitSize.x, 0,
+            this.suitSize.x, this.suitSize.y, offset, offset);
+
         String rankString = Card.getRankString((byte) rank);
-        offset =
-            ((this.getCardSize().x - this.getTextWidth(rankString)
-            - 2) / 2) + 2;
+        offset = ((this.getCardSize().x - this.getTextWidth(rankString) - 2) / 2) +
+            2;
         image.getGraphics().drawText(rankString, offset,
             this.getCardSize().y - this.getFontHeight() - 1);
+
         return image;
     }
 
     /**
      * TODO: javadoc
      */
-    private void createCardSuits()
-    {
+    private void createCardSuits() {
         Image image = new Image("suits.bmp");
         this.cardSuits = new Image[5][];
-        for (int suit = 0; suit < 4; suit++)
-        {
+
+        for (int suit = 0; suit < 4; suit++) {
             this.cardSuits[suit] = new Image[13];
-            for (int rank = 0; rank < 13; rank++)
-            {
-                this.cardSuits[suit][rank] =
-                    this.createCardSuit(suit, rank, image);
+
+            for (int rank = 0; rank < 13; rank++) {
+                this.cardSuits[suit][rank] = this.createCardSuit(suit, rank,
+                        image);
             }
         }
+
         this.cardSuits[4] = new Image[1];
         this.cardSuits[4][0] = this.createEmptyCardSuit();
     }
@@ -192,10 +173,8 @@ public class DeckSet
      *
      * @return TODO: javadoc
      */
-    private Image createEmptyCardSuit()
-    {
-        Image image =
-            new Image(this.getCardSize().x, this.getCardSize().y);
+    private Image createEmptyCardSuit() {
+        Image image = new Image(this.getCardSize().x, this.getCardSize().y);
         image.getGraphics().setBackColor(Color.WHITE);
         image.getGraphics().setForeColor(Color.BLACK);
         image.getGraphics().setFont(this.getFont());
@@ -206,8 +185,8 @@ public class DeckSet
             this.getCardSize().x - 1, this.getCardSize().y - 2);
         image.getGraphics().drawLine(1, this.getCardSize().y - 1,
             this.getCardSize().x - 2, this.getCardSize().y - 1);
-        image.getGraphics().drawLine(0, 1, 0, this.getCardSize().y
-            - 2);
+        image.getGraphics().drawLine(0, 1, 0, this.getCardSize().y - 2);
+
         return image;
     }
 }

@@ -15,10 +15,7 @@ import waba.io.DataStream;
  *         Schilling</a>
  * @version $Revision$
  */
-public class CardSelection
-{
-    //~ Static variables/initializers --------------------------------
-
+public class CardSelection {
     /** TODO: javadoc */
     public static final int FOUNDATION = 0;
 
@@ -30,8 +27,6 @@ public class CardSelection
 
     /** TODO: javadoc */
     public static final int CELLAR = 3;
-
-    //~ Instance variables -------------------------------------------
 
     /** TODO: javadoc */
     private Card card;
@@ -48,13 +43,10 @@ public class CardSelection
     /** TODO: javadoc */
     private int type;
 
-    //~ Constructors -------------------------------------------------
-
     /**
      * Creates a new CardSelection object.
      */
-    public CardSelection()
-    {
+    public CardSelection() {
     }
 
     /**
@@ -66,14 +58,12 @@ public class CardSelection
      * @param info1 TODO: javadoc
      * @param info2 TODO: javadoc
      */
-    public CardSelection(Card card, Coord slot, int type, int info1,
-        int info2)
-    {
-        this.card = card;
-        this.slot = slot;
-        this.type = type;
-        this.info1 = info1;
-        this.info2 = info2;
+    public CardSelection(Card crd, Coord slt, int tpe, int inf1, int inf2) {
+        this.card = crd;
+        this.slot = slt;
+        this.type = tpe;
+        this.info1 = inf1;
+        this.info2 = inf2;
     }
 
     /**
@@ -84,12 +74,11 @@ public class CardSelection
      * @param type TODO: javadoc
      * @param info1 TODO: javadoc
      */
-    public CardSelection(Card card, Coord slot, int type, int info1)
-    {
-        this.card = card;
-        this.slot = slot;
-        this.type = type;
-        this.info1 = info1;
+    public CardSelection(Card crd, Coord slt, int tpe, int inf1) {
+        this.card = crd;
+        this.slot = slt;
+        this.type = tpe;
+        this.info1 = inf1;
     }
 
     /**
@@ -99,22 +88,18 @@ public class CardSelection
      * @param slot TODO: javadoc
      * @param type TODO: javadoc
      */
-    public CardSelection(Card card, Coord slot, int type)
-    {
-        this.card = card;
-        this.slot = slot;
-        this.type = type;
+    public CardSelection(Card crd, Coord slt, int tpe) {
+        this.card = crd;
+        this.slot = slt;
+        this.type = tpe;
     }
-
-    //~ Methods ------------------------------------------------------
 
     /**
      * TODO: javadoc
      *
      * @return TODO: javadoc
      */
-    public Card getCard()
-    {
+    public Card getCard() {
         return this.card;
     }
 
@@ -123,8 +108,7 @@ public class CardSelection
      *
      * @return TODO: javadoc
      */
-    public int getInfo1()
-    {
+    public int getInfo1() {
         return this.info1;
     }
 
@@ -133,8 +117,7 @@ public class CardSelection
      *
      * @return TODO: javadoc
      */
-    public int getInfo2()
-    {
+    public int getInfo2() {
         return this.info2;
     }
 
@@ -143,8 +126,7 @@ public class CardSelection
      *
      * @return TODO: javadoc
      */
-    public Coord getSlot()
-    {
+    public Coord getSlot() {
         return this.slot;
     }
 
@@ -153,8 +135,7 @@ public class CardSelection
      *
      * @return TODO: javadoc
      */
-    public int getType()
-    {
+    public int getType() {
         return this.type;
     }
 
@@ -163,8 +144,7 @@ public class CardSelection
      *
      * @param stream TODO: javadoc
      */
-    public void load(DataStream stream)
-    {
+    public void load(DataStream stream) {
         this.card = new Card();
         card.load(stream);
         this.slot = new Coord();
@@ -180,8 +160,7 @@ public class CardSelection
      *
      * @param stream TODO: javadoc
      */
-    public void save(DataStream stream)
-    {
+    public void save(DataStream stream) {
         card.save(stream);
         stream.writeByte(this.slot.x);
         stream.writeByte(this.slot.y);
