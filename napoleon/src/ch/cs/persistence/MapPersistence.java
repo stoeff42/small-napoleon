@@ -15,10 +15,9 @@ import java.util.zip.GZIPOutputStream;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public final class MapPersistence
@@ -46,55 +45,11 @@ public final class MapPersistence
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * Creates a new MapPersistence object.
+     * @TODO: javadoc!
      *
-     * @param fileName TODO:
+     * @param fileName javadoc!
      *
-     * @return TODO:
-     */
-
-    /* public static Map read(String fileName)
-       {
-           Map map;
-           ObjectInputStream input = null;
-           try
-           {
-               input =
-                   new ObjectInputStream(
-                       new GZIPInputStream(
-                           new BufferedInputStream(
-                               new FileInputStream(fileName),
-                               10240)));
-               map = (Map) input.readObject();
-           }
-           catch (Throwable e)
-           {
-               map = new HashMap();
-               // Silently ignoring...
-           }
-           finally
-           {
-               if (input != null)
-               {
-                   try
-                   {
-                       input.close();
-                   }
-                   catch (Throwable e)
-                   {
-                       // Silently ignoring...
-                   }
-               }
-           }
-           return map;
-       } */
-
-    /**
-     * TODO:
-     *
-     * @param fileName TODO:
-     *
-     * @return TODO:
+     * @return javadoc!
      */
     public static Map read(final String fileName)
     {
@@ -136,92 +91,12 @@ public final class MapPersistence
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param fileName TODO:
-     * @param map TODO:
+     * @param fileName javadoc!
+     * @param map javadoc!
      *
-     * @return TODO:
-     */
-
-    /* public static Object toObject(String byteArray)
-       {
-           ByteArrayInputStream input =
-               new ByteArrayInputStream(byteArray.getBytes());
-           Object object = null;
-           try
-           {
-               ObjectInputStream objectInput =
-                   new ObjectInputStream(input);
-               object = objectInput.readObject();
-           }
-           catch (Throwable e)
-           {
-               // Silently ignoring...
-           }
-           return object;
-       } */
-
-    /**
-     * TODO:
-     *
-     * @param fileName TODO:
-     * @param map TODO:
-     *
-     * @return TODO:
-     */
-
-    /* public static String toString(Object object)
-       {
-           ByteArrayOutputStream output = new ByteArrayOutputStream();
-           try
-           {
-               ObjectOutputStream objectOutput =
-                   new ObjectOutputStream(output);
-               objectOutput.writeObject(object);
-           }
-           catch (Throwable e)
-           {
-               // Silently ignoring...
-           }
-           return new String(output.toByteArray());
-       } */
-
-    /**
-     * TODO:
-     *
-     * @param fileName TODO:
-     * @param map TODO:
-     *
-     * @return TODO:
-     */
-
-    /* public static boolean write(String fileName, Map map)
-       {
-           try
-           {
-               ObjectOutputStream output =
-                   new ObjectOutputStream(new GZIPOutputStream(
-                           new BufferedOutputStream(
-                               new FileOutputStream(fileName),
-                               10240)));
-               output.writeObject(map);
-               output.close();
-               return true;
-           }
-           catch (Throwable e)
-           {
-               return false;
-           }
-       } */
-
-    /**
-     * TODO:
-     *
-     * @param fileName TODO:
-     * @param map TODO:
-     *
-     * @return TODO:
+     * @return javadoc!
      */
     public static boolean write(final String fileName, final Map map)
     {

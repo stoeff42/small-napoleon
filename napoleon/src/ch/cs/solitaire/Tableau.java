@@ -6,34 +6,33 @@ import java.util.Random;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public class Tableau implements Serializable
 {
     //~ Static fields/initializers ---------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     public static final int PACK_OF_52 = 52;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     public static final int PACK_OF_36 = 36;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     public static final int PACK_OF_32 = 32;
 
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private Card[] tableau;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private int nrOfPacks;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private int packType;
 
     //~ Constructors -----------------------------------------------------------
@@ -51,8 +50,8 @@ public class Tableau implements Serializable
     /**
      * Creates a new Tableau object.
      *
-     * @param pckTpe TODO:
-     * @param nOPcks TODO:
+     * @param pckTpe javadoc!
+     * @param nOPcks javadoc!
      */
     public Tableau(final int pckTpe, final int nOPcks)
     {
@@ -63,9 +62,8 @@ public class Tableau implements Serializable
         for (int i = 0; i < this.tableau.length; i++)
         {
             this.tableau[i] =
-                new Card(this.packType, (byte) (i % this.packType), (byte) (
-                        i / this.packType
-                    ));
+                new Card(this.packType, (byte) (i % this.packType),
+                    (byte) (i / this.packType));
         }
 
         this.shuffle();
@@ -74,9 +72,9 @@ public class Tableau implements Serializable
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param nOPcks TODO:
+     * @param nOPcks javadoc!
      */
     public final void setNrOfPacks(final int nOPcks)
     {
@@ -84,9 +82,9 @@ public class Tableau implements Serializable
     }
 
     /**
-     * Returns the nrOfPacks.
+     * @TODO: javadoc!
      *
-     * @return int
+     * @return javadoc!
      */
     public final int getNrOfPacks()
     {
@@ -94,9 +92,9 @@ public class Tableau implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param pckTpe TODO:
+     * @param pckTpe javadoc!
      */
     public final void setPackType(final int pckTpe)
     {
@@ -104,9 +102,9 @@ public class Tableau implements Serializable
     }
 
     /**
-     * Returns the packType.
+     * @TODO: javadoc!
      *
-     * @return int
+     * @return javadoc!
      */
     public final int getPackType()
     {
@@ -114,9 +112,9 @@ public class Tableau implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final int getSize()
     {
@@ -124,9 +122,9 @@ public class Tableau implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param tabl TODO:
+     * @param tabl javadoc!
      */
     public final void setTableau(final Card[] tabl)
     {
@@ -134,9 +132,9 @@ public class Tableau implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Card[] getTableau()
     {
@@ -144,11 +142,11 @@ public class Tableau implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param i TODO:
+     * @param i javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Card get(final int i)
     {
@@ -156,7 +154,7 @@ public class Tableau implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void shuffle()
     {
@@ -174,10 +172,10 @@ public class Tableau implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param i TODO:
-     * @param card TODO:
+     * @param i javadoc!
+     * @param card javadoc!
      */
     private void set(final int i, final Card card)
     {

@@ -5,16 +5,16 @@ import java.awt.event.MouseEvent;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author Christoph
+ * @author $author$
  * @version $Revision$
  */
 public class MouseHandler extends MouseAdapter
 {
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private NapoleonTableauPanel napoleonTableauPanel;
 
     //~ Constructors -----------------------------------------------------------
@@ -22,7 +22,7 @@ public class MouseHandler extends MouseAdapter
     /**
      * Creates a new MouseHandler object.
      *
-     * @param napoTabPanel TODO:
+     * @param napoTabPanel javadoc!
      */
     public MouseHandler(final NapoleonTableauPanel napoTabPanel)
     {
@@ -32,9 +32,9 @@ public class MouseHandler extends MouseAdapter
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public final void mouseClicked(final MouseEvent event)
     {

@@ -31,10 +31,9 @@ import javax.swing.Timer;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public class NapoleonTableauPanel extends TableauPanel
@@ -44,23 +43,23 @@ public class NapoleonTableauPanel extends TableauPanel
     /** @TODO: javadoc! */
     private static final int MILLIS_IN_SEC = 1000;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private static final String NR_OF_MOVES = "napoleontableaupanel.nrofmoves"; //$NON-NLS-1$
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private static final String TIME_USED = "napoleontableaupanel.timeused"; //$NON-NLS-1$
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private static final String SCORE_TABLE = "napoleontableaupanel.scoretable"; //$NON-NLS-1$
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private static final String SELECTED_CARD =
         "napoleontableaupanel.selectedcard"; //$NON-NLS-1$
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private static final String SUSPENDED = "napoleontableaupanel.suspended"; //$NON-NLS-1$
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private static final String SETTINGS_ID = "napoleontableaupanel.settingsid"; //$NON-NLS-1$
 
     /** @TODO: javadoc! */
@@ -68,25 +67,25 @@ public class NapoleonTableauPanel extends TableauPanel
 
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private CardSelection selectedCard;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private NapoleonTableau tableau;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private ScoreTable scoreTable;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private Timer updateTimer;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private boolean pileFront;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private boolean suspended;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private int nrOfMoves;
 
     //~ Constructors -----------------------------------------------------------
@@ -94,7 +93,7 @@ public class NapoleonTableauPanel extends TableauPanel
     /**
      * Creates a new NapoleonTableauPanel object.
      *
-     * @throws Exception TODO:
+     * @throws Exception javadoc!
      */
     public NapoleonTableauPanel() throws Exception
     {
@@ -113,9 +112,9 @@ public class NapoleonTableauPanel extends TableauPanel
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param map TODO:
+     * @param map javadoc!
      */
     public final void setData(final Map map)
     {
@@ -145,9 +144,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Map getData()
     {
@@ -165,9 +164,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Dimension getPreferredSize()
     {
@@ -182,9 +181,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * Returns the suspended.
+     * @TODO: javadoc!
      *
-     * @return boolean
+     * @return javadoc!
      */
     public final boolean getSuspended()
     {
@@ -192,9 +191,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final boolean canRedo()
     {
@@ -202,9 +201,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final boolean canUndo()
     {
@@ -212,7 +211,7 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void clearScoreTable()
     {
@@ -220,7 +219,7 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void newGame()
     {
@@ -230,7 +229,7 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void redo()
     {
@@ -253,7 +252,7 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void restartGame()
     {
@@ -263,7 +262,7 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void resume()
     {
@@ -277,7 +276,7 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void showScoreTable()
     {
@@ -285,7 +284,7 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void suspend()
     {
@@ -299,7 +298,7 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void toggleSuspendResume()
     {
@@ -314,7 +313,7 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void undo()
     {
@@ -337,9 +336,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * Returns the selectedCard.
+     * @TODO: javadoc!
      *
-     * @return CardSelection
+     * @return javadoc!
      */
     protected final CardSelection getSelectedCard()
     {
@@ -347,11 +346,11 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param location TODO:
+     * @param location javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     protected final Point calculateSlotOffset(final Point location)
     {
@@ -362,9 +361,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
+     * @param graphics javadoc!
      */
     protected final void drawDeck(final Graphics graphics)
     {
@@ -400,12 +399,12 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
-     * @param x TODO:
-     * @param y TODO:
-     * @param clickCount TODO:
+     * @param graphics javadoc!
+     * @param x javadoc!
+     * @param y javadoc!
+     * @param clickCount javadoc!
      */
     protected final void processSelection(final Graphics graphics, final int x,
         final int y, final int clickCount)
@@ -426,9 +425,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
+     * @param graphics javadoc!
      */
     protected final void updateProgress(final Graphics graphics)
     {
@@ -436,11 +435,11 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param property TODO:
+     * @param property javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private static boolean getBoolean(final String property)
     {
@@ -449,9 +448,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param nOMovs TODO:
+     * @param nOMovs javadoc!
      */
     private void setNrOfMoves(final int nOMovs)
     {
@@ -459,9 +458,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private int getNrOfMoves()
     {
@@ -469,9 +468,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param pileFrnt TODO:
+     * @param pileFrnt javadoc!
      */
     private void setPileFront(final boolean pileFrnt)
     {
@@ -479,9 +478,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private boolean getPileFront()
     {
@@ -489,9 +488,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param scorTab TODO:
+     * @param scorTab javadoc!
      */
     private void setScoreTable(final ScoreTable scorTab)
     {
@@ -499,15 +498,22 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private ScoreTable getScoreTable()
     {
         return this.scoreTable;
     }
 
+    /**
+     * @TODO: javadoc!
+     *
+     * @param selectedCardSlot javadoc!
+     *
+     * @return javadoc!
+     */
     private CardSelection getSelectRowCard(final Point selectedCardSlot)
     {
         if (selectedCardSlot.getX() == 6)
@@ -551,9 +557,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param selCrd TODO:
+     * @param selCrd javadoc!
      */
     private void setSelectedCard(final CardSelection selCrd)
     {
@@ -561,12 +567,12 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param x TODO:
-     * @param y TODO:
+     * @param x javadoc!
+     * @param y javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private CardSelection getSelectedCard(final int x, final int y)
     {
@@ -589,6 +595,13 @@ public class NapoleonTableauPanel extends TableauPanel
         return cardSelection;
     }
 
+    /**
+     * @TODO: javadoc!
+     *
+     * @param selectedCardSlot javadoc!
+     *
+     * @return javadoc!
+     */
     private CardSelection getSelectedHelpCard(final Point selectedCardSlot)
     {
         CardSelection cardSelection = null;
@@ -631,12 +644,12 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param x TODO:
-     * @param y TODO:
+     * @param x javadoc!
+     * @param y javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private Point getSlot(final int x, final int y)
     {
@@ -655,12 +668,12 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param x TODO:
-     * @param y TODO:
+     * @param x javadoc!
+     * @param y javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private Point getSlotLocation(final int x, final int y)
     {
@@ -677,11 +690,11 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param location TODO:
+     * @param location javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private Point getSlotLocation(final Point location)
     {
@@ -689,11 +702,11 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param property TODO:
+     * @param property javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private static String getString(final String property)
     {
@@ -702,9 +715,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param susp TODO:
+     * @param susp javadoc!
      */
     private void setSuspended(final boolean susp)
     {
@@ -712,9 +725,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param tabl TODO:
+     * @param tabl javadoc!
      */
     private void setTableau(final NapoleonTableau tabl)
     {
@@ -722,15 +735,21 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private NapoleonTableau getTableau()
     {
         return this.tableau;
     }
 
+    /**
+     * @TODO: javadoc!
+     *
+     * @param graphics javadoc!
+     * @param clickCount javadoc!
+     */
     private void autoPlace(final Graphics graphics, final int clickCount)
     {
         if (clickCount > 1)
@@ -753,7 +772,7 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     private void createUpdateTimer()
     {
@@ -770,9 +789,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private int decrNrOfMoves()
     {
@@ -780,12 +799,12 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
-     * @param x TODO:
-     * @param y TODO:
-     * @param card TODO:
+     * @param graphics javadoc!
+     * @param x javadoc!
+     * @param y javadoc!
+     * @param card javadoc!
      */
     private void drawCardInSlot(final Graphics graphics, final int x,
         final int y, final Card card)
@@ -796,13 +815,13 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
-     * @param x TODO:
-     * @param y TODO:
-     * @param cards TODO:
-     * @param clear TODO:
+     * @param graphics javadoc!
+     * @param x javadoc!
+     * @param y javadoc!
+     * @param cards javadoc!
+     * @param clear javadoc!
      */
     private void drawCardPileInSlot(final Graphics graphics, final int x,
         final int y, final ArrayList cards, final boolean clear)
@@ -813,6 +832,7 @@ public class NapoleonTableauPanel extends TableauPanel
         pileInfo.setFront(true);
         pileInfo.setPileFront(this.getPileFront());
         pileInfo.setClear(clear);
+
         if (x > 6)
         {
             pileInfo.setDir(TableauPanel.RIGHT_PILE);
@@ -821,14 +841,15 @@ public class NapoleonTableauPanel extends TableauPanel
         {
             pileInfo.setDir(TableauPanel.LEFT_PILE);
         }
+
         this.drawCardPile(graphics, cards, slotLocation, pileInfo);
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
-     * @param cardSelection TODO:
+     * @param graphics javadoc!
+     * @param cardSelection javadoc!
      */
     private void drawCardSelection(final Graphics graphics,
         final CardSelection cardSelection)
@@ -874,9 +895,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
+     * @param graphics javadoc!
      */
     private void drawCardsFinished(final Graphics graphics)
     {
@@ -892,6 +913,11 @@ public class NapoleonTableauPanel extends TableauPanel
             (int) slotLocation.getY() + this.getFontSize() + 1);
     }
 
+    /**
+     * @TODO: javadoc!
+     *
+     * @param graphics javadoc!
+     */
     private void drawHelp(final Graphics graphics)
     {
         Card card;
@@ -912,6 +938,13 @@ public class NapoleonTableauPanel extends TableauPanel
         }
     }
 
+    /**
+     * @TODO: javadoc!
+     *
+     * @param graphics javadoc!
+     * @param j javadoc!
+     * @param row javadoc!
+     */
     private void drawNapoleonRowBase(final Graphics graphics, final int j,
         final NapoleonRow row)
     {
@@ -944,6 +977,13 @@ public class NapoleonTableauPanel extends TableauPanel
         }
     }
 
+    /**
+     * @TODO: javadoc!
+     *
+     * @param graphics javadoc!
+     * @param j javadoc!
+     * @param row javadoc!
+     */
     private void drawNapoleonRowEnd(final Graphics graphics, final int j,
         final NapoleonRow row)
     {
@@ -977,6 +1017,11 @@ public class NapoleonTableauPanel extends TableauPanel
         }
     }
 
+    /**
+     * @TODO: javadoc!
+     *
+     * @param graphics javadoc!
+     */
     private void drawNapoleonRows(final Graphics graphics)
     {
         for (int j = 0; j < 8; j++)
@@ -989,9 +1034,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
+     * @param graphics javadoc!
      */
     private void drawNrOfMoves(final Graphics graphics)
     {
@@ -1005,6 +1050,13 @@ public class NapoleonTableauPanel extends TableauPanel
             (int) slotLocation.getY() + (2 * (this.getFontSize() + 1)) + 1);
     }
 
+    /**
+     * @TODO: javadoc!
+     *
+     * @param graphics javadoc!
+     * @param slot javadoc!
+     * @param card javadoc!
+     */
     private void drawRowCards(final Graphics graphics, final Point slot,
         final Card card)
     {
@@ -1019,6 +1071,12 @@ public class NapoleonTableauPanel extends TableauPanel
         }
     }
 
+    /**
+     * @TODO: javadoc!
+     *
+     * @param graphics javadoc!
+     * @param slot javadoc!
+     */
     private void drawRowEndCards(final Graphics graphics, final Point slot)
     {
         int rowNr = -1;
@@ -1043,10 +1101,10 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
-     * @param slot TODO:
+     * @param graphics javadoc!
+     * @param slot javadoc!
      */
     private void drawSlot(final Graphics graphics, final Point slot)
     {
@@ -1084,9 +1142,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
+     * @param graphics javadoc!
      */
     private void drawTimeUsed(final Graphics graphics)
     {
@@ -1104,9 +1162,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private int incrNrOfMoves()
     {
@@ -1114,7 +1172,7 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     private void init()
     {
@@ -1126,6 +1184,13 @@ public class NapoleonTableauPanel extends TableauPanel
         this.startUpdateTimer();
     }
 
+    /**
+     * @TODO: javadoc!
+     *
+     * @param graphics javadoc!
+     * @param x javadoc!
+     * @param y javadoc!
+     */
     private void processFirstSelection(final Graphics graphics, final int x,
         final int y)
     {
@@ -1157,6 +1222,12 @@ public class NapoleonTableauPanel extends TableauPanel
            } */
     }
 
+    /**
+     * @TODO: javadoc!
+     *
+     * @param graphics javadoc!
+     * @param clickCount javadoc!
+     */
     private void processSecondSelection(final Graphics graphics,
         final int clickCount)
     {
@@ -1166,7 +1237,7 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     private void startUpdateTimer()
     {
@@ -1174,7 +1245,7 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     private void stopUpdateTimer()
     {
@@ -1182,7 +1253,7 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     private void tableauFinished()
     {
@@ -1195,12 +1266,12 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
-     * @param newSelectedCard TODO:
+     * @param graphics javadoc!
+     * @param newSelectedCard javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private boolean tryMove(final Graphics graphics,
         final CardSelection newSelectedCard)
@@ -1225,9 +1296,9 @@ public class NapoleonTableauPanel extends TableauPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
+     * @param graphics javadoc!
      */
     private void updateStatus(final Graphics graphics)
     {

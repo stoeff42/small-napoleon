@@ -19,10 +19,9 @@ import java.awt.dnd.DropTargetListener;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public class DnDHandler implements DragSourceListener,
@@ -31,13 +30,13 @@ public class DnDHandler implements DragSourceListener,
 {
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private DragSource dragSource;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private DropTarget dropTarget;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private NapoleonTableauPanel napoleonTableauPanel;
 
     //~ Constructors -----------------------------------------------------------
@@ -45,7 +44,7 @@ public class DnDHandler implements DragSourceListener,
     /**
      * Creates a new DnDHandler object.
      *
-     * @param napoTabPanel TODO:
+     * @param napoTabPanel javadoc!
      */
     public DnDHandler(final NapoleonTableauPanel napoTabPanel)
     {
@@ -59,9 +58,9 @@ public class DnDHandler implements DragSourceListener,
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public void dragDropEnd(final DragSourceDropEvent event)
     {
@@ -71,9 +70,9 @@ public class DnDHandler implements DragSourceListener,
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public final void dragEnter(final DropTargetDragEvent event)
     {
@@ -81,9 +80,9 @@ public class DnDHandler implements DragSourceListener,
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public void dragEnter(final DragSourceDragEvent event)
     {
@@ -93,9 +92,9 @@ public class DnDHandler implements DragSourceListener,
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public void dragExit(final DropTargetEvent event)
     {
@@ -105,9 +104,9 @@ public class DnDHandler implements DragSourceListener,
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public void dragExit(final DragSourceEvent event)
     {
@@ -117,9 +116,9 @@ public class DnDHandler implements DragSourceListener,
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public final void dragGestureRecognized(final DragGestureEvent event)
     {
@@ -155,9 +154,9 @@ public class DnDHandler implements DragSourceListener,
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public void dragOver(final DropTargetDragEvent event)
     {
@@ -167,9 +166,9 @@ public class DnDHandler implements DragSourceListener,
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public void dragOver(final DragSourceDragEvent event)
     {
@@ -179,9 +178,9 @@ public class DnDHandler implements DragSourceListener,
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public final void drop(final DropTargetDropEvent event)
     {
@@ -201,9 +200,9 @@ public class DnDHandler implements DragSourceListener,
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public void dropActionChanged(final DragSourceDragEvent event)
     {
@@ -213,9 +212,9 @@ public class DnDHandler implements DragSourceListener,
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public void dropActionChanged(final DropTargetDragEvent event)
     {

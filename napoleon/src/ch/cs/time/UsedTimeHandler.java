@@ -1,23 +1,22 @@
 package ch.cs.time;
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public final class UsedTimeHandler
 {
     //~ Static fields/initializers ---------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private static int timeUsed;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private static long startTime;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private static boolean suspended = false;
 
     //~ Constructors -----------------------------------------------------------
@@ -35,9 +34,9 @@ public final class UsedTimeHandler
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param tU TODO:
+     * @param tU javadoc!
      */
     public static void setTimeUsed(final int tU)
     {
@@ -46,9 +45,9 @@ public final class UsedTimeHandler
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static int getTimeUsed()
     {
@@ -63,7 +62,7 @@ public final class UsedTimeHandler
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public static void resume()
     {
@@ -75,7 +74,7 @@ public final class UsedTimeHandler
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public static void suspend()
     {
@@ -87,7 +86,7 @@ public final class UsedTimeHandler
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public static void updateTimeUsed()
     {

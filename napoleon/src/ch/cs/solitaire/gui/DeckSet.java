@@ -11,9 +11,9 @@ import javax.swing.ImageIcon;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author author
+ * @author $author$
  * @version $Revision$
  */
 public class DeckSet
@@ -28,34 +28,34 @@ public class DeckSet
 
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private Dimension cardSize;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private Font font;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private String deckId;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private String fontFace;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private String name;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private Image[][] cardSuits;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private int cardSlotOffset;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private int fontSize;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private int maxPileSize;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private int pileOffset;
 
     //~ Constructors -----------------------------------------------------------
@@ -63,7 +63,7 @@ public class DeckSet
     /**
      * Creates a new DeckSet object.
      *
-     * @param id TODO:
+     * @param id javadoc!
      */
     public DeckSet(final String id)
     {
@@ -83,9 +83,9 @@ public class DeckSet
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * Returns the cardSize.
+     * @TODO: javadoc!
      *
-     * @return Dimension
+     * @return javadoc!
      */
     public final Dimension getCardSize()
     {
@@ -93,9 +93,9 @@ public class DeckSet
     }
 
     /**
-     * Returns the cardSlotOffset.
+     * @TODO: javadoc!
      *
-     * @return int
+     * @return javadoc!
      */
     public final int getCardSlotOffset()
     {
@@ -103,9 +103,9 @@ public class DeckSet
     }
 
     /**
-     * Returns the cardSuits.
+     * @TODO: javadoc!
      *
-     * @return Image[][]
+     * @return javadoc!
      */
     public final Image[][] getCardSuits()
     {
@@ -118,9 +118,9 @@ public class DeckSet
     }
 
     /**
-     * Returns the id.
+     * @TODO: javadoc!
      *
-     * @return String
+     * @return javadoc!
      */
     public final String getDeckId()
     {
@@ -128,9 +128,9 @@ public class DeckSet
     }
 
     /**
-     * Returns the font.
+     * @TODO: javadoc!
      *
-     * @return Font
+     * @return javadoc!
      */
     public final Font getFont()
     {
@@ -138,9 +138,9 @@ public class DeckSet
     }
 
     /**
-     * Returns the fontSize.
+     * @TODO: javadoc!
      *
-     * @return int
+     * @return javadoc!
      */
     public final int getFontSize()
     {
@@ -148,9 +148,9 @@ public class DeckSet
     }
 
     /**
-     * Returns the maxPileSize.
+     * @TODO: javadoc!
      *
-     * @return int
+     * @return javadoc!
      */
     public final int getMaxPileSize()
     {
@@ -158,9 +158,9 @@ public class DeckSet
     }
 
     /**
-     * Returns the name.
+     * @TODO: javadoc!
      *
-     * @return String
+     * @return javadoc!
      */
     public final String getName()
     {
@@ -168,9 +168,9 @@ public class DeckSet
     }
 
     /**
-     * Returns the pileOffset.
+     * @TODO: javadoc!
      *
-     * @return int
+     * @return javadoc!
      */
     public final int getPileOffset()
     {
@@ -178,11 +178,11 @@ public class DeckSet
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param subProperty TODO:
+     * @param subProperty javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private int getInt(final String subProperty)
     {
@@ -191,11 +191,11 @@ public class DeckSet
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param property TODO:
+     * @param property javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private String getString(final String property)
     {
@@ -204,7 +204,7 @@ public class DeckSet
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     private void createCardSuits()
     {
@@ -232,13 +232,13 @@ public class DeckSet
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param suit TODO:
-     * @param rank TODO:
-     * @param deckImage TODO:
+     * @param suit javadoc!
+     * @param rank javadoc!
+     * @param deckImage javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private Image extractCardSuit(final int suit, final int rank,
         final Image deckImage)
