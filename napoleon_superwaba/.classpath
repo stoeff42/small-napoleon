@@ -3,6 +3,7 @@
     <classpathentry excluding="ch/cs/napoleon/solitaire/undo/"
         kind="src" path="src"/>
     <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-    <classpathentry kind="lib" path="C:/java/SuperWabaSDK/lib/SuperWaba.jar"/>
+    <classpathentry kind="lib"
+        path="H:/java/SuperWabaSDK/lib/SuperWaba.jar" sourcepath="H:/java/SuperWabaSDK/lib/SuperWaba.jar"/>
     <classpathentry kind="output" path="classes"/>
 </classpath>

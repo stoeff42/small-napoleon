@@ -26,14 +26,9 @@ import waba.ui.PenEvent;
  *         Schilling</a>
  * @version $Revision$
  */
-public class Napoleon extends MainWindow
-{
-    //~ Static variables/initializers --------------------------------
-
+public class Napoleon extends MainWindow {
     /** TODO:  javadoc */
     private static final String palmDbName = "NapoleonData.Napo.Data";
-
-    //~ Instance variables -------------------------------------------
 
     /** TODO: javadoc */
     private MenuBar menuBar;
@@ -41,13 +36,10 @@ public class Napoleon extends MainWindow
     /** TODO: javadoc */
     private NapoleonTableauPanel tableauPanel;
 
-    //~ Constructors -------------------------------------------------
-
     /**
      * Creates a new Napoleon object.
      */
-    public Napoleon()
-    {
+    public Napoleon() {
         super();
         Settings.setPalmOSStyle(true);
         this.setDoubleBuffer(true);
@@ -55,35 +47,25 @@ public class Napoleon extends MainWindow
         this.setMenuBar(this.menuBar);
     }
 
-    //~ Methods ------------------------------------------------------
-
     /**
      * TODO: javadoc
      */
-    public void load()
-    {
+    public void load() {
         Catalog catalog = new Catalog(palmDbName, Catalog.READ_ONLY);
-        if (catalog.isOpen() && (catalog.getRecordCount() > 0))
-        {
+
+        if (catalog.isOpen() && (catalog.getRecordCount() > 0)) {
             catalog.setRecordPos(0);
-            if (catalog.getRecordSize() > 0)
-            {
+
+            if (catalog.getRecordSize() > 0) {
                 byte[] bytes = new byte[catalog.getRecordSize()];
-                catalog.readBytes(
-                    bytes,
-                    0,
-                    catalog.getRecordSize());
-                this.tableauPanel.load(
-                    new DataStream(new ByteArrayStream(bytes)));
+                catalog.readBytes(bytes, 0, catalog.getRecordSize());
+                this.tableauPanel.load(new DataStream(
+                        new ByteArrayStream(bytes)));
                 catalog.close();
-            }
-            else
-            {
+            } else {
                 this.tableauPanel.newGame();
             }
-        }
-        else
-        {
+        } else {
             this.tableauPanel.newGame();
         }
     }
@@ -93,51 +75,55 @@ public class Napoleon extends MainWindow
      *
      * @param event TODO: javadoc
      */
-    public void onEvent(Event event)
-    {
-        if (event.type == PenEvent.PEN_DOWN)
-        {
+    public void onEvent(Event event) {
+        if (event.type == PenEvent.PEN_DOWN) {
             Graphics graphics = this.tableauPanel.createGraphics();
-            this.tableauPanel.processSelection(graphics,
-                ((PenEvent) event).x, ((PenEvent) event).y);
-        }
-        else if (event.type == ControlEvent.WINDOW_CLOSED)
-        {
-            if (event.target == this.menuBar)
-            {
-                switch (menuBar.getSelectedMenuItem())
-                {
-                    case (1) :
-                        this.tableauPanel.newGame();
-                        break;
-                    case (2) :
-                        this.tableauPanel.restartGame();
-                        break;
-                    case (3) :
-                        this.tableauPanel.showScores();
-                        break;
-                    case (5) :
-                        this.exit(0);
-                        break;
+            this.tableauPanel.processSelection(graphics, ((PenEvent) event).x,
+                ((PenEvent) event).y);
+        } else if (event.type == ControlEvent.WINDOW_CLOSED) {
+            if (event.target == this.menuBar) {
+                switch (menuBar.getSelectedMenuItem()) {
+                case (1):
+                    this.tableauPanel.newGame();
 
-                    /* case (101) :
-                       if (this.tableauPanel.canUndo())
+                    break;
+
+                case (2):
+                    this.tableauPanel.restartGame();
+
+                    break;
+
+                case (3):
+                    this.tableauPanel.showScores();
+
+                    break;
+
+                case (5):
+                    this.exit(0);
+
+                    break;
+
+                /* case (101) :
+                   if (this.tableauPanel.canUndo())
+                   {
+                       this.tableauPanel.undo();
+                   }
+                   break;
+                   case (102) :
+                       if (this.tableauPanel.canRedo())
                        {
-                           this.tableauPanel.undo();
+                           this.tableauPanel.redo();
                        }
-                       break;
-                       case (102) :
-                           if (this.tableauPanel.canRedo())
-                           {
-                               this.tableauPanel.redo();
-                           }
-                           break; */
-                    case (101) :
-                        this.showRules();
-                        break;
-                    case (103) :
-                        this.showAbout();
-                        break;
+                       break; */
+                case (101):
+                    this.showRules();
+
+                    break;
+
+                case (103):
+                    this.showAbout();
+
+                    break;
                 }
             }
         }
@@ -146,16 +132,14 @@ public class Napoleon extends MainWindow
     /**
      * TODO: javadoc
      */
-    public void onExit()
-    {
+    public void onExit() {
         this.save();
     }
 
     /**
      * TODO: javadoc
      */
-    public void onStart()
-    {
+    public void onStart() {
         this.tableauPanel = new NapoleonTableauPanel();
         this.tableauPanel.setRect(this.getClientRect());
         this.add(this.tableauPanel);
@@ -165,31 +149,25 @@ public class Napoleon extends MainWindow
     /**
      * TODO: javadoc
      */
-    public void save()
-    {
+    public void save() {
         Catalog catalog = new Catalog(palmDbName, Catalog.CREATE);
         catalog.setAttributes(Catalog.DB_ATTR_BACKUP);
-        if (catalog.isOpen())
-        {
+
+        if (catalog.isOpen()) {
             ByteArrayStream stream = new ByteArrayStream(512);
             this.tableauPanel.save(new DataStream(stream));
             stream.close();
-            if (catalog.getRecordCount() == 0)
-            {
-                catalog.addRecord(
-                    stream.count(),
-                    0);
-            }
-            else
-            {
+
+            if (catalog.getRecordCount() == 0) {
+                catalog.addRecord(stream.count(), 0);
+            } else {
                 catalog.setRecordPos(0);
                 catalog.resizeRecord(stream.count());
             }
-            catalog.writeBytes(
-                stream.getBuffer(),
-                0,
-                stream.count());
-            catalog.setRecordAttributes(Catalog.REC_ATTR_DIRTY);
+
+            catalog.writeBytes(stream.getBuffer(), 0, stream.count());
+            catalog.setRecordAttributes(catalog.getRecordPos(),
+                Catalog.REC_ATTR_DIRTY);
             catalog.close();
         }
     }
@@ -197,16 +175,14 @@ public class Napoleon extends MainWindow
     /**
      * TODO: javadoc
      */
-    public void showAbout()
-    {
+    public void showAbout() {
         Dialogs.showAbout(this);
     }
 
     /**
      * TODO: javadoc
      */
-    public void showRules()
-    {
+    public void showRules() {
         Dialogs.showRules(this);
     }
 
@@ -215,15 +191,10 @@ public class Napoleon extends MainWindow
      *
      * @return TODO: javadoc
      */
-    private String[][] getMenu()
-    {
-        return new String[][]
-        {
-            new String[]
-            {
-                "Game", "New", "Restart", "Scores...", "-", "Exit"
-            }, /*new String[] {"Play", "*Undo", "*Redo"},*/
-            new String[] {"Help", "Rules...", "-", "About..."}
+    private String[][] getMenu() {
+        return new String[][] {
+            new String[] { "Game", "New", "Restart", "Scores...", "-", "Exit" }, /*new String[] {"Play", "*Undo", "*Redo"},*/
+            new String[] { "Help", "Rules...", "-", "About..." }
         };
     }
 }

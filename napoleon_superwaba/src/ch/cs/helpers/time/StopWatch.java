@@ -11,14 +11,9 @@ import waba.sys.Vm;
  *         Schilling</a>
  * @version $Revision$
  */
-public class StopWatch
-{
-    //~ Static variables/initializers --------------------------------
-
+public class StopWatch {
     /** TODO:  javadoc */
     private static StopWatch stopWatch;
-
-    //~ Instance variables -------------------------------------------
 
     /** TODO: javadoc */
     private boolean stopped = false;
@@ -29,19 +24,16 @@ public class StopWatch
     /** TODO: javadoc */
     private int time;
 
-    //~ Methods ------------------------------------------------------
-
     /**
      * TODO: javadoc
      *
      * @return TODO: javadoc
      */
-    public static StopWatch getStopWatch()
-    {
-        if (stopWatch == null)
-        {
+    public static StopWatch getStopWatch() {
+        if (stopWatch == null) {
             stopWatch = new StopWatch();
         }
+
         return stopWatch;
     }
 
@@ -50,18 +42,14 @@ public class StopWatch
      *
      * @return TODO: javadoc
      */
-    public int get()
-    {
-        return stopped ? time
-                       : Vm.getTimeElapsed(time + Vm.getTimeStamp(),
-            start);
+    public int get() {
+        return stopped ? time : ((time + Vm.getTimeStamp()) - start);
     }
 
     /**
      * TODO: javadoc
      */
-    public void reset()
-    {
+    public void reset() {
         this.set(0);
     }
 
@@ -70,8 +58,7 @@ public class StopWatch
      *
      * @param tU TODO: javadoc
      */
-    public void set(int tU)
-    {
+    public void set(int tU) {
         time = tU;
         start = Vm.getTimeStamp();
     }
@@ -79,10 +66,8 @@ public class StopWatch
     /**
      * TODO: javadoc
      */
-    public void start()
-    {
-        if (stopped)
-        {
+    public void start() {
+        if (stopped) {
             stopped = false;
             start = Vm.getTimeStamp();
         }
@@ -91,10 +76,8 @@ public class StopWatch
     /**
      * TODO: javadoc
      */
-    public void stop()
-    {
-        if (!stopped)
-        {
+    public void stop() {
+        if (!stopped) {
             update();
             stopped = true;
         }
@@ -103,8 +86,7 @@ public class StopWatch
     /**
      * TODO: javadoc
      */
-    public void update()
-    {
-        set(Vm.getTimeElapsed(time + Vm.getTimeStamp(), start));
+    public void update() {
+        set((time + Vm.getTimeStamp()) - start);
     }
 }
