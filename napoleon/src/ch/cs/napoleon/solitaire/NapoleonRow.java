@@ -9,10 +9,9 @@ import java.util.Iterator;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public class NapoleonRow implements Serializable
@@ -27,10 +26,10 @@ public class NapoleonRow implements Serializable
 
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private ArrayList base;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private ArrayList end;
 
     //~ Constructors -----------------------------------------------------------
@@ -47,7 +46,7 @@ public class NapoleonRow implements Serializable
     /**
      * Creates a new NapoleonRow object.
      *
-     * @param cards TODO:
+     * @param cards javadoc!
      */
     public NapoleonRow(final ArrayList cards)
     {
@@ -58,9 +57,9 @@ public class NapoleonRow implements Serializable
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param bs TODO:
+     * @param bs javadoc!
      */
     public final void setBase(final ArrayList bs)
     {
@@ -68,9 +67,9 @@ public class NapoleonRow implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final ArrayList getBase()
     {
@@ -78,9 +77,9 @@ public class NapoleonRow implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param nd TODO:
+     * @param nd javadoc!
      */
     public final void setEnd(final ArrayList nd)
     {
@@ -88,9 +87,9 @@ public class NapoleonRow implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final ArrayList getEnd()
     {
@@ -98,9 +97,9 @@ public class NapoleonRow implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Card getLast()
     {
@@ -115,9 +114,9 @@ public class NapoleonRow implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Card getSecondLast()
     {
@@ -132,9 +131,9 @@ public class NapoleonRow implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final int getSize()
     {
@@ -142,11 +141,11 @@ public class NapoleonRow implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param card TODO:
+     * @param card javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final boolean add(final Card card)
     {
@@ -192,11 +191,11 @@ public class NapoleonRow implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param card TODO:
+     * @param card javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final boolean forceAdd(final Card card)
     {
@@ -224,9 +223,9 @@ public class NapoleonRow implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final boolean remove()
     {
@@ -248,9 +247,9 @@ public class NapoleonRow implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param cards TODO:
+     * @param cards javadoc!
      */
     public final void set(final ArrayList cards)
     {

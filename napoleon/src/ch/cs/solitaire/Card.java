@@ -4,10 +4,9 @@ import java.io.Serializable;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public class Card implements Serializable
@@ -19,17 +18,20 @@ public class Card implements Serializable
 
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private byte number;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private byte pack;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private byte rank;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private byte suit;
+
+    /** @TODO: javadoc! */
+    private int packType;
 
     //~ Constructors -----------------------------------------------------------
 
@@ -46,23 +48,25 @@ public class Card implements Serializable
     /**
      * Creates a new Card object.
      *
-     * @param nr TODO:
-     * @param pck TODO:
+     * @param pckTpe javadoc!
+     * @param nr javadoc!
+     * @param pck javadoc!
      */
-    public Card(final byte nr, final byte pck)
+    public Card(final int pckTpe, final byte nr, final byte pck)
     {
-        this.number = (byte) (nr % pck);
+        this.packType = pckTpe;
+        this.number = (byte) (nr % pckTpe);
         this.pack = pck;
-        this.rank = (byte) ((this.number % (pck % SUITS_PER_PACK)) + 1);
-        this.suit = (byte) ((this.number / (pck % SUITS_PER_PACK)) + 1);
+        this.rank = (byte) ((this.number % (pckTpe / SUITS_PER_PACK)) + 1);
+        this.suit = (byte) ((this.number / (pckTpe / SUITS_PER_PACK)) + 1);
     }
 
     /**
      * Creates a new Card object.
      *
-     * @param rnk TODO:
-     * @param st TODO:
-     * @param pck TODO:
+     * @param rnk javadoc!
+     * @param st javadoc!
+     * @param pck javadoc!
      */
     public Card(final byte rnk, final byte st, final byte pck)
     {
@@ -78,9 +82,19 @@ public class Card implements Serializable
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param nr TODO:
+     * @return javadoc!
+     */
+    public final int getCardsPerSuit()
+    {
+        return this.getPackType() / SUITS_PER_PACK;
+    }
+
+    /**
+     * @TODO: javadoc!
+     *
+     * @param nr javadoc!
      */
     public final void setNumber(final byte nr)
     {
@@ -88,9 +102,9 @@ public class Card implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final byte getNumber()
     {
@@ -98,9 +112,9 @@ public class Card implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param pck TODO:
+     * @param pck javadoc!
      */
     public final void setPack(final byte pck)
     {
@@ -108,9 +122,9 @@ public class Card implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final byte getPack()
     {
@@ -118,9 +132,29 @@ public class Card implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param rnk TODO:
+     * @param pckTpe javadoc!
+     */
+    public final void setPackType(final int pckTpe)
+    {
+        this.packType = pckTpe;
+    }
+
+    /**
+     * @TODO: javadoc!
+     *
+     * @return javadoc!
+     */
+    public final int getPackType()
+    {
+        return this.packType;
+    }
+
+    /**
+     * @TODO: javadoc!
+     *
+     * @param rnk javadoc!
      */
     public final void setRank(final byte rnk)
     {
@@ -128,9 +162,9 @@ public class Card implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final byte getRank()
     {
@@ -138,9 +172,9 @@ public class Card implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param st TODO:
+     * @param st javadoc!
      */
     public final void setSuit(final byte st)
     {
@@ -148,9 +182,9 @@ public class Card implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final byte getSuit()
     {
@@ -158,11 +192,11 @@ public class Card implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param card TODO:
+     * @param card javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final boolean follows(final Card card)
     {
@@ -173,25 +207,21 @@ public class Card implements Serializable
 
         return ((
             (this.getSuit() == card.getSuit())
-            && (
-                ((this.getRank() % (getCardsPerSuit())) + 1) == card.getRank()
-            )
+            && (((this.getRank() % getCardsPerSuit()) + 1) == card.getRank())
         )
         || (
             (card.getSuit() == this.getSuit())
-            && (
-                ((card.getRank() % (getCardsPerSuit())) + 1) == this.getRank()
-            )
+            && (((card.getRank() % getCardsPerSuit()) + 1) == this.getRank())
         ));
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param card1 TODO:
-     * @param card2 TODO:
+     * @param card1 javadoc!
+     * @param card2 javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final boolean follows(final Card card1, final Card card2)
     {
@@ -220,15 +250,5 @@ public class Card implements Serializable
                 ((card1.getRank() % (getCardsPerSuit())) + 1) == this.getRank()
             )
         ));
-    }
-
-    /**
-     * @TODO: javadoc!
-     *
-     * @return @TODO: javadoc!
-     */
-    public final int getCardsPerSuit()
-    {
-        return this.getPack() % SUITS_PER_PACK;
     }
 }

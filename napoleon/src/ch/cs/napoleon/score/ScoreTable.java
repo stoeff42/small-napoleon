@@ -8,22 +8,21 @@ import java.util.Date;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public class ScoreTable implements Serializable
 {
     //~ Static fields/initializers ---------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private static final int MAX_ENTRIES = 10;
 
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private ArrayList entries;
 
     //~ Constructors -----------------------------------------------------------
@@ -59,11 +58,11 @@ public class ScoreTable implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param i TODO:
+     * @param i javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final ScoreEntry getEntry(final int i)
     {
@@ -71,9 +70,9 @@ public class ScoreTable implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final int getNrOfEntries()
     {
@@ -81,11 +80,11 @@ public class ScoreTable implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param scoreEntry TODO:
+     * @param scoreEntry javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final int getRank(final ScoreEntry scoreEntry)
     {
@@ -93,12 +92,12 @@ public class ScoreTable implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param name TODO:
-     * @param nrOfMoves TODO:
-     * @param timeUsed TODO:
-     * @param finishedOn TODO:
+     * @param name javadoc!
+     * @param nrOfMoves javadoc!
+     * @param timeUsed javadoc!
+     * @param finishedOn javadoc!
      */
     public final void addEntry(final String name, final int nrOfMoves,
         final int timeUsed, final Date finishedOn)
@@ -114,7 +113,7 @@ public class ScoreTable implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void clear()
     {
@@ -122,9 +121,9 @@ public class ScoreTable implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Object[][] toArray()
     {

@@ -7,20 +7,19 @@ import javax.swing.ImageIcon;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public final class MessageProperties
 {
     //~ Static fields/initializers ---------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private static final String BUNDLE_NAME = "ch.cs.gui.message"; //$NON-NLS-1$
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private static final ResourceBundle RESOURCE_BUNDLE =
         ResourceBundle.getBundle(BUNDLE_NAME);
 
@@ -39,11 +38,11 @@ public final class MessageProperties
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param key TODO:
+     * @param key javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static boolean getBoolean(final String key)
     {
@@ -51,11 +50,11 @@ public final class MessageProperties
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param key TODO:
+     * @param key javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static boolean getBoolean(final Object[] key)
     {
@@ -63,12 +62,12 @@ public final class MessageProperties
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param key1 TODO:
-     * @param key2 TODO:
+     * @param key1 javadoc!
+     * @param key2 javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static boolean getBoolean(final String key1, final String key2)
     {
@@ -76,13 +75,13 @@ public final class MessageProperties
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param key1 TODO:
-     * @param key2 TODO:
-     * @param key3 TODO:
+     * @param key1 javadoc!
+     * @param key2 javadoc!
+     * @param key3 javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static boolean getBoolean(final String key1, final String key2,
         final String key3)
@@ -91,11 +90,11 @@ public final class MessageProperties
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param name TODO:
+     * @param name javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static ImageIcon getImage(final String name)
     {
@@ -103,11 +102,11 @@ public final class MessageProperties
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param key TODO:
+     * @param key javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static int getInt(final String key)
     {
@@ -115,11 +114,11 @@ public final class MessageProperties
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param key TODO:
+     * @param key javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static int getInt(final Object[] key)
     {
@@ -127,12 +126,12 @@ public final class MessageProperties
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param key1 TODO:
-     * @param key2 TODO:
+     * @param key1 javadoc!
+     * @param key2 javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static int getInt(final String key1, final String key2)
     {
@@ -140,13 +139,13 @@ public final class MessageProperties
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param key1 TODO:
-     * @param key2 TODO:
-     * @param key3 TODO:
+     * @param key1 javadoc!
+     * @param key2 javadoc!
+     * @param key3 javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static int getInt(final String key1, final String key2,
         final String key3)
@@ -155,11 +154,11 @@ public final class MessageProperties
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param key TODO:
+     * @param key javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static String getString(final Object[] key)
     {
@@ -167,12 +166,12 @@ public final class MessageProperties
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param key1 TODO:
-     * @param key2 TODO:
+     * @param key1 javadoc!
+     * @param key2 javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static String getString(final String key1, final String key2)
     {
@@ -180,13 +179,13 @@ public final class MessageProperties
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param key1 TODO:
-     * @param key2 TODO:
-     * @param key3 TODO:
+     * @param key1 javadoc!
+     * @param key2 javadoc!
+     * @param key3 javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static String getString(final String key1, final String key2,
         final String key3)
@@ -195,11 +194,11 @@ public final class MessageProperties
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param key TODO:
+     * @param key javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static String getString(final String key)
     {
@@ -214,11 +213,11 @@ public final class MessageProperties
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param property TODO:
+     * @param property javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private static String createString(final Object[] property)
     {

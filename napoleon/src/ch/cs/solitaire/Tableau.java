@@ -63,7 +63,7 @@ public class Tableau implements Serializable
         for (int i = 0; i < this.tableau.length; i++)
         {
             this.tableau[i] =
-                new Card((byte) (i % this.packType), (byte) (
+                new Card(this.packType, (byte) (i % this.packType), (byte) (
                         i / this.packType
                     ));
         }

@@ -21,44 +21,43 @@ import javax.swing.SwingUtilities;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public abstract class TableauPanel extends JPanel
 {
     //~ Static fields/initializers ---------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     public static final int LEFT_PILE = SwingConstants.LEFT;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     public static final int UP_PILE = SwingConstants.TOP;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     public static final int RIGHT_PILE = SwingConstants.RIGHT;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     public static final int DOWN_PILE = SwingConstants.BOTTOM;
 
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private Map sets;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private String currentSetId;
 
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param card TODO:
+     * @param card javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Image getCardSuit(final Card card)
     {
@@ -109,9 +108,9 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Map getSets()
     {
@@ -124,9 +123,9 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
+     * @param graphics javadoc!
      */
     public final void paintComponent(final Graphics graphics)
     {
@@ -135,9 +134,9 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     protected final Image getBackSuit()
     {
@@ -145,9 +144,9 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     protected final Dimension getCardSize()
     {
@@ -165,9 +164,9 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     protected final Image[][] getCardSuits()
     {
@@ -175,9 +174,9 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     protected final DeckSet getCurrentSet()
     {
@@ -195,9 +194,9 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     protected final Image getEmptySuit()
     {
@@ -225,9 +224,9 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     protected final int getPileOffset()
     {
@@ -235,11 +234,11 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param pileSize TODO:
+     * @param pileSize javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     protected final int getPileSize(final int pileSize)
     {
@@ -247,18 +246,18 @@ public abstract class TableauPanel extends JPanel
 
         if (pileSize > 0)
         {
-            Math.min(pileSize, this.getMaxPileSize());
+            pS = Math.min(pileSize, this.getMaxPileSize());
         }
 
         return pS;
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
-     * @param x TODO:
-     * @param y TODO:
+     * @param graphics javadoc!
+     * @param x javadoc!
+     * @param y javadoc!
      */
     protected final void drawBack(final Graphics graphics, final int x,
         final int y)
@@ -267,13 +266,13 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
-     * @param x TODO:
-     * @param y TODO:
-     * @param card TODO:
-     * @param front TODO:
+     * @param graphics javadoc!
+     * @param x javadoc!
+     * @param y javadoc!
+     * @param card javadoc!
+     * @param front javadoc!
      */
     protected final void drawCard(final Graphics graphics, final int x,
         final int y, final Card card, final boolean front)
@@ -289,33 +288,30 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
+     * @param graphics javadoc!
      */
     protected abstract void drawDeck(final Graphics graphics);
 
     /**
-     * TODO: DOWN_PILE and UP_PILE implementation
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
-     * @param cards TODO:
-     * @param front TODO:
-     * @param pileFront TODO:
-     * @param slotLocation TODO:
-     * @param dir TODO:
-     * @param clear TODO:
+     * @param graphics javadoc!
+     * @param cards javadoc!
+     * @param slotLocation javadoc!
+     * @param pileInfo javadoc!
      */
     protected final void drawCardPile(final Graphics graphics,
-        final ArrayList cards, final boolean front, final boolean pileFront,
-        final Point slotLocation, final int dir, final boolean clear)
+        final ArrayList cards, final Point slotLocation, final PileInfo pileInfo)
     {
         int pileSize = this.getPileSize(cards.size());
         int clearOffset = (pileSize - 1) * this.getPileOffset();
 
-        if (dir == LEFT_PILE)
+        if (pileInfo.getDir() == LEFT_PILE)
         {
-            clearCardPile(graphics, slotLocation, clear, clearOffset);
+            clearLeftPile(graphics, slotLocation, pileInfo.isClear(),
+                clearOffset);
 
             for (int i = 0; i < (pileSize - 1); i++)
             {
@@ -329,22 +325,17 @@ public abstract class TableauPanel extends JPanel
                 this.drawCard(graphics,
                     (int) slotLocation.getX() - (i * getPileOffset()),
                     (int) slotLocation.getY(), (Card) cards.get(index),
-                    pileFront);
+                    pileInfo.isPileFront());
             }
 
             this.drawCard(graphics, (int) slotLocation.getX() - clearOffset,
                 (int) slotLocation.getY(), (Card) cards.get(cards.size() - 1),
-                front);
+                pileInfo.isFront());
         }
-        else if (dir == RIGHT_PILE)
+        else if (pileInfo.getDir() == RIGHT_PILE)
         {
-            if (clear)
-            {
-                graphics.clearRect((int) slotLocation.getX()
-                    + this.getCardSize().width + 1, (int) slotLocation.getY(),
-                    clearOffset + this.getPileOffset(),
-                    this.getCardSize().height + 1);
-            }
+            clearRightPile(graphics, slotLocation, pileInfo.isClear(),
+                clearOffset);
 
             for (int i = 0; i < (pileSize - 1); i++)
             {
@@ -358,22 +349,22 @@ public abstract class TableauPanel extends JPanel
                 this.drawCard(graphics,
                     (int) slotLocation.getX() + (i * getPileOffset()),
                     (int) slotLocation.getY(), (Card) cards.get(index),
-                    pileFront);
+                    pileInfo.isPileFront());
             }
 
             this.drawCard(graphics, (int) slotLocation.getX() + clearOffset,
                 (int) slotLocation.getY(), (Card) cards.get(cards.size() - 1),
-                front);
+                pileInfo.isFront());
         }
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
-     * @param x TODO:
-     * @param y TODO:
-     * @param card TODO:
+     * @param graphics javadoc!
+     * @param x javadoc!
+     * @param y javadoc!
+     * @param card javadoc!
      */
     protected final void drawFront(final Graphics graphics, final int x,
         final int y, final Card card)
@@ -382,11 +373,11 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param graphics TODO:
-     * @param x TODO:
-     * @param y TODO:
+     * @param graphics javadoc!
+     * @param x javadoc!
+     * @param y javadoc!
      */
     protected final void drawSelection(final Graphics graphics, final int x,
         final int y)
@@ -398,11 +389,11 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param id TODO:
+     * @param id javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private DeckSet getSet(final String id)
     {
@@ -410,11 +401,11 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param property TODO:
+     * @param property javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private static String getString(final String property)
     {
@@ -425,12 +416,12 @@ public abstract class TableauPanel extends JPanel
     /**
      * @TODO: javadoc!
      *
-     * @param graphics @TODO: javadoc!
-     * @param slotLocation @TODO: javadoc!
-     * @param clear @TODO: javadoc!
-     * @param clearOffset @TODO: javadoc!
+     * @param graphics javadoc!
+     * @param slotLocation javadoc!
+     * @param clear javadoc!
+     * @param clearOffset javadoc!
      */
-    private void clearCardPile(final Graphics graphics,
+    private void clearLeftPile(final Graphics graphics,
         final Point slotLocation, final boolean clear, final int clearOffset)
     {
         if (clear)
@@ -443,7 +434,27 @@ public abstract class TableauPanel extends JPanel
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
+     *
+     * @param graphics javadoc!
+     * @param slotLocation javadoc!
+     * @param clear javadoc!
+     * @param clearOffset javadoc!
+     */
+    private void clearRightPile(final Graphics graphics,
+        final Point slotLocation, final boolean clear, final int clearOffset)
+    {
+        if (clear)
+        {
+            graphics.clearRect((int) slotLocation.getX()
+                + this.getCardSize().width + 1, (int) slotLocation.getY(),
+                clearOffset + this.getPileOffset(),
+                this.getCardSize().height + 1);
+        }
+    }
+
+    /**
+     * @TODO: javadoc!
      */
     private void createSets()
     {

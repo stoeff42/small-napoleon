@@ -8,44 +8,38 @@ import javax.swing.table.TableCellRenderer;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a
- *         href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public class AlignedAndOptimizedColumnsTable extends JTable
 {
-    //~ Constructors -------------------------------------------------
+    //~ Constructors -----------------------------------------------------------
 
     /**
-     * Creates a new AlignedColumnsTable object.
+     * Creates a new AlignedAndOptimizedColumnsTable object.
      *
-     * @param data TODO:
-     * @param columnNames TODO:
-     * @param alignments TODO:
+     * @param data javadoc!
+     * @param columnNames javadoc!
+     * @param alignments javadoc!
      */
     public AlignedAndOptimizedColumnsTable(final Object[][] data,
-    final Object[] columnNames, final int[] alignments)
+        final Object[] columnNames, final int[] alignments)
     {
         super(data, columnNames);
-        this.setDefaultRenderer(
-            Object.class,
-            this.makeAligningRenderer(
-                this.getDefaultRenderer(Object.class),
+        this.setDefaultRenderer(Object.class,
+            this.makeAligningRenderer(this.getDefaultRenderer(Object.class),
                 alignments));
-        this.getTableHeader().setDefaultRenderer(
-            this.makeAligningRenderer(
-                this.getTableHeader().getDefaultRenderer(),
-                alignments));
+        this.getTableHeader().setDefaultRenderer(this.makeAligningRenderer(
+                this.getTableHeader().getDefaultRenderer(), alignments));
         this.optimizeColumnWidths();
     }
 
-    //~ Methods ------------------------------------------------------
+    //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void optimizeColumnWidths()
     {
@@ -53,40 +47,32 @@ public class AlignedAndOptimizedColumnsTable extends JTable
         {
             int headerWidth =
                 this.getTableHeader().getDefaultRenderer()
-                        .getTableCellRendererComponent(
-                        null,
-                        this.getColumnModel().getColumn(i)
-                                .getHeaderValue(),
-                        false,
-                        false,
-                        0,
-                        i).getPreferredSize().width;
+                    .getTableCellRendererComponent(null,
+                    this.getColumnModel().getColumn(i).getHeaderValue(), false,
+                    false, 0, i).getPreferredSize().width;
+
             for (int j = 0; j < this.getRowCount(); j++)
             {
                 headerWidth =
                     Math.max(headerWidth,
-                        this.getDefaultRenderer(
-                            this.getModel().getColumnClass(i))
-                                .getTableCellRendererComponent(
-                                this,
-                                this.getValueAt(j, i),
-                                false,
-                                false,
-                                j,
-                                i).getPreferredSize().width);
+                        this.getDefaultRenderer(this.getModel().getColumnClass(i))
+                            .getTableCellRendererComponent(this,
+                            this.getValueAt(j, i), false, false, j, i)
+                            .getPreferredSize().width);
             }
+
             this.getColumnModel().getColumn(i).setPreferredWidth(headerWidth
                 + (2 * this.getIntercellSpacing().width) + 2);
         }
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param renderer TODO:
-     * @param alignments TODO:
+     * @param renderer javadoc!
+     * @param alignments javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private TableCellRenderer makeAligningRenderer(
         final TableCellRenderer renderer, final int[] alignments)
@@ -94,16 +80,16 @@ public class AlignedAndOptimizedColumnsTable extends JTable
         return new TableCellRenderer()
             {
                 public final Component getTableCellRendererComponent(
-                final JTable table, final Object value, final boolean isSelected,
-                final boolean hasFocus, final int row, final int column)
+                    final JTable table, final Object value,
+                    final boolean isSelected, final boolean hasFocus,
+                    final int row, final int column)
                 {
                     JLabel component =
-                        (JLabel) renderer
-                            .getTableCellRendererComponent(table,
-                                value, isSelected, hasFocus, row,
-                                column);
+                        (JLabel) renderer.getTableCellRendererComponent(table,
+                            value, isSelected, hasFocus, row, column);
                     component.setHorizontalTextPosition(alignments[column]);
                     component.setHorizontalAlignment(alignments[column]);
+
                     return component;
                 }
             };

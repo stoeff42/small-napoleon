@@ -8,10 +8,9 @@ import java.util.ArrayList;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public class Help implements Serializable
@@ -23,7 +22,7 @@ public class Help implements Serializable
 
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private ArrayList help;
 
     //~ Constructors -----------------------------------------------------------
@@ -39,7 +38,7 @@ public class Help implements Serializable
     /**
      * Creates a new Help object.
      *
-     * @param cards TODO:
+     * @param cards javadoc!
      */
     public Help(final ArrayList cards)
     {
@@ -50,9 +49,9 @@ public class Help implements Serializable
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param hlp TODO:
+     * @param hlp javadoc!
      */
     public final void setHelp(final ArrayList hlp)
     {
@@ -60,9 +59,9 @@ public class Help implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final ArrayList getHelp()
     {
@@ -70,11 +69,11 @@ public class Help implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param i TODO:
+     * @param i javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Card get(final int i)
     {
@@ -82,19 +81,23 @@ public class Help implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param i TODO:
+     * @param i javadoc!
+     *
+     * @return javadoc!
      */
-    public final void remove(final int i)
+    public final boolean remove(final int i)
     {
         this.help.set(i, null);
+
+        return true;
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param cards TODO:
+     * @param cards javadoc!
      */
     public final void set(final ArrayList cards)
     {
@@ -106,10 +109,10 @@ public class Help implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param i TODO:
-     * @param card TODO:
+     * @param i javadoc!
+     * @param card javadoc!
      */
     public final void set(final int i, final Card card)
     {

@@ -10,6 +10,7 @@ import ch.cs.napoleon.solitaire.NapoleonTableau;
 import ch.cs.napoleon.solitaire.UndoMove;
 
 import ch.cs.solitaire.Card;
+import ch.cs.solitaire.gui.PileInfo;
 import ch.cs.solitaire.gui.TableauPanel;
 
 import ch.cs.time.UsedTimeHandler;
@@ -415,53 +416,12 @@ public class NapoleonTableauPanel extends TableauPanel
 
             if (this.getSelectedCard() != null)
             {
-                if (clickCount > 1)
-                {
-                    for (int i = 0; i < 4; i++)
-                    {
-                        CardSelection newSelectedCard =
-                            new CardSelection(this.getTableau().getFoundation(i)
-                                                  .getLast(),
-                                new Point(6, i + 1), CardSelection.FOUNDATION, i);
-
-                        if (this.tryMove(graphics, newSelectedCard))
-                        {
-                            return;
-                        }
-                    }
-                }
-
-                this.drawCardSelection(graphics, this.getSelectedCard());
+                processSecondSelection(graphics, clickCount);
             }
         }
         else
         {
-            CardSelection newSelectedCard = this.getSelectedCard(x, y);
-
-            if (newSelectedCard != null)
-            {
-                Point slot = this.getSelectedCard().getSlot();
-                Point newSlot = newSelectedCard.getSlot();
-
-                if (slot.equals(newSlot))
-                {
-                    this.drawCardSelection(graphics, this.getSelectedCard());
-                    this.setSelectedCard(null);
-                }
-                else
-                {
-                    this.tryMove(graphics, newSelectedCard);
-                }
-            }
-
-            /* Enable this to cancel any selection
-             *  after move try that is not allowed
-             */
-            /* else
-               {
-                   this.drawCardSelection(graphics, this.getSelectedCard());
-                   this.setSelectedCard(null);
-               } */
+            processFirstSelection(graphics, x, y);
         }
     }
 
@@ -548,13 +508,6 @@ public class NapoleonTableauPanel extends TableauPanel
         return this.scoreTable;
     }
 
-    /**
-     * @TODO: javadoc!
-     *
-     * @param selectedCardSlot @TODO: javadoc!
-     *
-     * @return @TODO: javadoc!
-     */
     private CardSelection getSelectRowCard(final Point selectedCardSlot)
     {
         if (selectedCardSlot.getX() == 6)
@@ -636,13 +589,6 @@ public class NapoleonTableauPanel extends TableauPanel
         return cardSelection;
     }
 
-    /**
-     * @TODO: javadoc!
-     *
-     * @param selectedCardSlot @TODO: javadoc!
-     *
-     * @return @TODO: javadoc!
-     */
     private CardSelection getSelectedHelpCard(final Point selectedCardSlot)
     {
         CardSelection cardSelection = null;
@@ -785,6 +731,27 @@ public class NapoleonTableauPanel extends TableauPanel
         return this.tableau;
     }
 
+    private void autoPlace(final Graphics graphics, final int clickCount)
+    {
+        if (clickCount > 1)
+        {
+            boolean done = false;
+
+            for (int i = 0; (i < 4) && !done; i++)
+            {
+                CardSelection newSelectedCard =
+                    new CardSelection(this.getTableau().getFoundation(i)
+                                          .getLast(), new Point(6, i + 1),
+                        CardSelection.FOUNDATION, i);
+
+                if (this.tryMove(graphics, newSelectedCard))
+                {
+                    done = true;
+                }
+            }
+        }
+    }
+
     /**
      * TODO:
      */
@@ -842,16 +809,19 @@ public class NapoleonTableauPanel extends TableauPanel
     {
         Point slotLocation = this.getSlotLocation(x, y);
 
+        PileInfo pileInfo = new PileInfo();
+        pileInfo.setFront(true);
+        pileInfo.setPileFront(this.getPileFront());
+        pileInfo.setClear(clear);
         if (x > 6)
         {
-            this.drawCardPile(graphics, cards, true, this.getPileFront(),
-                slotLocation, TableauPanel.RIGHT_PILE, clear);
+            pileInfo.setDir(TableauPanel.RIGHT_PILE);
         }
         else if (x < 6)
         {
-            this.drawCardPile(graphics, cards, true, this.getPileFront(),
-                slotLocation, TableauPanel.LEFT_PILE, clear);
+            pileInfo.setDir(TableauPanel.LEFT_PILE);
         }
+        this.drawCardPile(graphics, cards, slotLocation, pileInfo);
     }
 
     /**
@@ -922,11 +892,6 @@ public class NapoleonTableauPanel extends TableauPanel
             (int) slotLocation.getY() + this.getFontSize() + 1);
     }
 
-    /**
-     * @TODO: javadoc!
-     *
-     * @param graphics @TODO: javadoc!
-     */
     private void drawHelp(final Graphics graphics)
     {
         Card card;
@@ -947,13 +912,6 @@ public class NapoleonTableauPanel extends TableauPanel
         }
     }
 
-    /**
-     * @TODO: javadoc!
-     *
-     * @param graphics @TODO: javadoc!
-     * @param j @TODO: javadoc!
-     * @param row @TODO: javadoc!
-     */
     private void drawNapoleonRowBase(final Graphics graphics, final int j,
         final NapoleonRow row)
     {
@@ -986,13 +944,6 @@ public class NapoleonTableauPanel extends TableauPanel
         }
     }
 
-    /**
-     * @TODO: javadoc!
-     *
-     * @param graphics @TODO: javadoc!
-     * @param j @TODO: javadoc!
-     * @param row @TODO: javadoc!
-     */
     private void drawNapoleonRowEnd(final Graphics graphics, final int j,
         final NapoleonRow row)
     {
@@ -1026,11 +977,6 @@ public class NapoleonTableauPanel extends TableauPanel
         }
     }
 
-    /**
-     * @TODO: javadoc!
-     *
-     * @param graphics @TODO: javadoc!
-     */
     private void drawNapoleonRows(final Graphics graphics)
     {
         for (int j = 0; j < 8; j++)
@@ -1059,13 +1005,21 @@ public class NapoleonTableauPanel extends TableauPanel
             (int) slotLocation.getY() + (2 * (this.getFontSize() + 1)) + 1);
     }
 
-    /**
-     * @TODO: javadoc!
-     *
-     * @param graphics @TODO: javadoc!
-     * @param slot @TODO: javadoc!
-     */
-    private void drawRowCards(final Graphics graphics, final Point slot)
+    private void drawRowCards(final Graphics graphics, final Point slot,
+        final Card card)
+    {
+        if (slot.getX() == 6)
+        {
+            this.drawCardInSlot(graphics, (int) slot.getX(), (int) slot.getY(),
+                card);
+        }
+        else
+        {
+            drawRowEndCards(graphics, slot);
+        }
+    }
+
+    private void drawRowEndCards(final Graphics graphics, final Point slot)
     {
         int rowNr = -1;
 
@@ -1117,15 +1071,7 @@ public class NapoleonTableauPanel extends TableauPanel
                 {
                     if (slot.getY() < 5)
                     {
-                        if (slot.getX() == 6)
-                        {
-                            this.drawCardInSlot(graphics, (int) slot.getX(),
-                                (int) slot.getY(), card);
-                        }
-                        else
-                        {
-                            drawRowCards(graphics, slot);
-                        }
+                        this.drawRowCards(graphics, slot, card);
                     }
                     else if (slot.getY() == 5)
                     {
@@ -1178,6 +1124,45 @@ public class NapoleonTableauPanel extends TableauPanel
         UsedTimeHandler.setTimeUsed(0);
         UsedTimeHandler.resume();
         this.startUpdateTimer();
+    }
+
+    private void processFirstSelection(final Graphics graphics, final int x,
+        final int y)
+    {
+        CardSelection newSelectedCard = this.getSelectedCard(x, y);
+
+        if (newSelectedCard != null)
+        {
+            Point slot = this.getSelectedCard().getSlot();
+            Point newSlot = newSelectedCard.getSlot();
+
+            if (slot.equals(newSlot))
+            {
+                this.drawCardSelection(graphics, this.getSelectedCard());
+                this.setSelectedCard(null);
+            }
+            else
+            {
+                this.tryMove(graphics, newSelectedCard);
+            }
+        }
+
+        /* Enable this to cancel any selection
+         *  after move try that is not allowed
+         */
+        /* else
+           {
+               this.drawCardSelection(graphics, this.getSelectedCard());
+               this.setSelectedCard(null);
+           } */
+    }
+
+    private void processSecondSelection(final Graphics graphics,
+        final int clickCount)
+    {
+        autoPlace(graphics, clickCount);
+
+        this.drawCardSelection(graphics, this.getSelectedCard());
     }
 
     /**

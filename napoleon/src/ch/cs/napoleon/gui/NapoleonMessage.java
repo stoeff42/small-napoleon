@@ -16,10 +16,9 @@ import javax.swing.JTextArea;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public final class NapoleonMessage
@@ -53,11 +52,11 @@ public final class NapoleonMessage
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param component TODO:
+     * @param component javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static String askScoreText(final Component component)
     {
@@ -72,10 +71,10 @@ public final class NapoleonMessage
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param component TODO:
-     * @param scoreTable TODO:
+     * @param component javadoc!
+     * @param scoreTable javadoc!
      */
     public static void clearScoreTable(final Component component,
         final ScoreTable scoreTable)
@@ -100,12 +99,12 @@ public final class NapoleonMessage
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param time TODO:
-     * @param size TODO:
+     * @param time javadoc!
+     * @param size javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static String makeDurationString(final int time, final int size)
     {
@@ -130,9 +129,9 @@ public final class NapoleonMessage
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param component TODO:
+     * @param component javadoc!
      */
     public static void showAbout(final Component component)
     {
@@ -143,10 +142,10 @@ public final class NapoleonMessage
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param component TODO:
-     * @param fileName TODO:
+     * @param component javadoc!
+     * @param fileName javadoc!
      */
     public static void showLoadingImageError(final Component component,
         final String fileName)
@@ -158,9 +157,9 @@ public final class NapoleonMessage
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param component TODO:
+     * @param component javadoc!
      */
     public static void showRules(final Component component)
     {
@@ -181,10 +180,10 @@ public final class NapoleonMessage
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param component TODO:
-     * @param scoreTable TODO:
+     * @param component javadoc!
+     * @param scoreTable javadoc!
      */
     public static void showScoreTable(final Component component,
         final ScoreTable scoreTable)
@@ -205,11 +204,11 @@ public final class NapoleonMessage
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param scoreTable TODO:
+     * @param scoreTable javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private static JComponent getScoreTable(final ScoreTable scoreTable)
     {
@@ -238,11 +237,11 @@ public final class NapoleonMessage
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param property TODO:
+     * @param property javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private static String getString(final String property)
     {
@@ -250,12 +249,12 @@ public final class NapoleonMessage
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param integer TODO:
-     * @param size TODO:
+     * @param integer javadoc!
+     * @param size javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private static String minimumSize(final int integer, final int size)
     {

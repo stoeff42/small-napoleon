@@ -9,10 +9,9 @@ import java.util.Iterator;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public class Foundation implements Serializable
@@ -24,7 +23,7 @@ public class Foundation implements Serializable
 
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private ArrayList foundation;
 
     //~ Constructors -----------------------------------------------------------
@@ -40,7 +39,7 @@ public class Foundation implements Serializable
     /**
      * Creates a new Foundation object.
      *
-     * @param cards TODO:
+     * @param cards javadoc!
      */
     public Foundation(final ArrayList cards)
     {
@@ -51,9 +50,9 @@ public class Foundation implements Serializable
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Card getFirst()
     {
@@ -61,9 +60,9 @@ public class Foundation implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param fnd TODO:
+     * @param fnd javadoc!
      */
     public final void setFoundation(final ArrayList fnd)
     {
@@ -71,9 +70,9 @@ public class Foundation implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final ArrayList getFoundation()
     {
@@ -81,9 +80,9 @@ public class Foundation implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Card getLast()
     {
@@ -98,9 +97,9 @@ public class Foundation implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Card getSecondLast()
     {
@@ -115,9 +114,9 @@ public class Foundation implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final int getSize()
     {
@@ -125,11 +124,11 @@ public class Foundation implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param card TODO:
+     * @param card javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final boolean add(final Card card)
     {
@@ -170,9 +169,9 @@ public class Foundation implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final boolean remove()
     {
@@ -189,9 +188,9 @@ public class Foundation implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param cards TODO:
+     * @param cards javadoc!
      */
     public final void set(final ArrayList cards)
     {
@@ -207,9 +206,9 @@ public class Foundation implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param card TODO:
+     * @param card javadoc!
      */
     public final void set(final Card card)
     {

@@ -5,24 +5,24 @@ import java.awt.event.WindowEvent;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author Christoph
+ * @author $author$
  * @version $Revision$
  */
 public class WindowHandler extends WindowAdapter
 {
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private Napoleon napoleon;
 
     //~ Constructors -----------------------------------------------------------
 
     /**
-     * Creates a new MouseHandler object.
+     * Creates a new WindowHandler object.
      *
-     * @param napo TODO:
+     * @param napo javadoc!
      */
     public WindowHandler(final Napoleon napo)
     {
@@ -32,9 +32,9 @@ public class WindowHandler extends WindowAdapter
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public final void windowActivated(final WindowEvent event)
     {
@@ -42,9 +42,9 @@ public class WindowHandler extends WindowAdapter
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public final void windowClosing(final WindowEvent event)
     {
@@ -52,9 +52,9 @@ public class WindowHandler extends WindowAdapter
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public final void windowDeactivated(final WindowEvent event)
     {
@@ -62,9 +62,9 @@ public class WindowHandler extends WindowAdapter
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public final void windowDeiconified(final WindowEvent event)
     {
@@ -72,9 +72,9 @@ public class WindowHandler extends WindowAdapter
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public final void windowGainedFocus(final WindowEvent event)
     {
@@ -82,9 +82,9 @@ public class WindowHandler extends WindowAdapter
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public final void windowIconified(final WindowEvent event)
     {
@@ -92,9 +92,9 @@ public class WindowHandler extends WindowAdapter
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param event TODO:
+     * @param event javadoc!
      */
     public final void windowLostFocus(final WindowEvent event)
     {

@@ -6,17 +6,16 @@ import java.io.Serializable;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public class Cellar implements Serializable
 {
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private Card cellar;
 
     //~ Constructors -----------------------------------------------------------
@@ -34,7 +33,7 @@ public class Cellar implements Serializable
     /**
      * Creates a new Cellar object.
      *
-     * @param card TODO:
+     * @param card javadoc!
      */
     public Cellar(final Card card)
     {
@@ -44,9 +43,9 @@ public class Cellar implements Serializable
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param cllr TODO:
+     * @param cllr javadoc!
      */
     public final void setCellar(final Card cllr)
     {
@@ -54,9 +53,9 @@ public class Cellar implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Card getCellar()
     {
@@ -64,9 +63,9 @@ public class Cellar implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final boolean isEmpty()
     {
@@ -74,17 +73,21 @@ public class Cellar implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
+     *
+     * @return javadoc!
      */
-    public final void clear()
+    public final boolean clear()
     {
         this.cellar = null;
+
+        return true;
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Card get()
     {
@@ -92,11 +95,11 @@ public class Cellar implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param card TODO:
+     * @param card javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final boolean set(final Card card)
     {

@@ -12,29 +12,28 @@ import javax.swing.SwingConstants;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public class ScoreEntry implements Comparable, Serializable
 {
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private Date finishedOn;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private ScoreTable scoreTable;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private String name;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private int nrOfMoves;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private int timeUsed;
 
     //~ Constructors -----------------------------------------------------------
@@ -42,11 +41,11 @@ public class ScoreEntry implements Comparable, Serializable
     /**
      * Creates a new ScoreEntry object.
      *
-     * @param scorTab TODO:
-     * @param nm TODO:
-     * @param nOMovs TODO:
-     * @param tU TODO:
-     * @param finOn TODO:
+     * @param scorTab javadoc!
+     * @param nm javadoc!
+     * @param nOMovs javadoc!
+     * @param tU javadoc!
+     * @param finOn javadoc!
      */
     public ScoreEntry(final ScoreTable scorTab, final String nm,
         final int nOMovs, final int tU, final Date finOn)
@@ -58,22 +57,12 @@ public class ScoreEntry implements Comparable, Serializable
         this.scoreTable = scorTab;
     }
 
-    /**
-     * Creates a new ScoreEntry object.
-     */
-    private ScoreEntry()
-    {
-        /**
-         * Make constructor private in order to implement singleton correctly
-         */
-    }
-
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static int[] getAlignments()
     {
@@ -85,9 +74,9 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param finOn TODO:
+     * @param finOn javadoc!
      */
     public final void setFinishedOn(final Date finOn)
     {
@@ -95,9 +84,9 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Date getFinishedOn()
     {
@@ -105,9 +94,9 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param nm TODO:
+     * @param nm javadoc!
      */
     public final void setName(final String nm)
     {
@@ -115,9 +104,9 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final String getName()
     {
@@ -125,9 +114,9 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public static Object[] getNames()
     {
@@ -142,9 +131,9 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param nOMovs TODO:
+     * @param nOMovs javadoc!
      */
     public final void setNrOfMoves(final int nOMovs)
     {
@@ -152,9 +141,9 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final int getNrOfMoves()
     {
@@ -162,9 +151,9 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final int getRank()
     {
@@ -172,9 +161,9 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param scorTab TODO:
+     * @param scorTab javadoc!
      */
     public final void setScoreTable(final ScoreTable scorTab)
     {
@@ -182,9 +171,9 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final ScoreTable getScoreTable()
     {
@@ -192,9 +181,9 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param tU TODO:
+     * @param tU javadoc!
      */
     public final void setTimeUsed(final int tU)
     {
@@ -202,9 +191,9 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final int getTimeUsed()
     {
@@ -212,11 +201,11 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param obj TODO:
+     * @param obj javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final int compareTo(final Object obj)
     {
@@ -261,9 +250,9 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Object[] toArray()
     {
@@ -277,11 +266,11 @@ public class ScoreEntry implements Comparable, Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param property TODO:
+     * @param property javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private static String getString(final String property)
     {

@@ -34,26 +34,25 @@ import javax.swing.UIManager;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public class Napoleon extends JFrame
 {
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private JButton suspendResumeGameButton;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private JMenu settings;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private JMenuItem suspendResumeGameMenuItem;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private NapoleonTableauPanel tableauPanel;
 
     //~ Constructors -----------------------------------------------------------
@@ -61,7 +60,7 @@ public class Napoleon extends JFrame
     /**
      * Creates a new Napoleon object.
      *
-     * @throws Exception TODO:
+     * @throws Exception javadoc!
      */
     public Napoleon() throws Exception
     {
@@ -86,7 +85,17 @@ public class Napoleon extends JFrame
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
+     *
+     * @return javadoc!
+     */
+    public final NapoleonTableauPanel getTableauPanel()
+    {
+        return this.tableauPanel;
+    }
+
+    /**
+     * @TODO: javadoc!
      */
     public final void load()
     {
@@ -103,9 +112,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param args TODO:
+     * @param args javadoc!
      */
     public static void main(final String[] args)
     {
@@ -133,7 +142,7 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void save()
     {
@@ -142,7 +151,7 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void showAbout()
     {
@@ -150,7 +159,7 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void showRules()
     {
@@ -159,16 +168,6 @@ public class Napoleon extends JFrame
 
     /**
      * @TODO: javadoc!
-     *
-     * @return @TODO: javadoc!
-     */
-    public final NapoleonTableauPanel getTableauPanel()
-    {
-        return this.tableauPanel;
-    }
-
-    /**
-     * TODO:
      */
     protected final void resume()
     {
@@ -177,7 +176,7 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     protected final void suspend()
     {
@@ -186,7 +185,7 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     protected final void toggleSuspendResume()
     {
@@ -195,9 +194,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private ActionListener getAboutAction()
     {
@@ -211,9 +210,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenuItem getAboutMenuItem()
     {
@@ -226,9 +225,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private ActionListener getClearScoreTableAction()
     {
@@ -242,9 +241,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenuItem getClearScoreTableMenuItem()
     {
@@ -257,9 +256,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private ActionListener getExitAction()
     {
@@ -274,9 +273,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenuItem getExitMenuItem()
     {
@@ -289,9 +288,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenu getGameMenu()
     {
@@ -307,9 +306,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private ActionListener getGameRulesAction()
     {
@@ -323,9 +322,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JButton getGameRulesButton()
     {
@@ -338,9 +337,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenuItem getGameRulesMenuItem()
     {
@@ -353,9 +352,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenu getHelpMenu()
     {
@@ -367,9 +366,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenuBar getMenu()
     {
@@ -383,9 +382,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private ActionListener getNewGameAction()
     {
@@ -399,9 +398,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JButton getNewGameButton()
     {
@@ -414,9 +413,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenuItem getNewGameMenuItem()
     {
@@ -429,9 +428,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenu getPlayMenu()
     {
@@ -445,9 +444,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private ActionListener getRedoAction()
     {
@@ -461,9 +460,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JButton getRedoMoveButton()
     {
@@ -476,9 +475,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenuItem getRedoMoveMenuItem()
     {
@@ -491,9 +490,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private ActionListener getRestartGameAction()
     {
@@ -507,9 +506,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JButton getRestartGameButton()
     {
@@ -523,9 +522,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenuItem getRestartGameMenuItem()
     {
@@ -538,9 +537,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenu getScoreTableMenu()
     {
@@ -552,9 +551,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenu getSettingsMenu()
     {
@@ -565,9 +564,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private ActionListener getShowScoreTableAction()
     {
@@ -581,9 +580,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenuItem getShowScoreTableMenuItem()
     {
@@ -596,11 +595,11 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param property TODO:
+     * @param property javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private static String getString(final String property)
     {
@@ -608,9 +607,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JButton getSuspendResumeGameButton()
     {
@@ -627,9 +626,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenuItem getSuspendResumeGameMenuItem()
     {
@@ -648,9 +647,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JToolBar getToolBar()
     {
@@ -678,9 +677,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private ActionListener getUndoAction()
     {
@@ -697,9 +696,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JButton getUndoMoveButton()
     {
@@ -712,9 +711,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     private JMenuItem getUndoMoveMenuItem()
     {
@@ -727,11 +726,11 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param layout TODO:
+     * @param layout javadoc!
      *
-     * @throws Exception TODO:
+     * @throws Exception javadoc!
      */
     private void addNapoleonPanel(final GridBagLayout layout)
         throws Exception
@@ -745,9 +744,9 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param layout TODO:
+     * @param layout javadoc!
      */
     private void addToolBar(final GridBagLayout layout)
     {
@@ -760,7 +759,7 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     private void init()
     {
@@ -769,7 +768,7 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     private void initSettingsMenu()
     {
@@ -793,7 +792,8 @@ public class Napoleon extends JFrame
                 {
                     public final void actionPerformed(final ActionEvent event)
                     {
-                        Napoleon.this.getTableauPanel().setSet(setting.getDeckId());
+                        Napoleon.this.getTableauPanel().setSet(setting
+                            .getDeckId());
                     }
                 });
             this.settings.add(settingItem);
@@ -801,7 +801,7 @@ public class Napoleon extends JFrame
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     private void updateSuspendResume()
     {

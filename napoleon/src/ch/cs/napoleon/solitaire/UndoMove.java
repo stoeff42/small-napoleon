@@ -8,23 +8,22 @@ import javax.swing.undo.AbstractUndoableEdit;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public class UndoMove extends AbstractUndoableEdit implements Serializable
 {
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private CardSelection dest;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private CardSelection source;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private transient NapoleonTableau napoleonTableau;
 
     //~ Constructors -----------------------------------------------------------
@@ -42,9 +41,9 @@ public class UndoMove extends AbstractUndoableEdit implements Serializable
     /**
      * Creates a new UndoMove object.
      *
-     * @param napoTabl TODO:
-     * @param src TODO:
-     * @param dst TODO:
+     * @param napoTabl javadoc!
+     * @param src javadoc!
+     * @param dst javadoc!
      */
     public UndoMove(final NapoleonTableau napoTabl, final CardSelection src,
         final CardSelection dst)
@@ -57,9 +56,9 @@ public class UndoMove extends AbstractUndoableEdit implements Serializable
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param dst TODO:
+     * @param dst javadoc!
      */
     public final void setDest(final CardSelection dst)
     {
@@ -67,9 +66,9 @@ public class UndoMove extends AbstractUndoableEdit implements Serializable
     }
 
     /**
-     * Returns the dst.
+     * @TODO: javadoc!
      *
-     * @return CardSelection
+     * @return javadoc!
      */
     public final CardSelection getDest()
     {
@@ -77,9 +76,9 @@ public class UndoMove extends AbstractUndoableEdit implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param src TODO:
+     * @param src javadoc!
      */
     public final void setSource(final CardSelection src)
     {
@@ -87,9 +86,9 @@ public class UndoMove extends AbstractUndoableEdit implements Serializable
     }
 
     /**
-     * Returns the src.
+     * @TODO: javadoc!
      *
-     * @return CardSelection
+     * @return javadoc!
      */
     public final CardSelection getSource()
     {
@@ -97,7 +96,7 @@ public class UndoMove extends AbstractUndoableEdit implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void redo()
     {
@@ -106,7 +105,7 @@ public class UndoMove extends AbstractUndoableEdit implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      */
     public final void undo()
     {

@@ -8,43 +8,42 @@ import java.io.Serializable;
 
 
 /**
- * TODO:
+ * @TODO: javadoc!
  *
- * @author <a href="mailto:Christoph.Schilling@access.unizh.ch">Christoph
- *         Schilling</a>
+ * @author $author$
  * @version $Revision$
  */
 public class CardSelection implements Serializable
 {
     //~ Static fields/initializers ---------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     public static final int FOUNDATION = 0;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     public static final int ROW = 1;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     public static final int HELP = 2;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     public static final int CELLAR = 3;
 
     //~ Instance fields --------------------------------------------------------
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private Card card;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private Point slot;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private int info1;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private int info2;
 
-    /** TODO: */
+    /** @TODO: javadoc! */
     private int type;
 
     //~ Constructors -----------------------------------------------------------
@@ -62,11 +61,11 @@ public class CardSelection implements Serializable
     /**
      * Creates a new CardSelection object.
      *
-     * @param crd TODO:
-     * @param slt TODO:
-     * @param tpe TODO:
-     * @param inf1 TODO:
-     * @param inf2 TODO:
+     * @param crd javadoc!
+     * @param slt javadoc!
+     * @param tpe javadoc!
+     * @param inf1 javadoc!
+     * @param inf2 javadoc!
      */
     public CardSelection(final Card crd, final Point slt, final int tpe,
         final int inf1, final int inf2)
@@ -81,10 +80,10 @@ public class CardSelection implements Serializable
     /**
      * Creates a new CardSelection object.
      *
-     * @param crd TODO:
-     * @param slt TODO:
-     * @param tpe TODO:
-     * @param inf1 TODO:
+     * @param crd javadoc!
+     * @param slt javadoc!
+     * @param tpe javadoc!
+     * @param inf1 javadoc!
      */
     public CardSelection(final Card crd, final Point slt, final int tpe,
         final int inf1)
@@ -98,9 +97,9 @@ public class CardSelection implements Serializable
     /**
      * Creates a new CardSelection object.
      *
-     * @param crd TODO:
-     * @param slt TODO:
-     * @param tpe TODO:
+     * @param crd javadoc!
+     * @param slt javadoc!
+     * @param tpe javadoc!
      */
     public CardSelection(final Card crd, final Point slt, final int tpe)
     {
@@ -112,9 +111,9 @@ public class CardSelection implements Serializable
     //~ Methods ----------------------------------------------------------------
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param crd TODO:
+     * @param crd javadoc!
      */
     public final void setCard(final Card crd)
     {
@@ -122,9 +121,9 @@ public class CardSelection implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Card getCard()
     {
@@ -132,9 +131,9 @@ public class CardSelection implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param inf1 TODO:
+     * @param inf1 javadoc!
      */
     public final void setInfo1(final int inf1)
     {
@@ -142,9 +141,9 @@ public class CardSelection implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final int getInfo1()
     {
@@ -152,9 +151,9 @@ public class CardSelection implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param inf2 TODO:
+     * @param inf2 javadoc!
      */
     public final void setInfo2(final int inf2)
     {
@@ -162,9 +161,9 @@ public class CardSelection implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final int getInfo2()
     {
@@ -172,9 +171,9 @@ public class CardSelection implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @param slt TODO:
+     * @param slt javadoc!
      */
     public final void setSlot(final Point slt)
     {
@@ -182,9 +181,9 @@ public class CardSelection implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final Point getSlot()
     {
@@ -194,7 +193,7 @@ public class CardSelection implements Serializable
     /**
      * @TODO: javadoc!
      *
-     * @param tpe @TODO: javadoc!
+     * @param tpe javadoc!
      */
     public final void setType(final int tpe)
     {
@@ -202,9 +201,9 @@ public class CardSelection implements Serializable
     }
 
     /**
-     * TODO:
+     * @TODO: javadoc!
      *
-     * @return TODO:
+     * @return javadoc!
      */
     public final int getType()
     {
