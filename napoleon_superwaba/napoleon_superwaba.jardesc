@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jardesc>
+    <jar path="H:/java/projects/napoleon_superwaba/release/napoleon_superwaba.jar"/>
+    <options overwrite="true" compress="true" exportErrors="false"
+        exportWarnings="true" saveDescription="true"
+        descriptionLocation="/napoleon_superwaba/napoleon_superwaba.jardesc"
+        useSourceFolders="false" buildIfNeeded="true"/>
+    <manifest manifestVersion="1.0" usesManifest="true"
+        reuseManifest="true" saveManifest="true"
+        generateManifest="false" manifestLocation="/napoleon_superwaba/napoleon_superwaba">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false">
+        <javaElement handleIdentifier="=napoleon_superwaba/src"/>
+    </selectedElements>
+</jardesc>

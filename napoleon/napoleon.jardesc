@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jardesc>
+    <jar path="H:/java/projects/napoleon/release/napoleon.jar"/>
+    <options overwrite="true" compress="true" exportErrors="false"
+        exportWarnings="true" saveDescription="true"
+        descriptionLocation="/napoleon/napoleon.jardesc"
+        useSourceFolders="false" buildIfNeeded="true"/>
+    <manifest manifestVersion="1.0" usesManifest="true"
+        reuseManifest="true" saveManifest="true"
+        generateManifest="false" manifestLocation="/napoleon/napoleon" mainClassHandleIdentifier="=napoleon/src&lt;ch.cs.napoleon{Napoleon.java[Napoleon">
+        <sealing sealJar="true">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true">
+        <javaElement handleIdentifier="=napoleon/src"/>
+    </selectedElements>
+</jardesc>

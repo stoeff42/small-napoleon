@@ -1,0 +1,1 @@
+javaw.exe -dsa -da -Xms10240k -Xmx10240k -jar napoleon.jar
