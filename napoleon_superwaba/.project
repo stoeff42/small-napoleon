@@ -3,7 +3,6 @@
 	<name>napoleon_superwaba</name>
 	<comment></comment>
 	<projects>
-		<project>superwaba</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

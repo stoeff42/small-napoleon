@@ -3,7 +3,7 @@
     <booleanAttribute
         key="org.eclipse.ui.externaltools.ATTR_RUN_IN_BACKGROUND" value="false"/>
     <stringAttribute
-        key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-classpath C:/java/superwaba/classes;C:/java/superwaba/apps/xplat/obfuscators/Retroguard.jar;C:/java/superwaba/ext/swclassjava.jar RetroGuard ${project_loc}/release/${project_name}.jar ${project_loc}/release/retroguard_${project_name}.jar"/>
+        key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-classpath C:/java/SuperWabaSDK/lib/SuperWaba.jar;C:/java/SuperWabaSDK/utils/xplat/obfuscators/Retroguard.jar; RetroGuard ${project_loc}/release/${project_name}.jar ${project_loc}/release/retroguard_${project_name}.jar"/>
     <stringAttribute
         key="org.eclipse.ui.externaltools.ATTR_REFRESH_SCOPE" value="${project}"/>
     <stringAttribute
