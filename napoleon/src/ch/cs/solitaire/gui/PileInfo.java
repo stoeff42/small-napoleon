@@ -1,5 +1,6 @@
 package ch.cs.solitaire.gui;
 
+
 /**
  * @TODO: javadoc!
  *

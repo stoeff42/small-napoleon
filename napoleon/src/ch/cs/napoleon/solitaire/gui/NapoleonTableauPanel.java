@@ -98,7 +98,7 @@ public class NapoleonTableauPanel extends TableauPanel
     public NapoleonTableauPanel() throws Exception
     {
         super();
-        this.setDoubleBuffered(true);
+        // this.setDoubleBuffered(true);
         this.setTableau(new NapoleonTableau());
         this.setScoreTable(new ScoreTable());
         this.setPileFront(getBoolean("pilefront")); //$NON-NLS-1$
