@@ -3,7 +3,7 @@
     <booleanAttribute
         key="org.eclipse.ui.externaltools.ATTR_RUN_IN_BACKGROUND" value="false"/>
     <stringAttribute
-        key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-classpath C:/java/SuperWabaSDK/lib/SuperWaba.jar;C:/java/SuperWabaSDK/utils/xplat/obfuscators/retroguard.jar;C:/java/SuperWabaSDK/lib/SuperWabaUtils.jar;C:/java/SuperWabaSDK/vm/palm/Stub/; Wxgn c /c Napo Napoleon ${project_loc}/release/retroguard_${project_name}.jar z /c Napo /v 0.1 /i ${project_name}_ Napoleon Main"/>
+        key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-classpath C:/java/SuperWabaSDK/vm/palm/Stub/;C:/java/SuperWabaSDK/lib/SuperWaba.jar;C:/java/SuperWabaSDK/utils/xplat/obfuscators/retroguard.jar;C:/java/SuperWabaSDK/lib/SuperWabaUtils.jar; Wxgn c /c Napo Napoleon ${project_loc}/release/retroguard_${project_name}.jar z /c Napo /v 0.1 /i ${project_name}_ Napoleon Main"/>
     <stringAttribute
         key="org.eclipse.ui.externaltools.ATTR_REFRESH_SCOPE" value="${project}"/>
     <stringAttribute

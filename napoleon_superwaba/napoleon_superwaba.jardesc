@@ -8,12 +8,12 @@
     <manifest manifestVersion="1.0" usesManifest="true"
         reuseManifest="true" saveManifest="true"
         generateManifest="false" manifestLocation="/napoleon_superwaba/napoleon_superwaba">
-        <sealing sealJar="false">
+        <sealing sealJar="true">
             <packagesToSeal/>
             <packagesToUnSeal/>
         </sealing>
     </manifest>
-    <selectedElements exportClassFiles="true" exportJavaFiles="false">
+    <selectedElements exportClassFiles="true" exportJavaFiles="true">
         <javaElement handleIdentifier="=napoleon_superwaba/src"/>
     </selectedElements>
 </jardesc>
